@@ -1,0 +1,15 @@
+<stylecopresultscache>
+  <version>10</version>
+  <project key="817945136">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
+  <sourcecode name="Lexer.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>08/31/2013 18:45:24</timestamp>
+    <milliseconds>23</milliseconds>
+    <violations />
+  </sourcecode>
+</stylecopresultscache>

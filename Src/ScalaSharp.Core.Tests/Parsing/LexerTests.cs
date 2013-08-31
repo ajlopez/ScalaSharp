@@ -153,5 +153,47 @@
                 Assert.AreEqual("Unexpected 'm'", ex.Message);
             }
         }
+
+        [TestMethod]
+        public void GetCarriageReturnNewLine()
+        {
+            Lexer lexer = new Lexer("\r\n");
+
+            var result = lexer.NextToken();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual("\r\n", result.Value);
+            Assert.AreEqual(TokenType.NewLine, result.Type);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
+        public void GetNewLine()
+        {
+            Lexer lexer = new Lexer("\n");
+
+            var result = lexer.NextToken();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual("\n", result.Value);
+            Assert.AreEqual(TokenType.NewLine, result.Type);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
+        public void GetCarriageReturn()
+        {
+            Lexer lexer = new Lexer("\r");
+
+            var result = lexer.NextToken();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual("\r", result.Value);
+            Assert.AreEqual(TokenType.NewLine, result.Type);
+
+            Assert.IsNull(lexer.NextToken());
+        }
     }
 }

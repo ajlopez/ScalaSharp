@@ -4,6 +4,7 @@
     {
         Name = 1,
         Integer = 2,
-        Real = 3
+        Real = 3,
+        NewLine = 4
     }
 }
