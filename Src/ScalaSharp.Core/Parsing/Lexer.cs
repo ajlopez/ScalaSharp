@@ -19,7 +19,7 @@
             if (this.text == null)
                 return null;
 
-            Token token = new Token(this.text, TokenType.Name);
+            Token token = new Token(this.text.Trim(), TokenType.Name);
 
             this.text = null;
 
