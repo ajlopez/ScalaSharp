@@ -40,8 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\ClassCommand.cs" />
+    <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Parsing\Lexer.cs" />
     <Compile Include="Parsing\LexerException.cs" />
+    <Compile Include="Parsing\Parser.cs" />
     <Compile Include="Parsing\Token.cs" />
     <Compile Include="Parsing\TokenType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
