@@ -7,16 +7,16 @@
 
     public class Token
     {
-        private object value;
+        private string value;
         private TokenType type;
 
-        public Token(object value, TokenType type)
+        public Token(string value, TokenType type)
         {
             this.value = value;
             this.type = type;
         }
 
-        public object Value { get { return this.value; } }
+        public string Value { get { return this.value; } }
 
         public TokenType Type { get { return this.type; } }
     }

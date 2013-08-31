@@ -226,5 +226,25 @@
                 Assert.AreEqual("Unclosed string", ex.Message);
             }
         }
+
+        [TestMethod]
+        public void GetPunctuations()
+        {
+            string punctuations = ".;:{}()";
+
+            Lexer lexer = new Lexer(punctuations);
+
+            for (int k = 0; k < punctuations.Length; k++)
+            {
+                var result = lexer.NextToken();
+
+                Assert.IsNotNull(result);
+                Assert.AreEqual(TokenType.Punctuation, result.Type);
+                Assert.AreEqual(1, result.Value.Length);
+                Assert.AreEqual(punctuations[k], result.Value[0]);
+            }
+
+            Assert.IsNull(lexer.NextToken());
+        }
     }
 }
