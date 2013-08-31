@@ -41,6 +41,9 @@
             if (ch == '\n')
                 return new Token("\n", TokenType.NewLine);
 
+            if (ch == '"')
+                return this.NextString();
+
             if (char.IsDigit(ch))
                 return this.NextInteger(ch);
 
@@ -53,6 +56,21 @@
                 return false;
 
             return char.IsWhiteSpace(ch);
+        }
+
+        private Token NextString()
+        {
+            string value = string.Empty;
+
+            while (this.position < this.length && this.text[this.position] != '"')
+                value += this.text[this.position++];
+
+            if (this.position >= this.length)
+                throw new LexerException("Unclosed string");
+
+            this.position++;
+
+            return new Token(value, TokenType.String);
         }
 
         private Token NextInteger(char ch)

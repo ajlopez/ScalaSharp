@@ -5,6 +5,7 @@
         Name = 1,
         Integer = 2,
         Real = 3,
-        NewLine = 4
+        String = 4,
+        NewLine = 5
     }
 }
