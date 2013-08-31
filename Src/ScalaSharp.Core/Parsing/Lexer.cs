@@ -40,7 +40,30 @@
             while (this.position < this.length && char.IsDigit(text[position]))
                 value += text[position++];
 
+            if (this.position < this.length)
+            {
+                if (text[position] == '.')
+                    return NextReal(value);
+
+                if (!char.IsWhiteSpace(text[position]))
+                    throw new LexerException(string.Format("Unexpected '{0}'", text[position]));
+            }
+
             return new Token(value, TokenType.Integer);
+        }
+
+        private Token NextReal(string integer)
+        {
+            string value = integer + ".";
+            this.position++;
+
+            while (this.position < this.length && char.IsDigit(text[position]))
+                value += text[position++];
+
+            if (this.position < this.length && !char.IsWhiteSpace(text[position]))
+                throw new LexerException(string.Format("Unexpected '{0}'", text[position]));
+
+            return new Token(value, TokenType.Real);
         }
 
         private Token NextName(char ch)

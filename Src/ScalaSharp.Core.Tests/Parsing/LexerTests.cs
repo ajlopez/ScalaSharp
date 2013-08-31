@@ -105,5 +105,53 @@
 
             Assert.IsNull(lexer.NextToken());
         }
+
+        [TestMethod]
+        public void GetInvalidInteger()
+        {
+            Lexer lexer = new Lexer("123m");
+
+            try
+            {
+                lexer.NextToken();
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(LexerException));
+                Assert.AreEqual("Unexpected 'm'", ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void GetReal()
+        {
+            Lexer lexer = new Lexer("123.456");
+
+            var result = lexer.NextToken();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual("123.456", result.Value);
+            Assert.AreEqual(TokenType.Real, result.Type);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
+        public void GetInvalidReal()
+        {
+            Lexer lexer = new Lexer("123.456m");
+
+            try
+            {
+                lexer.NextToken();
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(LexerException));
+                Assert.AreEqual("Unexpected 'm'", ex.Message);
+            }
+        }
     }
 }
