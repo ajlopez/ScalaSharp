@@ -51,5 +51,19 @@
 
             Assert.IsNull(lexer.NextToken());
         }
+
+        [TestMethod]
+        public void GetIntegerWithWhitespaces()
+        {
+            Lexer lexer = new Lexer("  123   ");
+
+            var result = lexer.NextToken();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual("123", result.Value);
+            Assert.AreEqual(TokenType.Integer, result.Type);
+
+            Assert.IsNull(lexer.NextToken());
+        }
     }
 }
