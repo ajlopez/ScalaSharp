@@ -19,7 +19,14 @@
             if (this.text == null)
                 return null;
 
-            Token token = new Token(this.text.Trim(), TokenType.Name);
+            Token token;
+
+            this.text = this.text.Trim();
+
+            if (char.IsDigit(this.text[0]))
+                token = new Token(this.text, TokenType.Integer);
+            else
+                token = new Token(this.text.Trim(), TokenType.Name);
 
             this.text = null;
 
