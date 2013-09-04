@@ -7,6 +7,7 @@
         Real = 3,
         String = 4,
         NewLine = 5,
-        Punctuation = 6
+        Operator = 6,
+        Punctuation = 7
     }
 }

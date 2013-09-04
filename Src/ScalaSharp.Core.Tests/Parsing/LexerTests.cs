@@ -246,5 +246,24 @@
 
             Assert.IsNull(lexer.NextToken());
         }
+
+        [TestMethod]
+        public void GetOperators()
+        {
+            string[] operators = new string[] { "=", "==", "<=", ">=", "<", ">" };
+
+            Lexer lexer = new Lexer("= == <= >= < >");
+
+            for (int k = 0; k < operators.Length; k++)
+            {
+                var result = lexer.NextToken();
+
+                Assert.IsNotNull(result);
+                Assert.AreEqual(TokenType.Operator, result.Type);
+                Assert.AreEqual(operators[k], result.Value);
+            }
+
+            Assert.IsNull(lexer.NextToken());
+        }
     }
 }

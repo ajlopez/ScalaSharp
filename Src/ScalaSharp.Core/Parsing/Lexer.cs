@@ -51,6 +51,9 @@
             if (char.IsDigit(ch))
                 return this.NextInteger(ch);
 
+            if (IsOperator(ch))
+                return this.NextOperator(ch);
+
             return this.NextName(ch);
         }
 
@@ -60,6 +63,20 @@
                 return false;
 
             return char.IsWhiteSpace(ch);
+        }
+
+        private static bool IsOperator(char ch)
+        {
+            if (char.IsWhiteSpace(ch))
+                return false;
+
+            if (char.IsLetterOrDigit(ch))
+                return false;
+
+            if (punctuation.Contains(ch))
+                return false;
+
+            return true;
         }
 
         private Token NextString()
@@ -75,6 +92,24 @@
             this.position++;
 
             return new Token(value, TokenType.String);
+        }
+
+        private Token NextOperator(char ch)
+        {
+            string value = ch.ToString();
+
+            while (this.position < this.length)
+            {
+                var ch2 = this.text[this.position];
+
+                if (!IsOperator(ch2))
+                    break;
+
+                value += ch2;
+                this.position++;
+            }
+
+            return new Token(value, TokenType.Operator);
         }
 
         private Token NextInteger(char ch)
