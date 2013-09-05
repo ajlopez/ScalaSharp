@@ -149,7 +149,7 @@
         {
             string value = ch.ToString();
 
-            while (this.position < this.length && !IsWhiteSpace(this.text[this.position]))
+            while (this.position < this.length && char.IsLetter(this.text[this.position]))
                 value += this.text[this.position++];
 
             return new Token(value, TokenType.Name);
