@@ -248,6 +248,24 @@
         }
 
         [TestMethod]
+        public void GetNameAndPunctuation()
+        {
+            Lexer lexer = new Lexer("foo:");
+
+            var token = lexer.NextToken();
+            Assert.IsNotNull(token);
+            Assert.AreEqual("foo", token.Value);
+            Assert.AreEqual(TokenType.Name, token.Type);
+
+            token = lexer.NextToken();
+            Assert.IsNotNull(token);
+            Assert.AreEqual(":", token.Value);
+            Assert.AreEqual(TokenType.Punctuation, token.Type);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
         public void GetOperators()
         {
             string[] operators = new string[] { "=", "==", "<=", ">=", "<", ">" };

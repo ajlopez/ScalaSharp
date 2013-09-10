@@ -24,5 +24,21 @@
 
             Assert.IsNull(parser.ParseCommand());
         }
+
+        [TestMethod]
+        public void ParseSimpleDefCommand()
+        {
+            Parser parser = new Parser("def foo: unit");
+
+            var result = parser.ParseCommand();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(DefCommand));
+
+            var dcommand = (DefCommand)result;
+
+            Assert.AreEqual("foo", dcommand.Name);
+            Assert.AreEqual("unit", dcommand.Type);
+        }
     }
 }

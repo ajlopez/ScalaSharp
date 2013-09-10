@@ -22,7 +22,17 @@
             if (token == null)
                 return null;
 
-            string name = this.NextToken().Value;
+            string name;
+
+            if (token.Type == TokenType.Name && token.Value == "def")
+            {
+                name = this.NextToken().Value;
+                this.NextToken();
+                string type = this.NextToken().Value;
+                return new DefCommand(name, type);
+            }
+
+            name = this.NextToken().Value;
             this.NextToken();
             this.NextToken();
 
