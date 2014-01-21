@@ -32,6 +32,14 @@
                 return new DefCommand(name, type);
             }
 
+            if (token.Type == TokenType.Name && token.Value == "object")
+            {
+                name = this.NextToken().Value;
+                this.NextToken();
+                this.NextToken();
+                return new ObjectCommand(name);
+            }
+
             name = this.NextToken().Value;
             this.NextToken();
             this.NextToken();

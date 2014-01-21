@@ -26,6 +26,20 @@
         }
 
         [TestMethod]
+        public void ParseEmptyObjectCommand()
+        {
+            Parser parser = new Parser("object Foo { }");
+
+            var result = parser.ParseCommand();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(ObjectCommand));
+            Assert.AreEqual("Foo", ((ObjectCommand)result).Name);
+
+            Assert.IsNull(parser.ParseCommand());
+        }
+
+        [TestMethod]
         public void ParseSimpleDefCommand()
         {
             Parser parser = new Parser("def foo: unit");
