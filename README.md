@@ -12,3 +12,4 @@ Scala-like interpreter in C#, WIP.
 - [Where Akka Came From](http://letitcrash.com/post/40599293211/where-akka-came-from)
 - [Real-World Scala: Dependency Injection (DI)](http://jonasboner.com/2008/10/06/real-world-scala-dependency-injection-di/)
 - [Scalable Component Abstractions](http://lampwww.epfl.ch/~odersky/papers/ScalableComponent.pdf)
+- [Seductions of Scala](http://polyglotprogramming.com/papers/SeductionsOfScala.pdf)
