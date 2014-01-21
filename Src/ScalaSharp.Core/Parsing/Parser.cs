@@ -27,24 +27,29 @@
             if (token.Type == TokenType.Name && token.Value == "def")
             {
                 name = this.ParseName();
-                this.NextToken();
-                string type = this.NextToken().Value;
+                this.ParseToken(TokenType.Punctuation, ":");
+                string type = this.ParseName();
                 return new DefCommand(name, type);
             }
 
             if (token.Type == TokenType.Name && token.Value == "object")
             {
                 name = this.ParseName();
-                this.NextToken();
-                this.NextToken();
+                this.ParseToken(TokenType.Punctuation, "{");
+                this.ParseToken(TokenType.Punctuation, "}");
                 return new ObjectCommand(name);
             }
 
-            name = this.ParseName();
-            this.NextToken();
-            this.NextToken();
+            if (token.Type == TokenType.Name && token.Value == "class")
+            {
+                name = this.ParseName();
+                this.ParseToken(TokenType.Punctuation, "{");
+                this.ParseToken(TokenType.Punctuation, "}");
 
-            return new ClassCommand(name);
+                return new ClassCommand(name);
+            }
+
+            throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
         }
 
         private string ParseName()
@@ -55,6 +60,14 @@
                 throw new ParserException("Expected a name");
 
             return token.Value;
+        }
+
+        private void ParseToken(TokenType type, string value)
+        {
+            Token token = this.NextToken();
+
+            if (token == null || token.Type != type || token.Value != value)
+                throw new ParserException(string.Format("Expected '{0}'", value));
         }
 
         private Token NextToken()

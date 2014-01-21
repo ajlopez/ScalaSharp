@@ -90,7 +90,7 @@
         [TestMethod]
         public void RaiseIsNoNameInDefCommand()
         {
-            Parser parser = new Parser("def { }");
+            Parser parser = new Parser("def: unit");
 
             try
             {
@@ -100,6 +100,70 @@
             catch (ParserException ex)
             {
                 Assert.AreEqual("Expected a name", ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void RaiseIsNoColonInDefCommand()
+        {
+            Parser parser = new Parser("def name unit");
+
+            try
+            {
+                parser.ParseCommand();
+                Assert.Fail();
+            }
+            catch (ParserException ex)
+            {
+                Assert.AreEqual("Expected ':'", ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void RaiseEndOfInputInDefCommand()
+        {
+            Parser parser = new Parser("def name");
+
+            try
+            {
+                parser.ParseCommand();
+                Assert.Fail();
+            }
+            catch (ParserException ex)
+            {
+                Assert.AreEqual("Expected ':'", ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void RaiseEndOfInputAfterDefCommand()
+        {
+            Parser parser = new Parser("def");
+
+            try
+            {
+                parser.ParseCommand();
+                Assert.Fail();
+            }
+            catch (ParserException ex)
+            {
+                Assert.AreEqual("Expected a name", ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void RaiseIfUnexpectedOpenSquareBracket()
+        {
+            Parser parser = new Parser("[");
+
+            try
+            {
+                parser.ParseCommand();
+                Assert.Fail();
+            }
+            catch (ParserException ex)
+            {
+                Assert.AreEqual("Unexpected '['", ex.Message);
             }
         }
     }

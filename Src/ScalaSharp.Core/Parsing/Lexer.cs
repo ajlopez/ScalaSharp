@@ -45,14 +45,14 @@
             if (ch == '"')
                 return this.NextString();
 
+            if (IsOperator(ch))
+                return this.NextOperator(ch);
+
             if (punctuation.Contains(ch))
                 return new Token(ch.ToString(), TokenType.Punctuation);
 
             if (char.IsDigit(ch))
                 return this.NextInteger(ch);
-
-            if (IsOperator(ch))
-                return this.NextOperator(ch);
 
             return this.NextName(ch);
         }
