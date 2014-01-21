@@ -13,3 +13,6 @@ Scala-like interpreter in C#, WIP.
 - [Real-World Scala: Dependency Injection (DI)](http://jonasboner.com/2008/10/06/real-world-scala-dependency-injection-di/)
 - [Scalable Component Abstractions](http://lampwww.epfl.ch/~odersky/papers/ScalableComponent.pdf)
 - [Seductions of Scala](http://polyglotprogramming.com/papers/SeductionsOfScala.pdf)
+- [Scala Operator Cheat Sheet](http://jim-mcbeath.blogspot.com.ar/2008/12/scala-operator-cheat-sheet.html)
+
+
