@@ -47,6 +47,7 @@
     <Compile Include="Parsing\Lexer.cs" />
     <Compile Include="Parsing\LexerException.cs" />
     <Compile Include="Parsing\Parser.cs" />
+    <Compile Include="Parsing\ParserException.cs" />
     <Compile Include="Parsing\Token.cs" />
     <Compile Include="Parsing\TokenType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -26,7 +26,7 @@
 
             if (token.Type == TokenType.Name && token.Value == "def")
             {
-                name = this.NextToken().Value;
+                name = this.ParseName();
                 this.NextToken();
                 string type = this.NextToken().Value;
                 return new DefCommand(name, type);
@@ -34,17 +34,27 @@
 
             if (token.Type == TokenType.Name && token.Value == "object")
             {
-                name = this.NextToken().Value;
+                name = this.ParseName();
                 this.NextToken();
                 this.NextToken();
                 return new ObjectCommand(name);
             }
 
-            name = this.NextToken().Value;
+            name = this.ParseName();
             this.NextToken();
             this.NextToken();
 
             return new ClassCommand(name);
+        }
+
+        private string ParseName()
+        {
+            Token token = this.NextToken();
+
+            if (token == null || token.Type != TokenType.Name)
+                throw new ParserException("Expected a name");
+
+            return token.Value;
         }
 
         private Token NextToken()

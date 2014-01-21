@@ -26,6 +26,22 @@
         }
 
         [TestMethod]
+        public void RaiseIsNoNameInClassCommand()
+        {
+            Parser parser = new Parser("class { }");
+
+            try
+            {
+                parser.ParseCommand();
+                Assert.Fail();
+            }
+            catch (ParserException ex)
+            {
+                Assert.AreEqual("Expected a name", ex.Message);
+            }
+        }
+
+        [TestMethod]
         public void ParseEmptyObjectCommand()
         {
             Parser parser = new Parser("object Foo { }");
@@ -37,6 +53,22 @@
             Assert.AreEqual("Foo", ((ObjectCommand)result).Name);
 
             Assert.IsNull(parser.ParseCommand());
+        }
+
+        [TestMethod]
+        public void RaiseIsNoNameInObjectCommand()
+        {
+            Parser parser = new Parser("object { }");
+
+            try
+            {
+                parser.ParseCommand();
+                Assert.Fail();
+            }
+            catch (ParserException ex)
+            {
+                Assert.AreEqual("Expected a name", ex.Message);
+            }
         }
 
         [TestMethod]
@@ -53,6 +85,22 @@
 
             Assert.AreEqual("foo", dcommand.Name);
             Assert.AreEqual("unit", dcommand.Type);
+        }
+
+        [TestMethod]
+        public void RaiseIsNoNameInDefCommand()
+        {
+            Parser parser = new Parser("def { }");
+
+            try
+            {
+                parser.ParseCommand();
+                Assert.Fail();
+            }
+            catch (ParserException ex)
+            {
+                Assert.AreEqual("Expected a name", ex.Message);
+            }
         }
     }
 }
