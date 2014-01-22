@@ -1,27 +1,22 @@
-﻿namespace ScalaSharp.Core.Commands
+﻿namespace ScalaSharp.Core.Language
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-    using ScalaSharp.Core.Language;
 
-    public class DefCommand : ICommand
+    public class Argument
     {
         private string name;
         private string type;
-        private IList<Argument> arguments;
 
-        public DefCommand(string name, IList<Argument> arguments, string type)
+        public Argument(string name, string type)
         {
             this.name = name;
-            this.arguments = arguments;
             this.type = type;
         }
 
         public string Name { get { return this.name; } }
-
-        public IList<Argument> Arguments { get { return this.arguments; } }
 
         public string Type { get { return this.type; } }
     }

@@ -85,6 +85,48 @@
 
             Assert.AreEqual("foo", dcommand.Name);
             Assert.AreEqual("unit", dcommand.Type);
+            Assert.IsNotNull(dcommand.Arguments);
+            Assert.AreEqual(0, dcommand.Arguments.Count);
+        }
+
+        [TestMethod]
+        public void ParseSimpleDefCommandEmptyParenthesis()
+        {
+            Parser parser = new Parser("def foo(): unit");
+
+            var result = parser.ParseCommand();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(DefCommand));
+
+            var dcommand = (DefCommand)result;
+
+            Assert.AreEqual("foo", dcommand.Name);
+            Assert.AreEqual("unit", dcommand.Type);
+            Assert.IsNotNull(dcommand.Arguments);
+            Assert.AreEqual(0, dcommand.Arguments.Count);
+        }
+
+        [TestMethod]
+        public void ParseSimpleDefCommandWithTwoIntegerArguments()
+        {
+            Parser parser = new Parser("def foo(x: Int, y: Int): Int");
+
+            var result = parser.ParseCommand();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(DefCommand));
+
+            var dcommand = (DefCommand)result;
+
+            Assert.AreEqual("foo", dcommand.Name);
+            Assert.AreEqual("Int", dcommand.Type);
+            Assert.IsNotNull(dcommand.Arguments);
+            Assert.AreEqual(2, dcommand.Arguments.Count);
+            Assert.AreEqual("x", dcommand.Arguments[0].Name);
+            Assert.AreEqual("Int", dcommand.Arguments[0].Type);
+            Assert.AreEqual("y", dcommand.Arguments[1].Name);
+            Assert.AreEqual("Int", dcommand.Arguments[1].Type);
         }
 
         [TestMethod]

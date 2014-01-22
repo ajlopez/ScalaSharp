@@ -44,6 +44,7 @@
     <Compile Include="Commands\ObjectCommand.cs" />
     <Compile Include="Commands\DefCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Language\Argument.cs" />
     <Compile Include="Parsing\Lexer.cs" />
     <Compile Include="Parsing\LexerException.cs" />
     <Compile Include="Parsing\Parser.cs" />

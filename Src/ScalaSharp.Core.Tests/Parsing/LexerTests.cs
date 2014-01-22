@@ -230,7 +230,7 @@
         [TestMethod]
         public void GetPunctuations()
         {
-            string punctuations = ".;:{}()[]";
+            string punctuations = ",;:{}()[]";
 
             Lexer lexer = new Lexer(punctuations);
 
