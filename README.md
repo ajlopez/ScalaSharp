@@ -15,4 +15,4 @@ Scala-like interpreter in C#, WIP.
 - [Seductions of Scala](http://polyglotprogramming.com/papers/SeductionsOfScala.pdf)
 - [Scala Operator Cheat Sheet](http://jim-mcbeath.blogspot.com.ar/2008/12/scala-operator-cheat-sheet.html)
 - [What is the difference between a var and val definition in Scala?](http://stackoverflow.com/questions/1791408/what-is-the-difference-between-a-var-and-val-definition-in-scala)
-
+- [Fork/Join](http://docs.oracle.com/javase/tutorial/essential/concurrency/forkjoin.html)
