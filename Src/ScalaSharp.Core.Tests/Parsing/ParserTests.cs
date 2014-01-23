@@ -7,6 +7,7 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using ScalaSharp.Core.Commands;
     using ScalaSharp.Core.Parsing;
+    using ScalaSharp.Core.Expressions;
 
     [TestClass]
     public class ParserTests
@@ -207,6 +208,30 @@
             {
                 Assert.AreEqual("Unexpected '['", ex.Message);
             }
+        }
+
+        [TestMethod]
+        public void ParseSimpleValCommandWithIntegerExpression()
+        {
+            Parser parser = new Parser("val one = 1");
+
+            var cmd = parser.ParseCommand();
+
+            Assert.IsNotNull(cmd);
+            Assert.IsInstanceOfType(cmd, typeof(ValCommand));
+
+            var vcmd = (ValCommand)cmd;
+
+            Assert.AreEqual("one", vcmd.Name);
+            Assert.IsNotNull(vcmd.Expression);
+            Assert.IsInstanceOfType(vcmd.Expression, typeof(ConstantExpression));
+
+            var expr = (ConstantExpression)vcmd.Expression;
+
+            Assert.AreEqual(1, expr.Value);
+            Assert.AreEqual(1, expr.Evaluate());
+
+            Assert.IsNull(parser.ParseCommand());
         }
     }
 }

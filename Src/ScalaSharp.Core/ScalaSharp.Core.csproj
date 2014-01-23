@@ -41,9 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\ClassCommand.cs" />
+    <Compile Include="Commands\ValCommand.cs" />
     <Compile Include="Commands\ObjectCommand.cs" />
     <Compile Include="Commands\DefCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Expressions\ConstantExpression.cs" />
+    <Compile Include="Expressions\IExpression.cs" />
     <Compile Include="Language\Argument.cs" />
     <Compile Include="Parsing\Lexer.cs" />
     <Compile Include="Parsing\LexerException.cs" />
@@ -53,6 +56,7 @@
     <Compile Include="Parsing\TokenType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

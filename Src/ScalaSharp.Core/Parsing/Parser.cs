@@ -2,9 +2,11 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Linq;
     using System.Text;
     using ScalaSharp.Core.Commands;
+    using ScalaSharp.Core.Expressions;
     using ScalaSharp.Core.Language;
 
     public class Parser
@@ -46,7 +48,23 @@
                 return new ClassCommand(name);
             }
 
+            if (token.Type == TokenType.Name && token.Value == "val")
+            {
+                name = this.ParseName();
+                this.ParseToken(TokenType.Operator, "=");
+                IExpression expr = this.ParseExpression();
+
+                return new ValCommand(name, expr);
+            }
+
             throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
+        }
+
+        public IExpression ParseExpression()
+        {
+            Token token = this.NextToken();
+
+            return new ConstantExpression(int.Parse(token.Value, CultureInfo.InvariantCulture));
         }
 
         private DefCommand ParseDefCommand()
