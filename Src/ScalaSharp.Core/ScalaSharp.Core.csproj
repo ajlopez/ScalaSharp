@@ -45,6 +45,7 @@
     <Compile Include="Commands\ObjectCommand.cs" />
     <Compile Include="Commands\DefCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Contexts\Context.cs" />
     <Compile Include="Expressions\ConstantExpression.cs" />
     <Compile Include="Expressions\IExpression.cs" />
     <Compile Include="Language\Argument.cs" />
