@@ -64,6 +64,12 @@
         {
             Token token = this.NextToken();
 
+            if (token == null)
+                return null;
+
+            if (token.Type == TokenType.Name)
+                return new VariableExpression(token.Value);
+
             return new ConstantExpression(int.Parse(token.Value, CultureInfo.InvariantCulture));
         }
 

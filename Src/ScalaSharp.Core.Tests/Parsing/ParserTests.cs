@@ -233,5 +233,39 @@
 
             Assert.IsNull(parser.ParseCommand());
         }
+
+        [TestMethod]
+        public void ParseIntegerExpression()
+        {
+            Parser parser = new Parser("42");
+
+            var expr = parser.ParseExpression();
+
+            Assert.IsNotNull(expr);
+            Assert.IsInstanceOfType(expr, typeof(ConstantExpression));
+
+            var cexpr = (ConstantExpression)expr;
+
+            Assert.AreEqual(42, cexpr.Value);
+
+            Assert.IsNull(parser.ParseExpression());
+        }
+
+        [TestMethod]
+        public void ParseVariableExpression()
+        {
+            Parser parser = new Parser("foo");
+
+            var expr = parser.ParseExpression();
+
+            Assert.IsNotNull(expr);
+            Assert.IsInstanceOfType(expr, typeof(VariableExpression));
+
+            var vexpr = (VariableExpression)expr;
+
+            Assert.AreEqual("foo", vexpr.Name);
+
+            Assert.IsNull(parser.ParseExpression());
+        }
     }
 }
