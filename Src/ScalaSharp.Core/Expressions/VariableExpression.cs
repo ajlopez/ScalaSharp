@@ -6,20 +6,20 @@
     using System.Text;
     using ScalaSharp.Core.Contexts;
 
-    public class ConstantExpression : IExpression
+    public class VariableExpression : IExpression
     {
-        private object value;
+        private string name;
 
-        public ConstantExpression(object value)
+        public VariableExpression(string name)
         {
-            this.value = value;
+            this.name = name;
         }
 
-        public object Value { get { return this.value; } }
+        public string Name { get { return this.name; } }
 
         public object Evaluate(IContext context)
         {
-            return this.value;
+            return context.GetValue(this.name);
         }
     }
 }

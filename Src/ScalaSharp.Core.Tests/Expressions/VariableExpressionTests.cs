@@ -1,0 +1,26 @@
+﻿namespace ScalaSharp.Core.Tests.Expressions
+{
+    using System;
+    using System.Text;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using ScalaSharp.Core.Contexts;
+    using ScalaSharp.Core.Expressions;
+
+    [TestClass]
+    public class VariableExpressionTests
+    {
+        [TestMethod]
+        public void CreateAndEvaluateVariableExpression()
+        {
+            Context context = new Context();
+            context.SetValue("one", 1);
+
+            VariableExpression expr = new VariableExpression("one");
+
+            Assert.AreEqual("one", expr.Name);
+            Assert.AreEqual(1, expr.Evaluate(context));
+        }
+    }
+}

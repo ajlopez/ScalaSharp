@@ -229,7 +229,7 @@
             var expr = (ConstantExpression)vcmd.Expression;
 
             Assert.AreEqual(1, expr.Value);
-            Assert.AreEqual(1, expr.Evaluate());
+            Assert.AreEqual(1, expr.Evaluate(null));
 
             Assert.IsNull(parser.ParseCommand());
         }
