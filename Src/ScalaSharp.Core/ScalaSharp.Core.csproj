@@ -47,7 +47,12 @@
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Contexts\Context.cs" />
     <Compile Include="Contexts\IContext.cs" />
+    <Compile Include="Expressions\AddExpression.cs" />
+    <Compile Include="Expressions\BinaryExpression.cs" />
     <Compile Include="Expressions\ConstantExpression.cs" />
+    <Compile Include="Expressions\DivideExpression.cs" />
+    <Compile Include="Expressions\MultiplyExpression.cs" />
+    <Compile Include="Expressions\SubtractExpression.cs" />
     <Compile Include="Expressions\VariableExpression.cs" />
     <Compile Include="Expressions\IExpression.cs" />
     <Compile Include="Language\Argument.cs" />
