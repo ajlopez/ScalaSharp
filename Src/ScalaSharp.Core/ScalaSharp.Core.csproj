@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\ClassCommand.cs" />
+    <Compile Include="Commands\VarCommand.cs" />
     <Compile Include="Commands\ValCommand.cs" />
     <Compile Include="Commands\ObjectCommand.cs" />
     <Compile Include="Commands\DefCommand.cs" />

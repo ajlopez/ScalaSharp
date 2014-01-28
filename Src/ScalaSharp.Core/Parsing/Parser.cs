@@ -57,6 +57,15 @@
                 return new ValCommand(name, expr);
             }
 
+            if (token.Type == TokenType.Name && token.Value == "var")
+            {
+                name = this.ParseName();
+                this.ParseToken(TokenType.Operator, "=");
+                IExpression expr = this.ParseExpression();
+
+                return new VarCommand(name, expr);
+            }
+
             throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
         }
 

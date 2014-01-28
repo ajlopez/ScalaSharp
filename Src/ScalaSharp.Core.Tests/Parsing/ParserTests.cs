@@ -235,6 +235,30 @@
         }
 
         [TestMethod]
+        public void ParseSimpleVarCommandWithIntegerExpression()
+        {
+            Parser parser = new Parser("var one = 1");
+
+            var cmd = parser.ParseCommand();
+
+            Assert.IsNotNull(cmd);
+            Assert.IsInstanceOfType(cmd, typeof(VarCommand));
+
+            var vcmd = (VarCommand)cmd;
+
+            Assert.AreEqual("one", vcmd.Name);
+            Assert.IsNotNull(vcmd.Expression);
+            Assert.IsInstanceOfType(vcmd.Expression, typeof(ConstantExpression));
+
+            var expr = (ConstantExpression)vcmd.Expression;
+
+            Assert.AreEqual(1, expr.Value);
+            Assert.AreEqual(1, expr.Evaluate(null));
+
+            Assert.IsNull(parser.ParseCommand());
+        }
+
+        [TestMethod]
         public void ParseIntegerExpression()
         {
             Parser parser = new Parser("42");
