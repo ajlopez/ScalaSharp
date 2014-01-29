@@ -10,9 +10,9 @@
     {
         private string name;
         private string type;
-        private IList<Argument> arguments;
+        private IList<ArgumentInfo> arguments;
 
-        public DefCommand(string name, IList<Argument> arguments, string type)
+        public DefCommand(string name, IList<ArgumentInfo> arguments, string type)
         {
             this.name = name;
             this.arguments = arguments;
@@ -21,7 +21,7 @@
 
         public string Name { get { return this.name; } }
 
-        public IList<Argument> Arguments { get { return this.arguments; } }
+        public IList<ArgumentInfo> Arguments { get { return this.arguments; } }
 
         public string Type { get { return this.type; } }
     }

@@ -85,7 +85,7 @@
         private DefCommand ParseDefCommand()
         {
             string name = this.ParseName();
-            IList<Argument> arguments = new List<Argument>();
+            IList<ArgumentInfo> arguments = new List<ArgumentInfo>();
 
             if (this.TryParseToken(TokenType.Punctuation, "("))
                 while (!this.TryParseToken(TokenType.Punctuation, ")"))
@@ -95,13 +95,18 @@
 
                     string argname = this.ParseName();
                     this.ParseToken(TokenType.Punctuation, ":");
-                    string argtype = this.ParseName();
-                    arguments.Add(new Argument(argname, argtype));
+                    TypeInfo typeinfo = this.ParseTypeInfo();
+                    arguments.Add(new ArgumentInfo(argname, typeinfo));
                 }
 
             this.ParseToken(TokenType.Punctuation, ":");
             string type = this.ParseName();
             return new DefCommand(name, arguments, type);
+        }
+
+        private TypeInfo ParseTypeInfo()
+        {
+            return new TypeInfo(this.ParseName());
         }
 
         private string ParseName()

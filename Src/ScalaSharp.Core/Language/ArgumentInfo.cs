@@ -5,19 +5,19 @@
     using System.Linq;
     using System.Text;
 
-    public class Argument
+    public class ArgumentInfo
     {
         private string name;
-        private string type;
+        private TypeInfo typeinfo;
 
-        public Argument(string name, string type)
+        public ArgumentInfo(string name, TypeInfo typeinfo)
         {
             this.name = name;
-            this.type = type;
+            this.typeinfo = typeinfo;
         }
 
         public string Name { get { return this.name; } }
 
-        public string Type { get { return this.type; } }
+        public TypeInfo TypeInfo { get { return this.typeinfo; } }
     }
 }

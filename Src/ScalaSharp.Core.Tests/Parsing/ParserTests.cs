@@ -125,9 +125,9 @@
             Assert.IsNotNull(dcommand.Arguments);
             Assert.AreEqual(2, dcommand.Arguments.Count);
             Assert.AreEqual("x", dcommand.Arguments[0].Name);
-            Assert.AreEqual("Int", dcommand.Arguments[0].Type);
+            Assert.AreEqual("Int", dcommand.Arguments[0].TypeInfo.Name);
             Assert.AreEqual("y", dcommand.Arguments[1].Name);
-            Assert.AreEqual("Int", dcommand.Arguments[1].Type);
+            Assert.AreEqual("Int", dcommand.Arguments[1].TypeInfo.Name);
         }
 
         [TestMethod]
