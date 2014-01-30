@@ -85,7 +85,8 @@
             var dcommand = (DefCommand)result;
 
             Assert.AreEqual("foo", dcommand.Name);
-            Assert.AreEqual("unit", dcommand.Type);
+            Assert.IsNotNull(dcommand.TypeInfo);
+            Assert.AreEqual("unit", dcommand.TypeInfo.Name);
             Assert.IsNotNull(dcommand.Arguments);
             Assert.AreEqual(0, dcommand.Arguments.Count);
             Assert.IsNull(dcommand.Body);
@@ -129,7 +130,8 @@
             var dcommand = (DefCommand)result;
 
             Assert.AreEqual("foo", dcommand.Name);
-            Assert.AreEqual("unit", dcommand.Type);
+            Assert.IsNotNull(dcommand.TypeInfo);
+            Assert.AreEqual("unit", dcommand.TypeInfo.Name);
             Assert.IsNotNull(dcommand.Arguments);
             Assert.AreEqual(0, dcommand.Arguments.Count);
         }
@@ -147,7 +149,8 @@
             var dcommand = (DefCommand)result;
 
             Assert.AreEqual("foo", dcommand.Name);
-            Assert.AreEqual("Int", dcommand.Type);
+            Assert.IsNotNull(dcommand.TypeInfo);
+            Assert.AreEqual("Int", dcommand.TypeInfo.Name);
             Assert.IsNotNull(dcommand.Arguments);
             Assert.AreEqual(2, dcommand.Arguments.Count);
             Assert.AreEqual("x", dcommand.Arguments[0].Name);

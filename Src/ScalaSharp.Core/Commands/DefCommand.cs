@@ -10,15 +10,15 @@
     public class DefCommand : ICommand
     {
         private string name;
-        private string type;
+        private TypeInfo typeinfo;
         private IList<ArgumentInfo> arguments;
         private ICommand body;
 
-        public DefCommand(string name, IList<ArgumentInfo> arguments, string type, ICommand body)
+        public DefCommand(string name, IList<ArgumentInfo> arguments, TypeInfo typeinfo, ICommand body)
         {
             this.name = name;
             this.arguments = arguments;
-            this.type = type;
+            this.typeinfo = typeinfo;
             this.body = body;
         }
 
@@ -26,7 +26,7 @@
 
         public IList<ArgumentInfo> Arguments { get { return this.arguments; } }
 
-        public string Type { get { return this.type; } }
+        public TypeInfo TypeInfo { get { return this.typeinfo; } }
 
         public ICommand Body { get { return this.body; } }
     }

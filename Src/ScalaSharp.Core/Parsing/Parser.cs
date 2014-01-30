@@ -107,24 +107,24 @@
 
                     string argname = this.ParseName();
                     this.ParseToken(TokenType.Punctuation, ":");
-                    TypeInfo typeinfo = this.ParseTypeInfo();
-                    arguments.Add(new ArgumentInfo(argname, typeinfo));
+                    TypeInfo ti = this.ParseTypeInfo();
+                    arguments.Add(new ArgumentInfo(argname, ti));
                 }
 
-            string type = null;
+            TypeInfo typeinfo = null;
 
             if (this.TryParseToken(TokenType.Punctuation, ":"))
-                type = this.ParseName();
+                typeinfo = this.ParseTypeInfo();
 
             ICommand body = null;
 
             if (this.TryParseToken(TokenType.Operator, "="))
                 body = this.ParseCommand();
 
-            if (type == null && body == null)
+            if (typeinfo == null && body == null)
                 throw new ParserException("Expected ':' or '='");
 
-            return new DefCommand(name, arguments, type, body);
+            return new DefCommand(name, arguments, typeinfo, body);
         }
 
         private TypeInfo ParseTypeInfo()
