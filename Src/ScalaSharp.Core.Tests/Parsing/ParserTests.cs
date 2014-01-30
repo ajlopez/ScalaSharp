@@ -88,6 +88,32 @@
             Assert.AreEqual("unit", dcommand.Type);
             Assert.IsNotNull(dcommand.Arguments);
             Assert.AreEqual(0, dcommand.Arguments.Count);
+            Assert.IsNull(dcommand.Body);
+        }
+
+        [TestMethod]
+        public void ParseDefCommandWithConstantExpression()
+        {
+            Parser parser = new Parser("def foo = 0");
+
+            var result = parser.ParseCommand();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(DefCommand));
+
+            var dcommand = (DefCommand)result;
+
+            Assert.AreEqual("foo", dcommand.Name);
+            Assert.IsNotNull(dcommand.Arguments);
+            Assert.AreEqual(0, dcommand.Arguments.Count);
+            Assert.IsNotNull(dcommand.Body);
+            Assert.IsInstanceOfType(dcommand.Body, typeof(ExpressionCommand));
+
+            var body = (ExpressionCommand)dcommand.Body;
+
+            Assert.IsNotNull(body.Expression);
+            Assert.IsInstanceOfType(body.Expression, typeof(ConstantExpression));
+            Assert.AreEqual(0, ((ConstantExpression)body.Expression).Value);
         }
 
         [TestMethod]
@@ -147,6 +173,22 @@
         }
 
         [TestMethod]
+        public void RaiseIsMissingComma()
+        {
+            Parser parser = new Parser("def foo(x: Int y: Int): unit");
+
+            try
+            {
+                parser.ParseCommand();
+                Assert.Fail();
+            }
+            catch (ParserException ex)
+            {
+                Assert.AreEqual("Expected ','", ex.Message);
+            }
+        }
+
+        [TestMethod]
         public void RaiseIsNoColonInDefCommand()
         {
             Parser parser = new Parser("def name unit");
@@ -158,7 +200,7 @@
             }
             catch (ParserException ex)
             {
-                Assert.AreEqual("Expected ':'", ex.Message);
+                Assert.AreEqual("Expected ':' or '='", ex.Message);
             }
         }
 
@@ -174,7 +216,7 @@
             }
             catch (ParserException ex)
             {
-                Assert.AreEqual("Expected ':'", ex.Message);
+                Assert.AreEqual("Expected ':' or '='", ex.Message);
             }
         }
 

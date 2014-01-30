@@ -66,7 +66,14 @@
                 return new VarCommand(name, expr);
             }
 
-            throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
+            this.PushToken(token);
+
+            IExpression expression = this.ParseExpression();
+
+            if (expression == null)
+                throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
+
+            return new ExpressionCommand(expression);
         }
 
         public IExpression ParseExpression()
@@ -79,7 +86,12 @@
             if (token.Type == TokenType.Name)
                 return new VariableExpression(token.Value);
 
-            return new ConstantExpression(int.Parse(token.Value, CultureInfo.InvariantCulture));
+            if (token.Type == TokenType.Integer)
+                return new ConstantExpression(int.Parse(token.Value, CultureInfo.InvariantCulture));
+
+            this.PushToken(token);
+
+            return null;
         }
 
         private DefCommand ParseDefCommand()
@@ -99,9 +111,20 @@
                     arguments.Add(new ArgumentInfo(argname, typeinfo));
                 }
 
-            this.ParseToken(TokenType.Punctuation, ":");
-            string type = this.ParseName();
-            return new DefCommand(name, arguments, type);
+            string type = null;
+
+            if (this.TryParseToken(TokenType.Punctuation, ":"))
+                type = this.ParseName();
+
+            ICommand body = null;
+
+            if (this.TryParseToken(TokenType.Operator, "="))
+                body = this.ParseCommand();
+
+            if (type == null && body == null)
+                throw new ParserException("Expected ':' or '='");
+
+            return new DefCommand(name, arguments, type, body);
         }
 
         private TypeInfo ParseTypeInfo()
