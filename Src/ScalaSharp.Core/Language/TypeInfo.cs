@@ -12,6 +12,7 @@
         private static TypeInfo tistring = new TypeInfo("String");
         private static TypeInfo tiany = new TypeInfo("Any");
         private static TypeInfo tinull = new TypeInfo("Null");
+        private static TypeInfo tiboolean = new TypeInfo("Boolean");
 
         private string name;
 
@@ -32,6 +33,8 @@
 
         public static TypeInfo Null { get { return tinull; } }
 
+        public static TypeInfo Boolean { get { return tiboolean; } }
+
         public static TypeInfo Make(object value)
         {
             if (value is int)
@@ -42,6 +45,9 @@
 
             if (value is string)
                 return String;
+
+            if (value is bool)
+                return Boolean;
 
             if (value == null)
                 return Null;
