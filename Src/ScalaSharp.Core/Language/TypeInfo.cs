@@ -7,6 +7,12 @@
 
     public class TypeInfo
     {
+        private static TypeInfo tiint = new TypeInfo("Int");
+        private static TypeInfo tidouble = new TypeInfo("Double");
+        private static TypeInfo tistring = new TypeInfo("String");
+        private static TypeInfo tiany = new TypeInfo("Any");
+        private static TypeInfo tinull = new TypeInfo("Null");
+
         private string name;
 
         public TypeInfo(string name)
@@ -16,19 +22,29 @@
 
         public string Name { get { return this.name; } }
 
+        public static TypeInfo Int { get { return tiint; } }
+
+        public static TypeInfo Double { get { return tidouble; } }
+
+        public static TypeInfo String { get { return tistring; } }
+
+        public static TypeInfo Any { get { return tiany; } }
+
+        public static TypeInfo Null { get { return tinull; } }
+
         public static TypeInfo Make(object value)
         {
             if (value is int)
-                return new TypeInfo("Int");
+                return Int;
 
             if (value is double)
-                return new TypeInfo("Double");
+                return Double;
 
             if (value is string)
-                return new TypeInfo("String");
+                return String;
 
             if (value == null)
-                return new TypeInfo("Null");
+                return Null;
 
             return new TypeInfo(value.GetType().FullName);
         }

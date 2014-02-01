@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Text;
     using ScalaSharp.Core.Contexts;
+using ScalaSharp.Core.Language;
 
     public class VariableExpression : IExpression
     {
@@ -16,6 +17,8 @@
         }
 
         public string Name { get { return this.name; } }
+
+        public TypeInfo TypeInfo { get { return TypeInfo.Any; } }
 
         public object Evaluate(IContext context)
         {

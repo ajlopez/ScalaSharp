@@ -7,6 +7,7 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using ScalaSharp.Core.Contexts;
     using ScalaSharp.Core.Expressions;
+    using ScalaSharp.Core.Language;
 
     [TestClass]
     public class VariableExpressionTests
@@ -21,6 +22,7 @@
 
             Assert.AreEqual("one", expr.Name);
             Assert.AreEqual(1, expr.Evaluate(context));
+            Assert.AreSame(TypeInfo.Any, expr.TypeInfo);
         }
     }
 }

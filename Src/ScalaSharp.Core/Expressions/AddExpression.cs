@@ -4,12 +4,15 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using ScalaSharp.Core.Language;
 
     public class AddExpression : BinaryExpression
     {
         public AddExpression(IExpression left, IExpression right)
             : base(left, right)
         {
+            if (left.TypeInfo == TypeInfo.String || right.TypeInfo == TypeInfo.String)
+                this.TypeInfo = TypeInfo.String;
         }
 
         public override object Apply(object leftvalue, object rightvalue)

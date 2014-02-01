@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Text;
     using ScalaSharp.Core.Contexts;
+    using ScalaSharp.Core.Language;
 
     public abstract class BinaryExpression : IExpression
     {
@@ -15,7 +16,14 @@
         {
             this.left = left;
             this.right = right;
+
+            if (left.TypeInfo == TypeInfo.Int && right.TypeInfo == TypeInfo.Int)
+                this.TypeInfo = TypeInfo.Int;
+            else
+                this.TypeInfo = TypeInfo.Double;
         }
+
+        public TypeInfo TypeInfo { get; protected set; }
 
         public IExpression LeftExpression { get { return this.left; } }
 

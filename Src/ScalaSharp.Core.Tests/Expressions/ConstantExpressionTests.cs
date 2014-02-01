@@ -6,6 +6,7 @@
     using System.Linq;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using ScalaSharp.Core.Expressions;
+    using ScalaSharp.Core.Language;
 
     [TestClass]
     public class ConstantExpressionTests
@@ -17,6 +18,7 @@
 
             Assert.AreEqual(1, expr.Value);
             Assert.AreEqual(1, expr.Evaluate(null));
+            Assert.AreSame(TypeInfo.Int, expr.TypeInfo);
         }
     }
 }
