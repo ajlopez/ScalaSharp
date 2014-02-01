@@ -49,6 +49,7 @@
     <Compile Include="Expressions\AddExpressionTests.cs" />
     <Compile Include="Expressions\ConstantExpressionTests.cs" />
     <Compile Include="Expressions\DivideExpressionTests.cs" />
+    <Compile Include="Expressions\IfExpressionTests.cs" />
     <Compile Include="Expressions\MultiplyExpressionTests.cs" />
     <Compile Include="Expressions\SubtractExpressionTests.cs" />
     <Compile Include="Expressions\VariableExpressionTests.cs" />

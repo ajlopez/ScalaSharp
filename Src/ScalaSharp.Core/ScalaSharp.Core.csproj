@@ -53,6 +53,7 @@
     <Compile Include="Expressions\BinaryExpression.cs" />
     <Compile Include="Expressions\ConstantExpression.cs" />
     <Compile Include="Expressions\DivideExpression.cs" />
+    <Compile Include="Expressions\IfExpression.cs" />
     <Compile Include="Expressions\MultiplyExpression.cs" />
     <Compile Include="Expressions\SubtractExpression.cs" />
     <Compile Include="Expressions\VariableExpression.cs" />
