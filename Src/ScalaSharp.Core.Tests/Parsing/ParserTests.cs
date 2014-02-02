@@ -325,6 +325,64 @@
         }
 
         [TestMethod]
+        public void ParseSimpleVarCommandWithIntegerTypeAndExpression()
+        {
+            Parser parser = new Parser("var one: Int = 1");
+
+            var cmd = parser.ParseCommand();
+
+            Assert.IsNotNull(cmd);
+            Assert.IsInstanceOfType(cmd, typeof(VarCommand));
+
+            var vcmd = (VarCommand)cmd;
+
+            Assert.AreEqual("one", vcmd.Name);
+            Assert.AreSame(TypeInfo.Int, vcmd.TypeInfo);
+            Assert.IsNotNull(vcmd.Expression);
+            Assert.IsInstanceOfType(vcmd.Expression, typeof(ConstantExpression));
+
+            var expr = (ConstantExpression)vcmd.Expression;
+
+            Assert.AreEqual(1, expr.Value);
+            Assert.AreEqual(1, expr.Evaluate(null));
+            Assert.AreSame(TypeInfo.Int, expr.TypeInfo);
+
+            Assert.IsNull(parser.ParseCommand());
+        }
+
+        [TestMethod]
+        public void RaiseIfNoTypeAndNotExpressionInVar()
+        {
+            Parser parser = new Parser("var one");
+
+            try
+            {
+                parser.ParseCommand();
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual("Expected ':' or '='", ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void RaiseIfInvalidTypeInVarExpression()
+        {
+            Parser parser = new Parser("var one: Int = 1.0");
+
+            try
+            {
+                parser.ParseCommand();
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual("type mismatch", ex.Message);
+            }
+        }
+
+        [TestMethod]
         public void ParseIntegerExpression()
         {
             Parser parser = new Parser("42");
@@ -337,6 +395,25 @@
             var cexpr = (ConstantExpression)expr;
 
             Assert.AreEqual(42, cexpr.Value);
+            Assert.AreSame(TypeInfo.Int, cexpr.TypeInfo);
+
+            Assert.IsNull(parser.ParseExpression());
+        }
+
+        [TestMethod]
+        public void ParseDoubleExpression()
+        {
+            Parser parser = new Parser("1.2");
+
+            var expr = parser.ParseExpression();
+
+            Assert.IsNotNull(expr);
+            Assert.IsInstanceOfType(expr, typeof(ConstantExpression));
+
+            var cexpr = (ConstantExpression)expr;
+
+            Assert.AreEqual(1.2, cexpr.Value);
+            Assert.AreSame(TypeInfo.Double, cexpr.TypeInfo);
 
             Assert.IsNull(parser.ParseExpression());
         }

@@ -68,6 +68,9 @@
                 if (this.TryParseToken(TokenType.Operator, "="))
                     expr = this.ParseExpression();
 
+                if (typeinfo == null && expr == null)
+                    throw new ParserException("Expected ':' or '='");
+
                 return new VarCommand(name, typeinfo, expr);
             }
 
@@ -93,6 +96,9 @@
 
             if (token.Type == TokenType.Integer)
                 return new ConstantExpression(int.Parse(token.Value, CultureInfo.InvariantCulture));
+
+            if (token.Type == TokenType.Real)
+                return new ConstantExpression(double.Parse(token.Value, CultureInfo.InvariantCulture));
 
             this.PushToken(token);
 

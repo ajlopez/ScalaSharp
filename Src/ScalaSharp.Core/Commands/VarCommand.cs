@@ -21,6 +21,8 @@
 
             if (typeinfo == null)
                 this.typeinfo = expression.TypeInfo;
+            else if (expression != null && !typeinfo.Equals(expression.TypeInfo))
+                throw new InvalidOperationException("type mismatch");
         }
 
         public string Name { get { return this.name; } }
