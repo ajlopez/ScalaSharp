@@ -14,7 +14,19 @@
         private static TypeInfo tinull = new TypeInfo("Null");
         private static TypeInfo tiboolean = new TypeInfo("Boolean");
 
+        private static IDictionary<string, TypeInfo> typeinfos = new Dictionary<string, TypeInfo>();
+
         private string name;
+
+        static TypeInfo()
+        {
+            typeinfos[tiint.Name] = tiint;
+            typeinfos[tidouble.Name] = tidouble;
+            typeinfos[tistring.Name] = tistring;
+            typeinfos[tiany.Name] = tiany;
+            typeinfos[tinull.Name] = tinull;
+            typeinfos[tiboolean.Name] = tiboolean;
+        }
 
         public TypeInfo(string name)
         {
@@ -34,6 +46,14 @@
         public static TypeInfo Null { get { return tinull; } }
 
         public static TypeInfo Boolean { get { return tiboolean; } }
+
+        public static TypeInfo MakeByName(string name)
+        {
+            if (typeinfos.ContainsKey(name))
+                return typeinfos[name];
+
+            return new TypeInfo(name);
+        }
 
         public static TypeInfo Make(object value)
         {

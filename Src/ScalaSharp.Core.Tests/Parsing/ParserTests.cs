@@ -6,8 +6,9 @@
     using System.Text;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using ScalaSharp.Core.Commands;
-    using ScalaSharp.Core.Parsing;
     using ScalaSharp.Core.Expressions;
+    using ScalaSharp.Core.Language;
+    using ScalaSharp.Core.Parsing;
 
     [TestClass]
     public class ParserTests
@@ -294,11 +295,31 @@
             Assert.AreEqual("one", vcmd.Name);
             Assert.IsNotNull(vcmd.Expression);
             Assert.IsInstanceOfType(vcmd.Expression, typeof(ConstantExpression));
+            Assert.AreSame(TypeInfo.Int, vcmd.TypeInfo);
 
             var expr = (ConstantExpression)vcmd.Expression;
 
             Assert.AreEqual(1, expr.Value);
             Assert.AreEqual(1, expr.Evaluate(null));
+
+            Assert.IsNull(parser.ParseCommand());
+        }
+
+        [TestMethod]
+        public void ParseSimpleVarCommandWithIntegerType()
+        {
+            Parser parser = new Parser("var one: Int");
+
+            var cmd = parser.ParseCommand();
+
+            Assert.IsNotNull(cmd);
+            Assert.IsInstanceOfType(cmd, typeof(VarCommand));
+
+            var vcmd = (VarCommand)cmd;
+
+            Assert.AreEqual("one", vcmd.Name);
+            Assert.IsNull(vcmd.Expression);
+            Assert.AreSame(TypeInfo.Int, vcmd.TypeInfo);
 
             Assert.IsNull(parser.ParseCommand());
         }

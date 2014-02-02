@@ -60,10 +60,15 @@
             if (token.Type == TokenType.Name && token.Value == "var")
             {
                 name = this.ParseName();
-                this.ParseToken(TokenType.Operator, "=");
-                IExpression expr = this.ParseExpression();
+                TypeInfo typeinfo = null;
+                IExpression expr = null;
 
-                return new VarCommand(name, expr);
+                if (this.TryParseToken(TokenType.Punctuation, ":"))
+                    typeinfo = this.ParseTypeInfo();
+                if (this.TryParseToken(TokenType.Operator, "="))
+                    expr = this.ParseExpression();
+
+                return new VarCommand(name, typeinfo, expr);
             }
 
             this.PushToken(token);
@@ -129,7 +134,7 @@
 
         private TypeInfo ParseTypeInfo()
         {
-            return new TypeInfo(this.ParseName());
+            return TypeInfo.MakeByName(this.ParseName());
         }
 
         private string ParseName()

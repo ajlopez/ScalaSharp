@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
 
-    public class Context : ScalaSharp.Core.Contexts.IContext
+    public class Context : IContext
     {
         private IDictionary<string, object> values = new Dictionary<string, object>();
 
