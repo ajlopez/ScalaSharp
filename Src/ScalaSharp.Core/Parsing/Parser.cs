@@ -36,6 +36,8 @@
                 name = this.ParseName();
                 this.ParseToken(TokenType.Punctuation, "{");
                 this.ParseToken(TokenType.Punctuation, "}");
+                this.ParseEndOfCommand();
+
                 return new ObjectCommand(name);
             }
 
@@ -44,6 +46,7 @@
                 name = this.ParseName();
                 this.ParseToken(TokenType.Punctuation, "{");
                 this.ParseToken(TokenType.Punctuation, "}");
+                this.ParseEndOfCommand();
 
                 return new ClassCommand(name);
             }
@@ -53,6 +56,7 @@
                 name = this.ParseName();
                 this.ParseToken(TokenType.Operator, "=");
                 IExpression expr = this.ParseExpression();
+                this.ParseEndOfCommand();
 
                 return new ValCommand(name, expr);
             }
@@ -71,6 +75,8 @@
                 if (typeinfo == null && expr == null)
                     throw new ParserException("Expected ':' or '='");
 
+                this.ParseEndOfCommand();
+
                 return new VarCommand(name, typeinfo, expr);
             }
 
@@ -80,6 +86,8 @@
 
             if (expression == null)
                 throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
+
+            this.ParseEndOfCommand();
 
             return new ExpressionCommand(expression);
         }
@@ -103,6 +111,22 @@
             this.PushToken(token);
 
             return null;
+        }
+
+        private void ParseEndOfCommand()
+        {
+            Token token = this.NextToken();
+
+            if (token == null)
+                return;
+
+            if (token.Type == TokenType.NewLine)
+                return;
+
+            if (token.Type == TokenType.Punctuation && token.Value == ";")
+                return;
+
+            throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
         }
 
         private DefCommand ParseDefCommand()
@@ -134,6 +158,8 @@
 
             if (typeinfo == null && body == null)
                 throw new ParserException("Expected ':' or '='");
+
+            this.ParseEndOfCommand();
 
             return new DefCommand(name, arguments, typeinfo, body);
         }

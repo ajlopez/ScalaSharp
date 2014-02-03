@@ -124,7 +124,7 @@
                 if (this.text[this.position] == '.')
                     return this.NextReal(value);
 
-                if (!char.IsWhiteSpace(this.text[this.position]))
+                if (char.IsLetter(this.text[this.position]))
                     throw new LexerException(string.Format("Unexpected '{0}'", this.text[this.position]));
             }
 

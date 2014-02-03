@@ -281,6 +281,70 @@
         }
 
         [TestMethod]
+        public void ParseSimpleValCommandWithEndOfLine()
+        {
+            Parser parser = new Parser("val one = 1\n");
+
+            var cmd = parser.ParseCommand();
+
+            Assert.IsNotNull(cmd);
+            Assert.IsInstanceOfType(cmd, typeof(ValCommand));
+
+            var vcmd = (ValCommand)cmd;
+
+            Assert.AreEqual("one", vcmd.Name);
+            Assert.IsNotNull(vcmd.Expression);
+            Assert.IsInstanceOfType(vcmd.Expression, typeof(ConstantExpression));
+
+            var expr = (ConstantExpression)vcmd.Expression;
+
+            Assert.AreEqual(1, expr.Value);
+            Assert.AreEqual(1, expr.Evaluate(null));
+
+            Assert.IsNull(parser.ParseCommand());
+        }
+
+        [TestMethod]
+        public void ParseSimpleValCommandWithSemicolon()
+        {
+            Parser parser = new Parser("val one = 1;");
+
+            var cmd = parser.ParseCommand();
+
+            Assert.IsNotNull(cmd);
+            Assert.IsInstanceOfType(cmd, typeof(ValCommand));
+
+            var vcmd = (ValCommand)cmd;
+
+            Assert.AreEqual("one", vcmd.Name);
+            Assert.IsNotNull(vcmd.Expression);
+            Assert.IsInstanceOfType(vcmd.Expression, typeof(ConstantExpression));
+
+            var expr = (ConstantExpression)vcmd.Expression;
+
+            Assert.AreEqual(1, expr.Value);
+            Assert.AreEqual(1, expr.Evaluate(null));
+
+            Assert.IsNull(parser.ParseCommand());
+        }
+
+        [TestMethod]
+        public void RaiseIfNoEndOfCommandInSimpleVal()
+        {
+            Parser parser = new Parser("val one = 1 foo");
+
+            try
+            {
+                parser.ParseCommand();
+                Assert.Fail();
+            }
+            catch (ParserException ex)
+            {
+                Assert.AreEqual("Unexpected 'foo'", ex.Message);
+            }
+        }
+
+        [TestMethod]
         public void ParseSimpleVarCommandWithIntegerExpression()
         {
             Parser parser = new Parser("var one = 1");
