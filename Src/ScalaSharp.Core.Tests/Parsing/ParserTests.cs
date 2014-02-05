@@ -28,6 +28,50 @@
         }
 
         [TestMethod]
+        public void ParseClassCommandWithCompositeBody()
+        {
+            Parser parser = new Parser("class Foo { \r\ndef one = 1\r\n def two = 2\r\n}");
+
+            var result = parser.ParseCommand();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(ClassCommand));
+
+            var ccmd = (ClassCommand)result;
+
+            Assert.AreEqual("Foo", ccmd.Name);
+            Assert.IsNotNull(ccmd.Body);
+            Assert.IsInstanceOfType(ccmd.Body, typeof(CompositeCommand));
+
+            var composite = (CompositeCommand)ccmd.Body;
+
+            Assert.AreEqual(2, composite.Commands.Count);
+            Assert.IsInstanceOfType(composite.Commands[0], typeof(DefCommand));
+            Assert.IsInstanceOfType(composite.Commands[1], typeof(DefCommand));
+
+            Assert.IsNull(parser.ParseCommand());
+        }
+
+        [TestMethod]
+        public void ParseClassCommandWithSimpleBody()
+        {
+            Parser parser = new Parser("class Foo { \r\ndef one = 1\r\n\r\n}");
+
+            var result = parser.ParseCommand();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(ClassCommand));
+
+            var ccmd = (ClassCommand)result;
+
+            Assert.AreEqual("Foo", ccmd.Name);
+            Assert.IsNotNull(ccmd.Body);
+            Assert.IsInstanceOfType(ccmd.Body, typeof(DefCommand));
+
+            Assert.IsNull(parser.ParseCommand());
+        }
+
+        [TestMethod]
         public void RaiseIsNoNameInClassCommand()
         {
             Parser parser = new Parser("class { }");
@@ -241,19 +285,19 @@
         }
 
         [TestMethod]
-        public void RaiseIfUnexpectedOpenSquareBracket()
+        public void NullIfNoExpression()
         {
-            Parser parser = new Parser("[");
+            Parser parser = new Parser("}");
 
-            try
-            {
-                parser.ParseCommand();
-                Assert.Fail();
-            }
-            catch (ParserException ex)
-            {
-                Assert.AreEqual("Unexpected '['", ex.Message);
-            }
+            Assert.IsNull(parser.ParseExpression());
+        }
+
+        [TestMethod]
+        public void NullIfNoCommand()
+        {
+            Parser parser = new Parser("}");
+
+            Assert.IsNull(parser.ParseCommand());
         }
 
         [TestMethod]

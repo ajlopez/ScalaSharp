@@ -23,6 +23,9 @@
         {
             var token = this.NextToken();
 
+            while (token != null && token.Type == TokenType.NewLine)
+                token = this.NextToken();
+
             if (token == null)
                 return null;
 
@@ -45,10 +48,11 @@
             {
                 name = this.ParseName();
                 this.ParseToken(TokenType.Punctuation, "{");
+                ICommand body = this.ParseCommands();
                 this.ParseToken(TokenType.Punctuation, "}");
                 this.ParseEndOfCommand();
 
-                return new ClassCommand(name);
+                return new ClassCommand(name, body);
             }
 
             if (token.Type == TokenType.Name && token.Value == "val")
@@ -82,14 +86,7 @@
 
             this.PushToken(token);
 
-            IExpression expression = this.ParseExpression();
-
-            if (expression == null)
-                throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
-
-            this.ParseEndOfCommand();
-
-            return new ExpressionCommand(expression);
+            return null;
         }
 
         public IExpression ParseExpression()
@@ -111,6 +108,22 @@
             this.PushToken(token);
 
             return null;
+        }
+
+        private ICommand ParseCommands()
+        {
+            IList<ICommand> commands = new List<ICommand>();
+
+            for (var cmd = this.ParseCommand(); cmd != null; cmd = this.ParseCommand())
+                commands.Add(cmd);
+
+            if (commands.Count == 0)
+                return null;
+
+            if (commands.Count == 1)
+                return commands[0];
+
+            return new CompositeCommand(commands);
         }
 
         private void ParseEndOfCommand()
@@ -154,7 +167,7 @@
             ICommand body = null;
 
             if (this.TryParseToken(TokenType.Operator, "="))
-                body = this.ParseCommand();
+                body = new ExpressionCommand(this.ParseExpression());
 
             if (typeinfo == null && body == null)
                 throw new ParserException("Expected ':' or '='");
