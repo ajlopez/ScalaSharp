@@ -11,6 +11,7 @@
 
     public class Parser
     {
+        private static string[][] binaryoperators = new string[][] { new string[] { "+", "-" }, new string[] { "*", "/" } };
         private Lexer lexer;
         private Stack<Token> tokens = new Stack<Token>();
 
@@ -90,6 +91,41 @@
         }
 
         public IExpression ParseExpression()
+        {
+            return this.ParseBinaryExpression(0);
+        }
+
+        private IExpression ParseBinaryExpression(int level)
+        {
+            if (level >= binaryoperators.Length)
+                return this.ParseTerm();
+
+            IExpression expr = this.ParseBinaryExpression(level + 1);
+
+            if (expr == null)
+                return null;
+
+            Token token;
+
+            for (token = this.NextToken(); token != null && this.IsBinaryOperator(level, token); token = this.NextToken())
+            {
+                if (token.Value == "+")
+                    expr = new AddExpression(expr, this.ParseBinaryExpression(level + 1));
+                if (token.Value == "-")
+                    expr = new SubtractExpression(expr, this.ParseBinaryExpression(level + 1));
+                if (token.Value == "*")
+                    expr = new MultiplyExpression(expr, this.ParseBinaryExpression(level + 1));
+                if (token.Value == "/")
+                    expr = new DivideExpression(expr, this.ParseBinaryExpression(level + 1));
+            }
+
+            if (token != null)
+                this.PushToken(token);
+
+            return expr;
+        }
+
+        public IExpression ParseTerm()
         {
             Token token = this.NextToken();
 
@@ -223,6 +259,11 @@
         private void PushToken(Token token)
         {
             this.tokens.Push(token);            
+        }
+
+        private bool IsBinaryOperator(int level, Token token)
+        {
+            return token.Type == TokenType.Operator && binaryoperators[level].Contains(token.Value);
         }
     }
 }
