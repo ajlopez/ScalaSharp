@@ -33,8 +33,6 @@
             this.name = name;
         }
 
-        public string Name { get { return this.name; } }
-
         public static TypeInfo Int { get { return tiint; } }
 
         public static TypeInfo Double { get { return tidouble; } }
@@ -46,6 +44,8 @@
         public static TypeInfo Null { get { return tinull; } }
 
         public static TypeInfo Boolean { get { return tiboolean; } }
+
+        public string Name { get { return this.name; } }
 
         public static TypeInfo MakeByName(string name)
         {

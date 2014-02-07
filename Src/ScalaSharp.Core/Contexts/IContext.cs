@@ -5,6 +5,7 @@
     public interface IContext
     {
         object GetValue(string name);
+
         void SetValue(string name, object value);
     }
 }

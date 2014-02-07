@@ -125,7 +125,7 @@
             return expr;
         }
 
-        public IExpression ParseTerm()
+        private IExpression ParseTerm()
         {
             Token token = this.NextToken();
 

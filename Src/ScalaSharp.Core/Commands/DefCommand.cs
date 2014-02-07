@@ -4,8 +4,8 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-    using ScalaSharp.Core.Language;
     using ScalaSharp.Core.Expressions;
+    using ScalaSharp.Core.Language;
 
     public class DefCommand : ICommand
     {
