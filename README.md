@@ -18,3 +18,5 @@ Scala-like interpreter in C#, WIP.
 - [Fork/Join](http://docs.oracle.com/javase/tutorial/essential/concurrency/forkjoin.html)
 - [Type & polymorphism basics](http://twitter.github.io/scala_school/type-basics.html)
 - [Advanced types](http://twitter.github.io/scala_school/advanced-types.html)
+- [Scala Getting Started](http://www.scala-lang.org/documentation/getting-started.html)
+
