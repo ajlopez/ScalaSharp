@@ -586,5 +586,23 @@
 
             Assert.IsNull(parser.ParseExpression());
         }
+
+        [TestMethod]
+        public void ParseEqualExpression()
+        {
+            Parser parser = new Parser("2 == 1+1");
+
+            var expr = parser.ParseExpression();
+
+            Assert.IsNotNull(expr);
+            Assert.IsInstanceOfType(expr, typeof(EqualExpression));
+
+            var eqexpr = (EqualExpression)expr;
+
+            Assert.IsNotNull(eqexpr.LeftExpression);
+            Assert.IsInstanceOfType(eqexpr.LeftExpression, typeof(ConstantExpression));
+            Assert.IsNotNull(eqexpr.RightExpression);
+            Assert.IsInstanceOfType(eqexpr.RightExpression, typeof(AddExpression));
+        }
     }
 }
