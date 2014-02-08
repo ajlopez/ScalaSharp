@@ -19,4 +19,9 @@ Scala-like interpreter in C#, WIP.
 - [Type & polymorphism basics](http://twitter.github.io/scala_school/type-basics.html)
 - [Advanced types](http://twitter.github.io/scala_school/advanced-types.html)
 - [Scala Getting Started](http://www.scala-lang.org/documentation/getting-started.html)
+- [scala: circular reference while creating object?](http://stackoverflow.com/questions/4978270/scala-circular-reference-while-creating-object)
+- [Instantiating immutable paired objects](http://stackoverflow.com/questions/7507965/instantiating-immutable-paired-objects)
+- [List of Scala Improvement Processes](http://docs.scala-lang.org/sips/sip-list.html)
+- [Addressing the Scala FUD](http://www.theserverside.com/feature/Ending-the-Scala-Fud)
+- [Addressing the Scala FUD with Craig Tataryn](http://www.theserverside.com/discussions/thread.tss?thread_id=62010)
 
