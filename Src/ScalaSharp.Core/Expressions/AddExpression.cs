@@ -6,7 +6,7 @@
     using System.Text;
     using ScalaSharp.Core.Language;
 
-    public class AddExpression : BinaryExpression
+    public class AddExpression : BinaryArithmeticExpression
     {
         public AddExpression(IExpression left, IExpression right)
             : base(left, right)
