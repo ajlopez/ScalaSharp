@@ -39,10 +39,11 @@
             {
                 name = this.ParseName();
                 this.ParseToken(TokenType.Punctuation, "{");
+                ICommand body = this.ParseCommands();
                 this.ParseToken(TokenType.Punctuation, "}");
                 this.ParseEndOfCommand();
 
-                return new ObjectCommand(name);
+                return new ObjectCommand(name, body);
             }
 
             if (token.Type == TokenType.Name && token.Value == "class")

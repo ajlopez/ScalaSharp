@@ -102,6 +102,50 @@
         }
 
         [TestMethod]
+        public void ParseObjectCommandWithCompositeBody()
+        {
+            Parser parser = new Parser("object Foo { \r\ndef one = 1\r\n def two = 2\r\n}");
+
+            var result = parser.ParseCommand();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(ObjectCommand));
+
+            var ocmd = (ObjectCommand)result;
+
+            Assert.AreEqual("Foo", ocmd.Name);
+            Assert.IsNotNull(ocmd.Body);
+            Assert.IsInstanceOfType(ocmd.Body, typeof(CompositeCommand));
+
+            var composite = (CompositeCommand)ocmd.Body;
+
+            Assert.AreEqual(2, composite.Commands.Count);
+            Assert.IsInstanceOfType(composite.Commands[0], typeof(DefCommand));
+            Assert.IsInstanceOfType(composite.Commands[1], typeof(DefCommand));
+
+            Assert.IsNull(parser.ParseCommand());
+        }
+
+        [TestMethod]
+        public void ParseObjectCommandWithSimpleBody()
+        {
+            Parser parser = new Parser("object Foo { \r\ndef one = 1\r\n\r\n}");
+
+            var result = parser.ParseCommand();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(ObjectCommand));
+
+            var ocmd = (ObjectCommand)result;
+
+            Assert.AreEqual("Foo", ocmd.Name);
+            Assert.IsNotNull(ocmd.Body);
+            Assert.IsInstanceOfType(ocmd.Body, typeof(DefCommand));
+
+            Assert.IsNull(parser.ParseCommand());
+        }
+
+        [TestMethod]
         public void RaiseIsNoNameInObjectCommand()
         {
             Parser parser = new Parser("object { }");
