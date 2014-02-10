@@ -4,9 +4,14 @@ Scala-like interpreter in C#, WIP.
 
 ## References
 
-- [How to programmatically compile code using C# compiler](http://support.microsoft.com/kb/304655)
-- [Compile C# Code In The Application](http://stackoverflow.com/questions/7944036/compile-c-sharp-code-in-the-application)
-- [Is it possible to dynamically compile and execute C# code fragments?](http://stackoverflow.com/questions/826398/is-it-possible-to-dynamically-compile-and-execute-c-sharp-code-fragments)
+Conversation with Martin Odersky
+
+- [The Origins of Scala](http://www.artima.com/scalazine/articles/origins_of_scala.html)
+- [The Goals of Scala's Design](http://www.artima.com/scalazine/articles/goals_of_scala.html)
+- [The Purpose of Scala's Type System](http://www.artima.com/scalazine/articles/scalas_type_system.html)
+
+Scala references
+
 - [Scala School](http://twitter.github.io/scala_school/) Scala school started as a series of lectures at Twitter to prepare experienced engineers to be productive Scala programmers. 
 - [Scala: Types of a higher kind](http://blogs.atlassian.com/2013/09/scala-types-of-a-higher-kind/)
 - [Where Akka Came From](http://letitcrash.com/post/40599293211/where-akka-came-from)
@@ -25,3 +30,8 @@ Scala-like interpreter in C#, WIP.
 - [Addressing the Scala FUD](http://www.theserverside.com/feature/Ending-the-Scala-Fud)
 - [Addressing the Scala FUD with Craig Tataryn](http://www.theserverside.com/discussions/thread.tss?thread_id=62010)
 
+C# references
+
+- [How to programmatically compile code using C# compiler](http://support.microsoft.com/kb/304655)
+- [Compile C# Code In The Application](http://stackoverflow.com/questions/7944036/compile-c-sharp-code-in-the-application)
+- [Is it possible to dynamically compile and execute C# code fragments?](http://stackoverflow.com/questions/826398/is-it-possible-to-dynamically-compile-and-execute-c-sharp-code-fragments)
