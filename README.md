@@ -29,6 +29,8 @@ Scala references
 - [List of Scala Improvement Processes](http://docs.scala-lang.org/sips/sip-list.html)
 - [Addressing the Scala FUD](http://www.theserverside.com/feature/Ending-the-Scala-Fud)
 - [Addressing the Scala FUD with Craig Tataryn](http://www.theserverside.com/discussions/thread.tss?thread_id=62010)
+- [Good examples of idiomatic scala code](http://stackoverflow.com/questions/11359784/good-examples-of-idiomatic-scala-code)
+- [Scala Github Repository](https://github.com/scala/scala)
 
 C# references
 
