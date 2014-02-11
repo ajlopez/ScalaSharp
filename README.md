@@ -31,6 +31,7 @@ Scala references
 - [Addressing the Scala FUD with Craig Tataryn](http://www.theserverside.com/discussions/thread.tss?thread_id=62010)
 - [Good examples of idiomatic scala code](http://stackoverflow.com/questions/11359784/good-examples-of-idiomatic-scala-code)
 - [Scala Github Repository](https://github.com/scala/scala)
+- [F-Bounded Type Polymorphism Considered Tricky](http://logji.blogspot.com.ar/2012/11/f-bounded-type-polymorphism-give-up-now.html)
 
 C# references
 
