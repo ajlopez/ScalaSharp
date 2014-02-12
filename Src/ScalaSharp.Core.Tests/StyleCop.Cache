@@ -1,8 +1,5 @@
 <stylecopresultscache>
   <version>10</version>
-  <project key="-1258068334">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="ContextTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>02/08/2014 14:52:32</timestamp>
@@ -111,13 +108,25 @@
     <milliseconds>770</milliseconds>
     <violations />
   </sourcecode>
+  <project key="-1258068334">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
+  <sourcecode name="EqualExpressionTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>02/08/2014 14:52:32</timestamp>
+      <milliseconds>438</milliseconds>
+    </settings>
+    <timestamp>02/08/2014 19:18:53</timestamp>
+    <milliseconds>972</milliseconds>
+    <violations />
+  </sourcecode>
   <sourcecode name="ParserTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>02/08/2014 14:52:32</timestamp>
       <milliseconds>438</milliseconds>
     </settings>
-    <timestamp>02/08/2014 14:33:59</timestamp>
-    <milliseconds>210</milliseconds>
+    <timestamp>02/08/2014 19:32:48</timestamp>
+    <milliseconds>778</milliseconds>
     <violations />
   </sourcecode>
 </stylecopresultscache>

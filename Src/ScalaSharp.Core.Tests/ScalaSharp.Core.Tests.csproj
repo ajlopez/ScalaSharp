@@ -45,6 +45,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ast\NameNodeTests.cs" />
     <Compile Include="Contexts\ContextTests.cs" />
     <Compile Include="EvaluateTests.cs" />
     <Compile Include="Expressions\AddExpressionTests.cs" />

@@ -1,8 +1,5 @@
 <stylecopresultscache>
   <version>10</version>
-  <project key="817945136">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="ClassCommand.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>08/31/2013 18:43:41</timestamp>
@@ -93,15 +90,6 @@
     <milliseconds>575</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="AddExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>02/01/2014 08:13:25</timestamp>
-    <milliseconds>585</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="BinaryExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>08/31/2013 18:43:41</timestamp>
@@ -120,15 +108,6 @@
     <milliseconds>610</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="DivideExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>01/25/2014 17:43:48</timestamp>
-    <milliseconds>379</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="IExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>08/31/2013 18:43:41</timestamp>
@@ -138,15 +117,6 @@
     <milliseconds>385</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="MultiplyExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>01/25/2014 17:43:48</timestamp>
-    <milliseconds>368</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="IfExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>08/31/2013 18:43:41</timestamp>
@@ -154,15 +124,6 @@
     </settings>
     <timestamp>02/08/2014 14:17:44</timestamp>
     <milliseconds>769</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="SubtractExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>01/25/2014 17:43:48</timestamp>
-    <milliseconds>356</milliseconds>
     <violations />
   </sourcecode>
   <sourcecode name="VariableExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
@@ -237,15 +198,6 @@
     <milliseconds>741</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="Parser.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>02/08/2014 14:32:34</timestamp>
-    <milliseconds>295</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="AssemblyInfo.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>08/31/2013 18:43:41</timestamp>
@@ -253,6 +205,81 @@
     </settings>
     <timestamp>08/31/2013 17:58:33</timestamp>
     <milliseconds>213</milliseconds>
+    <violations />
+  </sourcecode>
+  <project key="817945136">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
+  <sourcecode name="BinaryArithmeticExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>02/08/2014 19:21:49</timestamp>
+    <milliseconds>239</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="AddExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>02/08/2014 19:24:49</timestamp>
+    <milliseconds>930</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="BinaryBooleanExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>02/08/2014 19:22:47</timestamp>
+    <milliseconds>280</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="DivideExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>02/08/2014 19:24:49</timestamp>
+    <milliseconds>871</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="MultiplyExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>02/08/2014 19:24:49</timestamp>
+    <milliseconds>886</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="SubtractExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>02/08/2014 19:24:49</timestamp>
+    <milliseconds>909</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="EqualExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>02/08/2014 19:24:09</timestamp>
+    <milliseconds>903</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Parser.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>02/08/2014 19:37:05</timestamp>
+    <milliseconds>549</milliseconds>
     <violations />
   </sourcecode>
 </stylecopresultscache>
