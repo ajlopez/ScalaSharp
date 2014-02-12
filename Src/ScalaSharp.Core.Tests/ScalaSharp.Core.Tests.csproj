@@ -45,6 +45,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ast\ClassNodeTests.cs" />
     <Compile Include="Ast\ConstantNodeTests.cs" />
     <Compile Include="Ast\NameNodeTests.cs" />
     <Compile Include="Contexts\ContextTests.cs" />

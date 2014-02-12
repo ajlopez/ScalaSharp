@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
 
-    public class ConstantNode
+    public class ConstantNode : INode
     {
         private object value;
 

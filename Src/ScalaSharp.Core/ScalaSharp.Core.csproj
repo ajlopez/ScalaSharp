@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ast\ClassNode.cs" />
     <Compile Include="Ast\ConstantNode.cs" />
+    <Compile Include="Ast\INode.cs" />
     <Compile Include="Ast\NameNode.cs" />
     <Compile Include="Commands\ClassCommand.cs" />
     <Compile Include="Commands\CompositeCommand.cs" />
