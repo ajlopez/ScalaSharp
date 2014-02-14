@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using ScalaSharp.Core.Language;
 
     public class NameNode : INode
     {
@@ -15,5 +16,7 @@
         }
 
         public string Name { get { return this.name; } }
+
+        public TypeInfo TypeInfo { get { return null; } }
     }
 }
