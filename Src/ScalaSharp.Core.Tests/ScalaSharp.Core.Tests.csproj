@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ast\ClassNodeTests.cs" />
+    <Compile Include="Ast\CompositeNodeTests.cs" />
     <Compile Include="Ast\ConstantNodeTests.cs" />
     <Compile Include="Ast\ValNodeTests.cs" />
     <Compile Include="Ast\NameNodeTests.cs" />

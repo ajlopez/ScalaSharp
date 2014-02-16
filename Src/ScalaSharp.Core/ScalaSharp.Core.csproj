@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ast\ClassNode.cs" />
+    <Compile Include="Ast\CompositeNode.cs" />
     <Compile Include="Ast\ConstantNode.cs" />
     <Compile Include="Ast\ValNode.cs" />
     <Compile Include="Ast\INode.cs" />
