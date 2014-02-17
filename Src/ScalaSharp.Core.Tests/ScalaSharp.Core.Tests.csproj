@@ -48,6 +48,7 @@
     <Compile Include="Ast\ClassNodeTests.cs" />
     <Compile Include="Ast\CompositeNodeTests.cs" />
     <Compile Include="Ast\ConstantNodeTests.cs" />
+    <Compile Include="Ast\ObjectNodeTests.cs" />
     <Compile Include="Ast\ValNodeTests.cs" />
     <Compile Include="Ast\NameNodeTests.cs" />
     <Compile Include="Ast\VarNodeTests.cs" />
