@@ -279,16 +279,22 @@
     <milliseconds>549</milliseconds>
     <violations />
   </sourcecode>
-  <project key="817945136">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
+  <sourcecode name="AssignmentNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>02/22/2014 15:01:15</timestamp>
+    <milliseconds>306</milliseconds>
+    <violations />
+  </sourcecode>
   <sourcecode name="ClassNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>08/31/2013 18:43:41</timestamp>
       <milliseconds>30</milliseconds>
     </settings>
-    <timestamp>02/14/2014 13:46:56</timestamp>
-    <milliseconds>768</milliseconds>
+    <timestamp>02/22/2014 15:27:02</timestamp>
+    <milliseconds>291</milliseconds>
     <violations />
   </sourcecode>
   <sourcecode name="ConstantNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
@@ -296,8 +302,35 @@
       <timestamp>08/31/2013 18:43:41</timestamp>
       <milliseconds>30</milliseconds>
     </settings>
-    <timestamp>02/14/2014 13:48:41</timestamp>
-    <milliseconds>230</milliseconds>
+    <timestamp>02/22/2014 14:49:54</timestamp>
+    <milliseconds>149</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="DefNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>02/22/2014 14:48:22</timestamp>
+    <milliseconds>73</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="CompositeNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>02/22/2014 14:47:26</timestamp>
+    <milliseconds>12</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="IfNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>02/22/2014 15:15:05</timestamp>
+    <milliseconds>198</milliseconds>
     <violations />
   </sourcecode>
   <sourcecode name="INode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
@@ -305,8 +338,17 @@
       <timestamp>08/31/2013 18:43:41</timestamp>
       <milliseconds>30</milliseconds>
     </settings>
-    <timestamp>02/14/2014 13:47:01</timestamp>
-    <milliseconds>68</milliseconds>
+    <timestamp>02/22/2014 14:46:02</timestamp>
+    <milliseconds>791</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="IUntypedNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>02/22/2014 14:49:39</timestamp>
+    <milliseconds>386</milliseconds>
     <violations />
   </sourcecode>
   <sourcecode name="NameNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
@@ -314,8 +356,26 @@
       <timestamp>08/31/2013 18:43:41</timestamp>
       <milliseconds>30</milliseconds>
     </settings>
-    <timestamp>02/14/2014 13:47:01</timestamp>
-    <milliseconds>77</milliseconds>
+    <timestamp>02/22/2014 14:49:20</timestamp>
+    <milliseconds>205</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="NamedNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>02/22/2014 14:48:33</timestamp>
+    <milliseconds>907</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ObjectNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>02/22/2014 15:46:52</timestamp>
+    <milliseconds>18</milliseconds>
     <violations />
   </sourcecode>
   <sourcecode name="ValNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
@@ -323,8 +383,8 @@
       <timestamp>08/31/2013 18:43:41</timestamp>
       <milliseconds>30</milliseconds>
     </settings>
-    <timestamp>02/13/2014 08:18:51</timestamp>
-    <milliseconds>508</milliseconds>
+    <timestamp>02/18/2014 07:45:00</timestamp>
+    <milliseconds>292</milliseconds>
     <violations />
   </sourcecode>
   <sourcecode name="VarNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
@@ -332,8 +392,11 @@
       <timestamp>08/31/2013 18:43:41</timestamp>
       <milliseconds>30</milliseconds>
     </settings>
-    <timestamp>02/13/2014 08:13:17</timestamp>
-    <milliseconds>78</milliseconds>
+    <timestamp>02/18/2014 07:44:38</timestamp>
+    <milliseconds>885</milliseconds>
     <violations />
   </sourcecode>
+  <project key="817945136">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
 </stylecopresultscache>
