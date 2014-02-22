@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-using ScalaSharp.Core.Language;
+    using ScalaSharp.Core.Language;
 
     public class AssignmentNode : INode
     {
@@ -22,5 +22,16 @@ using ScalaSharp.Core.Language;
         public INode Expression { get { return this.expression; } }
 
         public TypeInfo TypeInfo { get { return this.expression.TypeInfo; } }
+
+        public void CheckType()
+        {
+            this.expression.CheckType();
+            this.target.CheckType();
+
+            if (this.target.TypeInfo == null)
+                ((IUntypedNode)this.target).SetTypeInfo(this.expression.TypeInfo);
+            else if (this.target.TypeInfo != this.expression.TypeInfo)
+                throw new InvalidOperationException("type mismatch");
+        }
     }
 }

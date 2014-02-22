@@ -11,12 +11,16 @@
     public class ObjectNodeTests
     {
         [TestMethod]
-        public void CreateObjectNodeWithNameAndNullBody()
+        public void CreateObjectNode()
         {
-            ObjectNode node = new ObjectNode("Foo", null);
+            VarNode varnode = new VarNode("a", null, new ConstantNode(42));
+            ObjectNode node = new ObjectNode("Foo", varnode);
 
             Assert.AreEqual("Foo", node.Name);
-            Assert.IsNull(node.Body);
+            Assert.IsNotNull(node.Body);
+            Assert.AreSame(varnode, node.Body);
+            Assert.AreEqual("Foo", node.TypeInfo.Name);
+            node.CheckType();
             Assert.AreEqual("Foo", node.TypeInfo.Name);
         }
     }

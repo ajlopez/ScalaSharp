@@ -6,10 +6,8 @@
     using System.Text;
     using ScalaSharp.Core.Language;
 
-    public interface INode
+    public interface IUntypedNode
     {
-        TypeInfo TypeInfo { get; }
-
-        void CheckType();
+        void SetTypeInfo(TypeInfo typeinfo);
     }
 }

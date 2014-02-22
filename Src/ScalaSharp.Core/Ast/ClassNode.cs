@@ -24,5 +24,11 @@
         public INode Body { get { return this.body; } }
 
         public TypeInfo TypeInfo { get { return this.typeinfo; } }
+
+        public void CheckType()
+        {
+            if (this.body != null)
+                this.body.CheckType();
+        }
     }
 }

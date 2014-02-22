@@ -24,5 +24,21 @@
             Assert.AreSame(TypeInfo.Int, node.TypeInfo);
             Assert.AreSame(expression, node.Expression);
         }
+
+        [TestMethod]
+        public void CreateValNodeWithoutTypeInfo()
+        {
+            string name = "foo";
+            TypeInfo typeinfo = TypeInfo.Int;
+            INode expression = new ConstantNode(42);
+
+            ValNode node = new ValNode(name, null, expression);
+
+            Assert.IsNull(node.TypeInfo);
+
+            node.CheckType();
+
+            Assert.AreSame(TypeInfo.Int, node.TypeInfo);
+        }
     }
 }

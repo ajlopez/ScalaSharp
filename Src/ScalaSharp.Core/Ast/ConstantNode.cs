@@ -20,5 +20,9 @@
         public object Value { get { return this.value; } }
 
         public TypeInfo TypeInfo { get { return this.typeinfo; } }
+
+        public void CheckType()
+        {
+        }
     }
 }

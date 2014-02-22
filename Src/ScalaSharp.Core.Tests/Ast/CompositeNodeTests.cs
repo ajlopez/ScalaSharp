@@ -24,6 +24,9 @@
             Assert.AreSame(node1, node.Nodes[0]);
             Assert.AreSame(node2, node.Nodes[1]);
             Assert.AreSame(TypeInfo.String, node.TypeInfo);
+
+            node.CheckType();
+            Assert.AreSame(TypeInfo.String, node.TypeInfo);
         }
     }
 }

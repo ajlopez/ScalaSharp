@@ -26,5 +26,22 @@
         public INode Else { get { return this.@else; } }
 
         public TypeInfo TypeInfo { get { return this.then.TypeInfo; } }
+
+        public void CheckType()
+        {
+            if (this.then != null)
+                this.then.CheckType();
+
+            if (this.@else != null)
+                this.@else.CheckType();
+
+            this.condition.CheckType();
+
+            if (this.condition.TypeInfo != TypeInfo.Boolean)
+                throw new InvalidOperationException("condition must be boolean");
+
+            if (this.then.TypeInfo != this.@else.TypeInfo)
+                throw new InvalidOperationException("type mismatch");
+        }
     }
 }

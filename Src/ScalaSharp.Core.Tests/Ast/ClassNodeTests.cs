@@ -13,10 +13,14 @@
         [TestMethod]
         public void CreateClassNodeWithNameAndNullBody()
         {
-            ClassNode node = new ClassNode("Foo", null);
+            VarNode body = new VarNode("a", null, new ConstantNode(42));
+            ClassNode node = new ClassNode("Foo", body);
 
             Assert.AreEqual("Foo", node.Name);
-            Assert.IsNull(node.Body);
+            Assert.IsNotNull(node.Body);
+            Assert.AreEqual("Foo", node.TypeInfo.Name);
+
+            node.CheckType();
             Assert.AreEqual("Foo", node.TypeInfo.Name);
         }
     }

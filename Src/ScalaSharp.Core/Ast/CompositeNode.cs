@@ -20,5 +20,13 @@
         public IList<INode> Nodes { get { return this.nodes; } }
 
         public TypeInfo TypeInfo { get { return this.typeinfo; } }
+
+        public void CheckType()
+        {
+            foreach (var node in this.nodes)
+                node.CheckType();
+
+            this.typeinfo = this.nodes.Last().TypeInfo;
+        }
     }
 }

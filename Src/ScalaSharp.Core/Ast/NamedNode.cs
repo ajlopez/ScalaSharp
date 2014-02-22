@@ -24,5 +24,15 @@
         public TypeInfo TypeInfo { get { return this.typeinfo; } }
 
         public INode Expression { get { return this.expression; } }
+
+        public void CheckType()
+        {
+            this.expression.CheckType();
+
+            if (this.typeinfo == null)
+                this.typeinfo = this.expression.TypeInfo;
+            else if (this.typeinfo != this.expression.TypeInfo)
+                throw new InvalidOperationException("type mismatch");
+        }
     }
 }
