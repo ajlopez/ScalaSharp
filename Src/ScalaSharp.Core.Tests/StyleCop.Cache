@@ -224,14 +224,8 @@
       <timestamp>02/08/2014 14:52:32</timestamp>
       <milliseconds>438</milliseconds>
     </settings>
-    <timestamp>02/23/2014 15:17:59</timestamp>
-    <milliseconds>674</milliseconds>
-    <violations>
-      <violation namespace="Microsoft.StyleCop.CSharp.OrderingRules" rule="UsingDirectivesMustBeOrderedAlphabeticallyByNamespace" ruleCheckId="SA1210">
-        <context>Using directives must be sorted alphabetically by the namespaces.</context>
-        <line>4</line>
-        <warning>False</warning>
-      </violation>
-    </violations>
+    <timestamp>02/23/2014 15:19:35</timestamp>
+    <milliseconds>380</milliseconds>
+    <violations />
   </sourcecode>
 </stylecopresultscache>
