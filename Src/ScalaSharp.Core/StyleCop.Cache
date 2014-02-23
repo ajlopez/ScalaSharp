@@ -399,4 +399,13 @@
   <project key="817945136">
     <configuration>DEBUG;TRACE</configuration>
   </project>
+  <sourcecode name="InvokeMethodNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>02/23/2014 15:13:26</timestamp>
+    <milliseconds>479</milliseconds>
+    <violations />
+  </sourcecode>
 </stylecopresultscache>
