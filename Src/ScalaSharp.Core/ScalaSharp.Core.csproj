@@ -44,6 +44,7 @@
     <Compile Include="Ast\ClassNode.cs" />
     <Compile Include="Ast\CompositeNode.cs" />
     <Compile Include="Ast\ConstantNode.cs" />
+    <Compile Include="Ast\InvokeNode.cs" />
     <Compile Include="Ast\DefNode.cs" />
     <Compile Include="Ast\IfNode.cs" />
     <Compile Include="Ast\InvokeMethodNode.cs" />

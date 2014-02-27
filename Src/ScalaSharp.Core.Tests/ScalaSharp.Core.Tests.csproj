@@ -49,6 +49,7 @@
     <Compile Include="Ast\ClassNodeTests.cs" />
     <Compile Include="Ast\CompositeNodeTests.cs" />
     <Compile Include="Ast\ConstantNodeTests.cs" />
+    <Compile Include="Ast\InvokeNodeTests.cs" />
     <Compile Include="Ast\DefNodeTests.cs" />
     <Compile Include="Ast\IfNodeTest.cs" />
     <Compile Include="Ast\InvokeMethodNodeTests.cs" />

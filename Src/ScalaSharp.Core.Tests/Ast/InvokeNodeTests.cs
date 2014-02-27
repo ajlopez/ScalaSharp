@@ -7,18 +7,15 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using ScalaSharp.Core.Ast;
 
-
     [TestClass]
-    public class InvokeMethodNodeTests
+    public class InvokeNodeTests
     {
         [TestMethod]
-        public void CreateInvokeMethodNode()
+        public void CreateInvokeNode()
         {
-            INode target = new NameNode("foo");
             IList<INode> arguments = new List<INode>() { new ConstantNode(42) };
-            InvokeMethodNode node = new InvokeMethodNode(target, "append", arguments);
+            InvokeNode node = new InvokeNode("append", arguments);
 
-            Assert.AreSame(target, node.Target);
             Assert.AreSame(arguments, node.Arguments);
             Assert.AreEqual("append", node.MethodName);
         }
