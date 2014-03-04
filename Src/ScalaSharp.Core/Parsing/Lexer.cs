@@ -15,7 +15,7 @@
         public Lexer(string text)
         {
             this.text = text;
-            this.length = text.Length;
+            this.length = text == null ? 0 : text.Length;
         }
 
         public Token NextToken()

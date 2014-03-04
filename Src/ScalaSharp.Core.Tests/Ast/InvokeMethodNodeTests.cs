@@ -7,7 +7,6 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using ScalaSharp.Core.Ast;
 
-
     [TestClass]
     public class InvokeMethodNodeTests
     {

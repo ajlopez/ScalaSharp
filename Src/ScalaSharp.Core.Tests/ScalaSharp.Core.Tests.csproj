@@ -69,6 +69,7 @@
     <Compile Include="Expressions\VariableExpressionTests.cs" />
     <Compile Include="Language\TypeInfoTests.cs" />
     <Compile Include="Parsing\LexerTests.cs" />
+    <Compile Include="Parsing\ParserNodeTests.cs" />
     <Compile Include="Parsing\ParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

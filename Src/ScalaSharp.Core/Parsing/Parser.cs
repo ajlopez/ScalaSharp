@@ -5,6 +5,7 @@
     using System.Globalization;
     using System.Linq;
     using System.Text;
+    using ScalaSharp.Core.Ast;
     using ScalaSharp.Core.Commands;
     using ScalaSharp.Core.Expressions;
     using ScalaSharp.Core.Language;
@@ -18,6 +19,19 @@
         public Parser(string text)
         {
             this.lexer = new Lexer(text);
+        }
+
+        public INode ParseNode()
+        {
+            var token = this.NextToken();
+
+            if (token == null)
+                return null;
+
+            if (token.Type == TokenType.String)
+                return new ConstantNode(token.Value);
+
+            throw new NotImplementedException();
         }
 
         public ICommand ParseCommand()
