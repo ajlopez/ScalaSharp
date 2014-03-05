@@ -37,6 +37,9 @@
             if (token.Type == TokenType.Real)
                 return new ConstantNode(double.Parse(token.Value, CultureInfo.InvariantCulture));
 
+            if (token.Type == TokenType.Name)
+                return new NameNode(token.Value);
+
             throw new NotImplementedException();
         }
 

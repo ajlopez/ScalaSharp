@@ -87,9 +87,26 @@
         }
 
         [TestMethod]
-        public void RaiseIfNotImplemented()
+        public void ParseNameNode()
         {
             Parser parser = new Parser("name");
+
+            var result = parser.ParseNode();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(NameNode));
+
+            var node = (NameNode)result;
+
+            Assert.AreEqual("name", node.Name);
+
+            Assert.IsNull(parser.ParseNode());
+        }
+
+        [TestMethod]
+        public void RaiseIfNotImplemented()
+        {
+            Parser parser = new Parser("[]");
 
             try
             {
