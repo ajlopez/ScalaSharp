@@ -53,9 +53,43 @@
         }
 
         [TestMethod]
-        public void RaiseIfNotImplemented()
+        public void ParseIntegerNode()
         {
             Parser parser = new Parser("123");
+
+            var result = parser.ParseNode();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(ConstantNode));
+
+            var node = (ConstantNode)result;
+
+            Assert.AreEqual(123, node.Value);
+
+            Assert.IsNull(parser.ParseNode());
+        }
+
+        [TestMethod]
+        public void ParseRealNode()
+        {
+            Parser parser = new Parser("123.45");
+
+            var result = parser.ParseNode();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(ConstantNode));
+
+            var node = (ConstantNode)result;
+
+            Assert.AreEqual(123.45, node.Value);
+
+            Assert.IsNull(parser.ParseNode());
+        }
+
+        [TestMethod]
+        public void RaiseIfNotImplemented()
+        {
+            Parser parser = new Parser("name");
 
             try
             {
