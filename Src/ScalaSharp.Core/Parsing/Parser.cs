@@ -37,6 +37,17 @@
             if (token.Type == TokenType.Real)
                 return new ConstantNode(double.Parse(token.Value, CultureInfo.InvariantCulture));
 
+            if (token.Type == TokenType.Name && token.Value == "class")
+            {
+                string name = this.ParseName();
+                this.ParseToken(TokenType.Punctuation, "{");
+                INode body = null;
+                this.ParseToken(TokenType.Punctuation, "}");
+                this.ParseEndOfCommand();
+
+                return new ClassNode(name, body);
+            }
+
             if (token.Type == TokenType.Name)
                 return new NameNode(token.Value);
 
