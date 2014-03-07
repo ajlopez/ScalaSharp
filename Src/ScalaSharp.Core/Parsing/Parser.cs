@@ -48,6 +48,17 @@
                 return new ClassNode(name, body);
             }
 
+            if (token.Type == TokenType.Name && token.Value == "object")
+            {
+                string name = this.ParseName();
+                this.ParseToken(TokenType.Punctuation, "{");
+                INode body = null;
+                this.ParseToken(TokenType.Punctuation, "}");
+                this.ParseEndOfCommand();
+
+                return new ObjectNode(name, body);
+            }
+
             if (token.Type == TokenType.Name)
                 return new NameNode(token.Value);
 

@@ -104,7 +104,7 @@
         }
 
         [TestMethod]
-        public void ParseEmptyClassCommand()
+        public void ParseEmptyClassNode()
         {
             Parser parser = new Parser("class Foo { }");
 
@@ -114,6 +114,25 @@
             Assert.IsInstanceOfType(result, typeof(ClassNode));
 
             var node = (ClassNode)result;
+
+            Assert.AreEqual("Foo", node.Name);
+            Assert.IsNull(node.Body);
+            Assert.AreEqual("Foo", node.TypeInfo.Name);
+
+            Assert.IsNull(parser.ParseCommand());
+        }
+
+        [TestMethod]
+        public void ParseEmptyObjectNode()
+        {
+            Parser parser = new Parser("object Foo { }");
+
+            var result = parser.ParseNode();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(ObjectNode));
+
+            var node = (ObjectNode)result;
 
             Assert.AreEqual("Foo", node.Name);
             Assert.IsNull(node.Body);
