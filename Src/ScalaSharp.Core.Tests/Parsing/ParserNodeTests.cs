@@ -123,6 +123,22 @@
         }
 
         [TestMethod]
+        public void RaiseIsNoNameInClassCommand()
+        {
+            Parser parser = new Parser("class { }");
+
+            try
+            {
+                parser.ParseNode();
+                Assert.Fail();
+            }
+            catch (ParserException ex)
+            {
+                Assert.AreEqual("Expected a name", ex.Message);
+            }
+        }
+
+        [TestMethod]
         public void ParseEmptyObjectNode()
         {
             Parser parser = new Parser("object Foo { }");
@@ -139,6 +155,22 @@
             Assert.AreEqual("Foo", node.TypeInfo.Name);
 
             Assert.IsNull(parser.ParseCommand());
+        }
+
+        [TestMethod]
+        public void RaiseIsNoNameInObjectCommand()
+        {
+            Parser parser = new Parser("object { }");
+
+            try
+            {
+                parser.ParseNode();
+                Assert.Fail();
+            }
+            catch (ParserException ex)
+            {
+                Assert.AreEqual("Expected a name", ex.Message);
+            }
         }
 
         [TestMethod]
