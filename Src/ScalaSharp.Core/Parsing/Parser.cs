@@ -59,6 +59,16 @@
                 return new ObjectNode(name, body);
             }
 
+            if (token.Type == TokenType.Name && token.Value == "def")
+            {
+                string name = this.ParseName();
+                this.ParseToken(TokenType.Punctuation, ":");
+                string type = this.ParseName();
+                this.ParseEndOfCommand();
+
+                return new DefNode(name, new List<ArgumentInfo>(), TypeInfo.MakeByName(type), null);
+            }
+
             if (token.Type == TokenType.Name)
                 return new NameNode(token.Value);
 
