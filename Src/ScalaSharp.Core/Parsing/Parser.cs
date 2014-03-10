@@ -62,11 +62,18 @@
             if (token.Type == TokenType.Name && token.Value == "def")
             {
                 string name = this.ParseName();
-                this.ParseToken(TokenType.Punctuation, ":");
-                string type = this.ParseName();
-                this.ParseEndOfCommand();
+                string type = null;
+                INode expr = null;
 
-                return new DefNode(name, new List<ArgumentInfo>(), TypeInfo.MakeByName(type), null);
+                if (this.TryParseToken(TokenType.Punctuation, ":"))
+                    type = this.ParseName();
+
+                if (this.TryParseToken(TokenType.Operator, "="))
+                    expr = this.ParseNode();
+                else
+                    this.ParseEndOfCommand();
+
+                return new DefNode(name, new List<ArgumentInfo>(), type == null ? null : TypeInfo.MakeByName(type), expr);
             }
 
             if (token.Type == TokenType.Name)
