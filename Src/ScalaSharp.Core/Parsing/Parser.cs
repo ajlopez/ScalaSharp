@@ -65,6 +65,9 @@
                 string type = null;
                 INode expr = null;
 
+                if (this.TryParseToken(TokenType.Punctuation, "("))
+                    this.ParseToken(TokenType.Punctuation, ")");
+
                 if (this.TryParseToken(TokenType.Punctuation, ":"))
                     type = this.ParseName();
 

@@ -217,6 +217,25 @@
         }
 
         [TestMethod]
+        public void ParseSimpleDefNodeEmptyParenthesis()
+        {
+            Parser parser = new Parser("def foo(): unit");
+
+            var result = parser.ParseNode();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(DefNode));
+
+            var dnode = (DefNode)result;
+
+            Assert.AreEqual("foo", dnode.Name);
+            Assert.IsNotNull(dnode.TypeInfo);
+            Assert.AreEqual("unit", dnode.TypeInfo.Name);
+            Assert.IsNotNull(dnode.Arguments);
+            Assert.AreEqual(0, dnode.Arguments.Count);
+        }
+
+        [TestMethod]
         public void RaiseIsNoNameInDefNode()
         {
             Parser parser = new Parser("def: unit");
