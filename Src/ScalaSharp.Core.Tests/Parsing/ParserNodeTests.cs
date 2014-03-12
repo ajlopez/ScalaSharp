@@ -236,6 +236,29 @@
         }
 
         [TestMethod]
+        public void ParseSimpleDefNodeWithTwoIntegerArguments()
+        {
+            Parser parser = new Parser("def foo(x: Int, y: Int): Int");
+
+            var result = parser.ParseNode();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(DefNode));
+
+            var dnode = (DefNode)result;
+
+            Assert.AreEqual("foo", dnode.Name);
+            Assert.IsNotNull(dnode.TypeInfo);
+            Assert.AreEqual("Int", dnode.TypeInfo.Name);
+            Assert.IsNotNull(dnode.Arguments);
+            Assert.AreEqual(2, dnode.Arguments.Count);
+            Assert.AreEqual("x", dnode.Arguments[0].Name);
+            Assert.AreEqual("Int", dnode.Arguments[0].TypeInfo.Name);
+            Assert.AreEqual("y", dnode.Arguments[1].Name);
+            Assert.AreEqual("Int", dnode.Arguments[1].TypeInfo.Name);
+        }
+
+        [TestMethod]
         public void RaiseIsNoNameInDefNode()
         {
             Parser parser = new Parser("def: unit");
@@ -248,6 +271,22 @@
             catch (ParserException ex)
             {
                 Assert.AreEqual("Expected a name", ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void RaiseEndOfInputInDefNode()
+        {
+            Parser parser = new Parser("def name");
+
+            try
+            {
+                parser.ParseNode();
+                Assert.Fail();
+            }
+            catch (ParserException ex)
+            {
+                Assert.AreEqual("Expected ':' or '='", ex.Message);
             }
         }
 

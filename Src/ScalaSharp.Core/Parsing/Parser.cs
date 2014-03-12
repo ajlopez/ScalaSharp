@@ -60,24 +60,7 @@
             }
 
             if (token.Type == TokenType.Name && token.Value == "def")
-            {
-                string name = this.ParseName();
-                string type = null;
-                INode expr = null;
-
-                if (this.TryParseToken(TokenType.Punctuation, "("))
-                    this.ParseToken(TokenType.Punctuation, ")");
-
-                if (this.TryParseToken(TokenType.Punctuation, ":"))
-                    type = this.ParseName();
-
-                if (this.TryParseToken(TokenType.Operator, "="))
-                    expr = this.ParseNode();
-                else
-                    this.ParseEndOfCommand();
-
-                return new DefNode(name, new List<ArgumentInfo>(), type == null ? null : TypeInfo.MakeByName(type), expr);
-            }
+                return this.ParseDefNode();
 
             if (token.Type == TokenType.Name)
                 return new NameNode(token.Value);
@@ -159,6 +142,41 @@
         public IExpression ParseExpression()
         {
             return this.ParseBinaryExpression(0);
+        }
+
+        private DefNode ParseDefNode()
+        {
+            string name = this.ParseName();
+            IList<ArgumentInfo> arguments = new List<ArgumentInfo>();
+
+            if (this.TryParseToken(TokenType.Punctuation, "("))
+                while (!this.TryParseToken(TokenType.Punctuation, ")"))
+                {
+                    if (arguments.Count > 0)
+                        this.ParseToken(TokenType.Punctuation, ",");
+
+                    string argname = this.ParseName();
+                    this.ParseToken(TokenType.Punctuation, ":");
+                    TypeInfo ti = this.ParseTypeInfo();
+                    arguments.Add(new ArgumentInfo(argname, ti));
+                }
+
+            TypeInfo typeinfo = null;
+
+            if (this.TryParseToken(TokenType.Punctuation, ":"))
+                typeinfo = this.ParseTypeInfo();
+
+            INode expr = null;
+
+            if (this.TryParseToken(TokenType.Operator, "="))
+                expr = this.ParseNode();
+            else
+                this.ParseEndOfCommand();
+
+            if (typeinfo == null && expr == null)
+                throw new ParserException("Expected ':' or '='");
+
+            return new DefNode(name, arguments, typeinfo, expr);
         }
 
         private IExpression ParseBinaryExpression(int level)
