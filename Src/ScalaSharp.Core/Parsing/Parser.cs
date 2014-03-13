@@ -23,49 +23,14 @@
 
         public INode ParseNode()
         {
-            var token = this.NextToken();
+            var node = this.ParseSimpleNode();
 
-            if (token == null)
+            if (node == null)
                 return null;
 
-            if (token.Type == TokenType.String)
-                return new ConstantNode(token.Value);
+            this.ParseEndOfCommand();
 
-            if (token.Type == TokenType.Integer)
-                return new ConstantNode(int.Parse(token.Value, CultureInfo.InvariantCulture));
-
-            if (token.Type == TokenType.Real)
-                return new ConstantNode(double.Parse(token.Value, CultureInfo.InvariantCulture));
-
-            if (token.Type == TokenType.Name && token.Value == "class")
-            {
-                string name = this.ParseName();
-                this.ParseToken(TokenType.Punctuation, "{");
-                INode body = null;
-                this.ParseToken(TokenType.Punctuation, "}");
-                this.ParseEndOfCommand();
-
-                return new ClassNode(name, body);
-            }
-
-            if (token.Type == TokenType.Name && token.Value == "object")
-            {
-                string name = this.ParseName();
-                this.ParseToken(TokenType.Punctuation, "{");
-                INode body = null;
-                this.ParseToken(TokenType.Punctuation, "}");
-                this.ParseEndOfCommand();
-
-                return new ObjectNode(name, body);
-            }
-
-            if (token.Type == TokenType.Name && token.Value == "def")
-                return this.ParseDefNode();
-
-            if (token.Type == TokenType.Name)
-                return new NameNode(token.Value);
-
-            throw new NotImplementedException();
+            return node;
         }
 
         public ICommand ParseCommand()
@@ -144,6 +109,51 @@
             return this.ParseBinaryExpression(0);
         }
 
+        private INode ParseSimpleNode()
+        {
+            var token = this.NextToken();
+
+            if (token == null)
+                return null;
+
+            if (token.Type == TokenType.String)
+                return new ConstantNode(token.Value);
+
+            if (token.Type == TokenType.Integer)
+                return new ConstantNode(int.Parse(token.Value, CultureInfo.InvariantCulture));
+
+            if (token.Type == TokenType.Real)
+                return new ConstantNode(double.Parse(token.Value, CultureInfo.InvariantCulture));
+
+            if (token.Type == TokenType.Name && token.Value == "class")
+            {
+                string name = this.ParseName();
+                this.ParseToken(TokenType.Punctuation, "{");
+                INode body = null;
+                this.ParseToken(TokenType.Punctuation, "}");
+
+                return new ClassNode(name, body);
+            }
+
+            if (token.Type == TokenType.Name && token.Value == "object")
+            {
+                string name = this.ParseName();
+                this.ParseToken(TokenType.Punctuation, "{");
+                INode body = null;
+                this.ParseToken(TokenType.Punctuation, "}");
+
+                return new ObjectNode(name, body);
+            }
+
+            if (token.Type == TokenType.Name && token.Value == "def")
+                return this.ParseDefNode();
+
+            if (token.Type == TokenType.Name)
+                return new NameNode(token.Value);
+
+            throw new NotImplementedException();
+        }
+
         private DefNode ParseDefNode()
         {
             string name = this.ParseName();
@@ -170,8 +180,6 @@
 
             if (this.TryParseToken(TokenType.Operator, "="))
                 expr = this.ParseNode();
-            else
-                this.ParseEndOfCommand();
 
             if (typeinfo == null && expr == null)
                 throw new ParserException("Expected ':' or '='");
