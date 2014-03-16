@@ -7,6 +7,7 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using ScalaSharp.Core.Ast;
     using ScalaSharp.Core.Parsing;
+    using ScalaSharp.Core.Commands;
 
     [TestClass]
     public class ParserNodeTests
@@ -288,6 +289,29 @@
             {
                 Assert.AreEqual("Expected ':' or '='", ex.Message);
             }
+        }
+
+        [TestMethod]
+        public void ParseSimpleValNodeWithIntegerExpression()
+        {
+            Parser parser = new Parser("val one = 1");
+
+            var node = parser.ParseNode();
+
+            Assert.IsNotNull(node);
+            Assert.IsInstanceOfType(node, typeof(ValNode));
+
+            var vnode = (ValNode)node;
+
+            Assert.AreEqual("one", vnode.Name);
+            Assert.IsNotNull(vnode.Expression);
+            Assert.IsInstanceOfType(vnode.Expression, typeof(ConstantNode));
+
+            var expr = (ConstantNode)vnode.Expression;
+
+            Assert.AreEqual(1, expr.Value);
+
+            Assert.IsNull(parser.ParseNode());
         }
 
         [TestMethod]
