@@ -315,6 +315,52 @@
         }
 
         [TestMethod]
+        public void ParseSimpleValNodeWithEndOfLine()
+        {
+            Parser parser = new Parser("val one = 1\n");
+
+            var node = parser.ParseNode();
+
+            Assert.IsNotNull(node);
+            Assert.IsInstanceOfType(node, typeof(ValNode));
+
+            var vnode = (ValNode)node;
+
+            Assert.AreEqual("one", vnode.Name);
+            Assert.IsNotNull(vnode.Expression);
+            Assert.IsInstanceOfType(vnode.Expression, typeof(ConstantNode));
+
+            var expr = (ConstantNode)vnode.Expression;
+
+            Assert.AreEqual(1, expr.Value);
+
+            Assert.IsNull(parser.ParseNode());
+        }
+
+        [TestMethod]
+        public void ParseSimpleValNodeWithSemicolon()
+        {
+            Parser parser = new Parser("val one = 1;");
+
+            var node = parser.ParseNode();
+
+            Assert.IsNotNull(node);
+            Assert.IsInstanceOfType(node, typeof(ValNode));
+
+            var vnode = (ValNode)node;
+
+            Assert.AreEqual("one", vnode.Name);
+            Assert.IsNotNull(vnode.Expression);
+            Assert.IsInstanceOfType(vnode.Expression, typeof(ConstantNode));
+
+            var expr = (ConstantNode)vnode.Expression;
+
+            Assert.AreEqual(1, expr.Value);
+
+            Assert.IsNull(parser.ParseNode());
+        }
+
+        [TestMethod]
         public void RaiseIfNotImplemented()
         {
             Parser parser = new Parser("[]");
