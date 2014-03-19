@@ -154,6 +154,15 @@
                 return new ValNode(name, null, expr);
             }
 
+            if (token.Type == TokenType.Name && token.Value == "var")
+            {
+                string name = this.ParseName();
+                this.ParseToken(TokenType.Operator, "=");
+                INode expr = this.ParseSimpleNode();
+
+                return new VarNode(name, null, expr);
+            }
+
             if (token.Type == TokenType.Name && token.Value == "def")
                 return this.ParseDefNode();
 
