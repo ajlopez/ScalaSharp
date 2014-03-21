@@ -139,7 +139,7 @@
             {
                 string name = this.ParseName();
                 this.ParseToken(TokenType.Punctuation, "{");
-                INode body = null;
+                INode body = this.ParseNodes();
                 this.ParseToken(TokenType.Punctuation, "}");
 
                 return new ObjectNode(name, body);

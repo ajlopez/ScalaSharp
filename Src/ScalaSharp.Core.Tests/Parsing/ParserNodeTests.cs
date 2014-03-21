@@ -199,6 +199,46 @@
         }
 
         [TestMethod]
+        public void ParseEmptyObjectNodeWithOneDefNode()
+        {
+            Parser parser = new Parser("object Foo { def one = 1 }");
+
+            var result = parser.ParseNode();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(ObjectNode));
+
+            var node = (ObjectNode)result;
+
+            Assert.AreEqual("Foo", node.Name);
+            Assert.IsNotNull(node.Body);
+            Assert.IsInstanceOfType(node.Body, typeof(DefNode));
+            Assert.AreEqual("Foo", node.TypeInfo.Name);
+
+            Assert.IsNull(parser.ParseCommand());
+        }
+
+        [TestMethod]
+        public void ParseEmptyObjectNodeWithTwoDefNodes()
+        {
+            Parser parser = new Parser("object Foo { def one = 1; def two = 2 }");
+
+            var result = parser.ParseNode();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(ObjectNode));
+
+            var node = (ObjectNode)result;
+
+            Assert.AreEqual("Foo", node.Name);
+            Assert.IsNotNull(node.Body);
+            Assert.IsInstanceOfType(node.Body, typeof(CompositeNode));
+            Assert.AreEqual("Foo", node.TypeInfo.Name);
+
+            Assert.IsNull(parser.ParseCommand());
+        }
+
+        [TestMethod]
         public void RaiseIsNoNameInObjectCommand()
         {
             Parser parser = new Parser("object { }");
