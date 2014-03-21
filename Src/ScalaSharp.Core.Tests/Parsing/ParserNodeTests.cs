@@ -124,6 +124,46 @@
         }
 
         [TestMethod]
+        public void ParseClassNodeWithOneDefNode()
+        {
+            Parser parser = new Parser("class Foo { def one = 1 }");
+
+            var result = parser.ParseNode();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(ClassNode));
+
+            var node = (ClassNode)result;
+
+            Assert.AreEqual("Foo", node.Name);
+            Assert.IsNotNull(node.Body);
+            Assert.IsInstanceOfType(node.Body, typeof(DefNode));
+            Assert.AreEqual("Foo", node.TypeInfo.Name);
+
+            Assert.IsNull(parser.ParseCommand());
+        }
+
+        [TestMethod]
+        public void ParseClassNodeWithTwoDefNodes()
+        {
+            Parser parser = new Parser("class Foo { def one = 1; def two = 2 }");
+
+            var result = parser.ParseNode();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(ClassNode));
+
+            var node = (ClassNode)result;
+
+            Assert.AreEqual("Foo", node.Name);
+            Assert.IsNotNull(node.Body);
+            Assert.IsInstanceOfType(node.Body, typeof(CompositeNode));
+            Assert.AreEqual("Foo", node.TypeInfo.Name);
+
+            Assert.IsNull(parser.ParseCommand());
+        }
+
+        [TestMethod]
         public void RaiseIsNoNameInClassCommand()
         {
             Parser parser = new Parser("class { }");
@@ -427,22 +467,6 @@
             Assert.AreEqual(1, expr.Value);
 
             Assert.IsNull(parser.ParseNode());
-        }
-
-        [TestMethod]
-        public void RaiseIfNotImplemented()
-        {
-            Parser parser = new Parser("[]");
-
-            try
-            {
-                parser.ParseNode();
-                Assert.Fail();
-            }
-            catch (Exception ex)
-            {
-                Assert.IsInstanceOfType(ex, typeof(NotImplementedException));
-            }
         }
     }
 }

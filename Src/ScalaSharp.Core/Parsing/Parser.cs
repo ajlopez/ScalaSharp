@@ -129,7 +129,7 @@
             {
                 string name = this.ParseName();
                 this.ParseToken(TokenType.Punctuation, "{");
-                INode body = null;
+                INode body = this.ParseNodes();
                 this.ParseToken(TokenType.Punctuation, "}");
 
                 return new ClassNode(name, body);
@@ -169,7 +169,9 @@
             if (token.Type == TokenType.Name)
                 return new NameNode(token.Value);
 
-            throw new NotImplementedException();
+            this.PushToken(token);
+
+            return null;
         }
 
         private DefNode ParseDefNode()
@@ -197,12 +199,28 @@
             INode expr = null;
 
             if (this.TryParseToken(TokenType.Operator, "="))
-                expr = this.ParseNode();
+                expr = this.ParseSimpleNode();
 
             if (typeinfo == null && expr == null)
                 throw new ParserException("Expected ':' or '='");
 
             return new DefNode(name, arguments, typeinfo, expr);
+        }
+
+        private INode ParseNodes()
+        {
+            IList<INode> nodes = new List<INode>();
+
+            for (var node = this.ParseNode(); node != null; node = this.ParseNode())
+                nodes.Add(node);
+
+            if (nodes.Count == 0)
+                return null;
+
+            if (nodes.Count == 1)
+                return nodes[0];
+
+            return new CompositeNode(nodes);
         }
 
         private IExpression ParseBinaryExpression(int level)
@@ -286,6 +304,12 @@
 
             if (token.Type == TokenType.Punctuation && token.Value == ";")
                 return;
+
+            if (token.Type == TokenType.Punctuation && token.Value == "}")
+            {
+                this.PushToken(token);
+                return;
+            }
 
             throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
         }
