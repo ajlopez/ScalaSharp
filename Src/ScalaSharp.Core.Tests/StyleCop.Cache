@@ -225,9 +225,6 @@
     <milliseconds>848</milliseconds>
     <violations />
   </sourcecode>
-  <project key="-1258068334">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="InvokeMethodNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>02/08/2014 14:52:32</timestamp>
@@ -237,13 +234,16 @@
     <milliseconds>785</milliseconds>
     <violations />
   </sourcecode>
+  <project key="-1258068334">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
   <sourcecode name="ParserNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>02/08/2014 14:52:32</timestamp>
       <milliseconds>438</milliseconds>
     </settings>
-    <timestamp>03/04/2014 15:47:46</timestamp>
-    <milliseconds>797</milliseconds>
+    <timestamp>03/27/2014 17:45:03</timestamp>
+    <milliseconds>406</milliseconds>
     <violations />
   </sourcecode>
 </stylecopresultscache>
