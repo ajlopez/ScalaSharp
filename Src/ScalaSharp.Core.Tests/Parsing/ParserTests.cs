@@ -553,6 +553,24 @@
         }
 
         [TestMethod]
+        public void ParseStringExpression()
+        {
+            Parser parser = new Parser("\"foo\"");
+
+            var expr = parser.ParseExpression();
+
+            Assert.IsNotNull(expr);
+            Assert.IsInstanceOfType(expr, typeof(ConstantExpression));
+
+            var cexpr = (ConstantExpression)expr;
+
+            Assert.AreEqual("foo", cexpr.Value);
+            Assert.AreSame(TypeInfo.String, cexpr.TypeInfo);
+
+            Assert.IsNull(parser.ParseExpression());
+        }
+
+        [TestMethod]
         public void ParseDoubleExpression()
         {
             Parser parser = new Parser("1.2");

@@ -40,6 +40,24 @@
             Assert.AreEqual(10, this.Evaluate("4+3*2"));
         }
 
+        [TestMethod]
+        public void EvaluateConcatenateStrings()
+        {
+            Assert.AreEqual("foobar", this.Evaluate("\"foo\" + \"bar\""));
+        }
+
+        [TestMethod]
+        public void EvaluateConcatenateStringAndInteger()
+        {
+            Assert.AreEqual("foo123", this.Evaluate("\"foo\" + 123"));
+        }
+
+        [TestMethod]
+        public void EvaluateConcatenateIntegerAndString()
+        {
+            Assert.AreEqual("123foo", this.Evaluate("123 + \"foo\""));
+        }
+
         private object Evaluate(string text)
         {
             Parser parser = new Parser(text);
