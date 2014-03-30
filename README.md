@@ -34,6 +34,10 @@ Scala references
 - [F-Bounded Type Polymorphism Considered Tricky](http://logji.blogspot.com.ar/2012/11/f-bounded-type-polymorphism-give-up-now.html)
 - [Learning Scala part seven – Traits](http://joelabrahamsson.com/learning-scala-part-seven-traits/)
 - [A Tour of Scala: Traits](http://www.scala-lang.org/old/node/126)
+- [Learning Scala part four – Classes and Constructors](http://joelabrahamsson.com/learning-scala-part-four-classes-and-constructors/)
+- [Scala Classes](http://tutorials.jenkov.com/scala/classes.html)
+- [How to create multiple class constructors in Scala](http://alvinalexander.com/scala/how-to-create-multiple-class-constructors-in-scala-alternate-constructors)
+- [Scala Classes & Objects](http://www.tutorialspoint.com/scala/scala_classes_objects.htm)
 
 C# references
 
