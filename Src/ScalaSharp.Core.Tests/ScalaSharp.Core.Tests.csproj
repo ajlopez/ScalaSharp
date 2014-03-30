@@ -67,6 +67,7 @@
     <Compile Include="Expressions\MultiplyExpressionTests.cs" />
     <Compile Include="Expressions\SubtractExpressionTests.cs" />
     <Compile Include="Expressions\VariableExpressionTests.cs" />
+    <Compile Include="Language\DynamicObjectTests.cs" />
     <Compile Include="Language\TypeInfoTests.cs" />
     <Compile Include="Parsing\LexerTests.cs" />
     <Compile Include="Parsing\ParserNodeTests.cs" />

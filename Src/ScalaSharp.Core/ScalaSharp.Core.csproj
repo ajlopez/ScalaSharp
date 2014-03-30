@@ -78,6 +78,7 @@
     <Compile Include="Expressions\VariableExpression.cs" />
     <Compile Include="Expressions\IExpression.cs" />
     <Compile Include="Language\ArgumentInfo.cs" />
+    <Compile Include="Language\DynamicObject.cs" />
     <Compile Include="Language\TypeInfo.cs" />
     <Compile Include="Parsing\Lexer.cs" />
     <Compile Include="Parsing\LexerException.cs" />
