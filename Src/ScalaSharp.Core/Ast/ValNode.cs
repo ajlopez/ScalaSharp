@@ -6,7 +6,7 @@
     using System.Text;
     using ScalaSharp.Core.Language;
 
-    public class ValNode : NamedNode
+    public class ValNode : NamedExpressionNode
     {
         public ValNode(string name, TypeInfo typeinfo, INode expression)
             : base(name, typeinfo, expression)

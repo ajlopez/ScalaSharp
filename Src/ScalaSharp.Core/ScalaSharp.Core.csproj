@@ -44,12 +44,13 @@
     <Compile Include="Ast\ClassNode.cs" />
     <Compile Include="Ast\CompositeNode.cs" />
     <Compile Include="Ast\ConstantNode.cs" />
+    <Compile Include="Ast\NamedNode.cs" />
     <Compile Include="Ast\InvokeNode.cs" />
     <Compile Include="Ast\DefNode.cs" />
     <Compile Include="Ast\IfNode.cs" />
     <Compile Include="Ast\InvokeMethodNode.cs" />
     <Compile Include="Ast\IUntypedNode.cs" />
-    <Compile Include="Ast\NamedNode.cs" />
+    <Compile Include="Ast\NamedExpressionNode.cs" />
     <Compile Include="Ast\ObjectNode.cs" />
     <Compile Include="Ast\ValNode.cs" />
     <Compile Include="Ast\INode.cs" />

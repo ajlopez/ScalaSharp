@@ -6,7 +6,7 @@
     using System.Text;
     using ScalaSharp.Core.Language;
 
-    public class DefNode : NamedNode
+    public class DefNode : NamedExpressionNode
     {
         private IList<ArgumentInfo> arguments; 
 
