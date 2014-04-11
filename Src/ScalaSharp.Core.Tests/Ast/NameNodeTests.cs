@@ -18,6 +18,7 @@
             Assert.IsNotNull(node.Name);
             Assert.AreEqual("foo", node.Name);
             Assert.IsNull(node.TypeInfo);
+            node.CheckType();
         }
     }
 }

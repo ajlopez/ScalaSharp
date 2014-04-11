@@ -54,6 +54,7 @@
     <Compile Include="Ast\IfNodeTest.cs" />
     <Compile Include="Ast\InvokeMethodNodeTests.cs" />
     <Compile Include="Ast\ObjectNodeTests.cs" />
+    <Compile Include="Ast\NodeContextTests.cs" />
     <Compile Include="Ast\ValNodeTests.cs" />
     <Compile Include="Ast\NameNodeTests.cs" />
     <Compile Include="Ast\VarNodeTests.cs" />
