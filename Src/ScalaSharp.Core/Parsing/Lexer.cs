@@ -49,7 +49,7 @@
                 return this.NextOperator(ch);
 
             if (punctuation.Contains(ch))
-                return new Token(ch.ToString(), TokenType.Punctuation);
+                return new Token(ch.ToString(), TokenType.Delimiter);
 
             if (char.IsDigit(ch))
                 return this.NextInteger(ch);

@@ -228,7 +228,7 @@
         }
 
         [TestMethod]
-        public void GetPunctuations()
+        public void GetDelimiters()
         {
             string punctuations = ",;:{}()[]";
 
@@ -239,7 +239,7 @@
                 var result = lexer.NextToken();
 
                 Assert.IsNotNull(result);
-                Assert.AreEqual(TokenType.Punctuation, result.Type);
+                Assert.AreEqual(TokenType.Delimiter, result.Type);
                 Assert.AreEqual(1, result.Value.Length);
                 Assert.AreEqual(punctuations[k], result.Value[0]);
             }
@@ -248,7 +248,7 @@
         }
 
         [TestMethod]
-        public void GetNameAndPunctuation()
+        public void GetNameAndDelimiter()
         {
             Lexer lexer = new Lexer("foo:");
 
@@ -260,7 +260,7 @@
             token = lexer.NextToken();
             Assert.IsNotNull(token);
             Assert.AreEqual(":", token.Value);
-            Assert.AreEqual(TokenType.Punctuation, token.Type);
+            Assert.AreEqual(TokenType.Delimiter, token.Type);
 
             Assert.IsNull(lexer.NextToken());
         }

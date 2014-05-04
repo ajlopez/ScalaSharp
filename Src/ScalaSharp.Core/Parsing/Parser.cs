@@ -51,9 +51,9 @@
             if (token.Type == TokenType.Name && token.Value == "object")
             {
                 name = this.ParseName();
-                this.ParseToken(TokenType.Punctuation, "{");
+                this.ParseToken(TokenType.Delimiter, "{");
                 ICommand body = this.ParseCommands();
-                this.ParseToken(TokenType.Punctuation, "}");
+                this.ParseToken(TokenType.Delimiter, "}");
                 this.ParseEndOfCommand();
 
                 return new ObjectCommand(name, body);
@@ -62,9 +62,9 @@
             if (token.Type == TokenType.Name && token.Value == "class")
             {
                 name = this.ParseName();
-                this.ParseToken(TokenType.Punctuation, "{");
+                this.ParseToken(TokenType.Delimiter, "{");
                 ICommand body = this.ParseCommands();
-                this.ParseToken(TokenType.Punctuation, "}");
+                this.ParseToken(TokenType.Delimiter, "}");
                 this.ParseEndOfCommand();
 
                 return new ClassCommand(name, body);
@@ -86,7 +86,7 @@
                 TypeInfo typeinfo = null;
                 IExpression expr = null;
 
-                if (this.TryParseToken(TokenType.Punctuation, ":"))
+                if (this.TryParseToken(TokenType.Delimiter, ":"))
                     typeinfo = this.ParseTypeInfo();
                 if (this.TryParseToken(TokenType.Operator, "="))
                     expr = this.ParseExpression();
@@ -128,9 +128,9 @@
             if (token.Type == TokenType.Name && token.Value == "class")
             {
                 string name = this.ParseName();
-                this.ParseToken(TokenType.Punctuation, "{");
+                this.ParseToken(TokenType.Delimiter, "{");
                 INode body = this.ParseNodes();
-                this.ParseToken(TokenType.Punctuation, "}");
+                this.ParseToken(TokenType.Delimiter, "}");
 
                 return new ClassNode(name, body);
             }
@@ -138,9 +138,9 @@
             if (token.Type == TokenType.Name && token.Value == "object")
             {
                 string name = this.ParseName();
-                this.ParseToken(TokenType.Punctuation, "{");
+                this.ParseToken(TokenType.Delimiter, "{");
                 INode body = this.ParseNodes();
-                this.ParseToken(TokenType.Punctuation, "}");
+                this.ParseToken(TokenType.Delimiter, "}");
 
                 return new ObjectNode(name, body);
             }
@@ -168,14 +168,14 @@
 
             if (token.Type == TokenType.Name)
             {
-                if (this.TryParseToken(TokenType.Punctuation, "("))
+                if (this.TryParseToken(TokenType.Delimiter, "("))
                 {
                     IList<INode> arguments = new List<INode>();
 
-                    while (!this.TryParseToken(TokenType.Punctuation, ")"))
+                    while (!this.TryParseToken(TokenType.Delimiter, ")"))
                     {
                         if (arguments.Count > 0)
-                            this.ParseToken(TokenType.Punctuation, ",");
+                            this.ParseToken(TokenType.Delimiter, ",");
 
                         arguments.Add(this.ParseSimpleNode());
                     }
@@ -196,21 +196,21 @@
             string name = this.ParseName();
             IList<ArgumentInfo> arguments = new List<ArgumentInfo>();
 
-            if (this.TryParseToken(TokenType.Punctuation, "("))
-                while (!this.TryParseToken(TokenType.Punctuation, ")"))
+            if (this.TryParseToken(TokenType.Delimiter, "("))
+                while (!this.TryParseToken(TokenType.Delimiter, ")"))
                 {
                     if (arguments.Count > 0)
-                        this.ParseToken(TokenType.Punctuation, ",");
+                        this.ParseToken(TokenType.Delimiter, ",");
 
                     string argname = this.ParseName();
-                    this.ParseToken(TokenType.Punctuation, ":");
+                    this.ParseToken(TokenType.Delimiter, ":");
                     TypeInfo ti = this.ParseTypeInfo();
                     arguments.Add(new ArgumentInfo(argname, ti));
                 }
 
             TypeInfo typeinfo = null;
 
-            if (this.TryParseToken(TokenType.Punctuation, ":"))
+            if (this.TryParseToken(TokenType.Delimiter, ":"))
                 typeinfo = this.ParseTypeInfo();
 
             INode expr = null;
@@ -322,10 +322,10 @@
             if (token.Type == TokenType.NewLine)
                 return;
 
-            if (token.Type == TokenType.Punctuation && token.Value == ";")
+            if (token.Type == TokenType.Delimiter && token.Value == ";")
                 return;
 
-            if (token.Type == TokenType.Punctuation && token.Value == "}")
+            if (token.Type == TokenType.Delimiter && token.Value == "}")
             {
                 this.PushToken(token);
                 return;
@@ -339,21 +339,21 @@
             string name = this.ParseName();
             IList<ArgumentInfo> arguments = new List<ArgumentInfo>();
 
-            if (this.TryParseToken(TokenType.Punctuation, "("))
-                while (!this.TryParseToken(TokenType.Punctuation, ")"))
+            if (this.TryParseToken(TokenType.Delimiter, "("))
+                while (!this.TryParseToken(TokenType.Delimiter, ")"))
                 {
                     if (arguments.Count > 0)
-                        this.ParseToken(TokenType.Punctuation, ",");
+                        this.ParseToken(TokenType.Delimiter, ",");
 
                     string argname = this.ParseName();
-                    this.ParseToken(TokenType.Punctuation, ":");
+                    this.ParseToken(TokenType.Delimiter, ":");
                     TypeInfo ti = this.ParseTypeInfo();
                     arguments.Add(new ArgumentInfo(argname, ti));
                 }
 
             TypeInfo typeinfo = null;
 
-            if (this.TryParseToken(TokenType.Punctuation, ":"))
+            if (this.TryParseToken(TokenType.Delimiter, ":"))
                 typeinfo = this.ParseTypeInfo();
 
             ICommand body = null;

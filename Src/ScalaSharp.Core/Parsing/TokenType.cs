@@ -8,6 +8,6 @@
         String = 4,
         NewLine = 5,
         Operator = 6,
-        Punctuation = 7
+        Delimiter = 7
     }
 }
