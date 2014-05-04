@@ -11,15 +11,15 @@
 
         public INode GetNode(string name)
         {
-            if (!nodes.ContainsKey(name))
+            if (!this.nodes.ContainsKey(name))
                 return null;
 
-            return nodes[name];
+            return this.nodes[name];
         }
 
         public void SetNode(string name, INode node)
         {
-            nodes[name] = node;
+            this.nodes[name] = node;
         }
     }
 }

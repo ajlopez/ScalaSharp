@@ -12,12 +12,12 @@
 
         public object GetValue(string name)
         {
-            return values[name];
+            return this.values[name];
         }
 
         public void SetValue(string name, object value)
         {
-            values[name] = value;
+            this.values[name] = value;
         }
     }
 }
