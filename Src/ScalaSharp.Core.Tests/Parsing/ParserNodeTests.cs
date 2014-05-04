@@ -508,5 +508,23 @@
 
             Assert.IsNull(parser.ParseNode());
         }
+
+        [TestMethod]
+        public void ParseSimpleInvokeNodeWithOneArgument()
+        {
+            Parser parser = new Parser("fibo(1)");
+
+            var node = parser.ParseNode();
+            Assert.IsNotNull(node);
+            Assert.IsInstanceOfType(node, typeof(InvokeNode));
+
+            var inode = (InvokeNode)node;
+
+            Assert.AreEqual("fibo", inode.MethodName);
+            Assert.IsNotNull(inode.Arguments);
+            Assert.AreEqual(1, inode.Arguments.Count);
+            Assert.IsInstanceOfType(inode.Arguments[0], typeof(ConstantNode));
+            Assert.AreEqual(1, ((ConstantNode)inode.Arguments[0]).Value);
+        }
     }
 }

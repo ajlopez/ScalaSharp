@@ -167,7 +167,24 @@
                 return this.ParseDefNode();
 
             if (token.Type == TokenType.Name)
-                return new NameNode(token.Value);
+            {
+                if (this.TryParseToken(TokenType.Punctuation, "("))
+                {
+                    IList<INode> arguments = new List<INode>();
+
+                    while (!this.TryParseToken(TokenType.Punctuation, ")"))
+                    {
+                        if (arguments.Count > 0)
+                            this.ParseToken(TokenType.Punctuation, ",");
+
+                        arguments.Add(this.ParseSimpleNode());
+                    }
+
+                    return new InvokeNode(token.Value, arguments);
+                }
+                else
+                    return new NameNode(token.Value);
+            }
 
             this.PushToken(token);
 
