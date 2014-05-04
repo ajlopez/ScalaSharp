@@ -526,5 +526,41 @@
             Assert.IsInstanceOfType(inode.Arguments[0], typeof(ConstantNode));
             Assert.AreEqual(1, ((ConstantNode)inode.Arguments[0]).Value);
         }
+
+        [TestMethod]
+        public void ParseSimpleInvokeNodeWithNoArgument()
+        {
+            Parser parser = new Parser("foo()");
+
+            var node = parser.ParseNode();
+            Assert.IsNotNull(node);
+            Assert.IsInstanceOfType(node, typeof(InvokeNode));
+
+            var inode = (InvokeNode)node;
+
+            Assert.AreEqual("foo", inode.MethodName);
+            Assert.IsNotNull(inode.Arguments);
+            Assert.AreEqual(0, inode.Arguments.Count);
+        }
+
+        [TestMethod]
+        public void ParseSimpleInvokeNodeWithTwoArguments()
+        {
+            Parser parser = new Parser("add(1, 2)");
+
+            var node = parser.ParseNode();
+            Assert.IsNotNull(node);
+            Assert.IsInstanceOfType(node, typeof(InvokeNode));
+
+            var inode = (InvokeNode)node;
+
+            Assert.AreEqual("add", inode.MethodName);
+            Assert.IsNotNull(inode.Arguments);
+            Assert.AreEqual(2, inode.Arguments.Count);
+            Assert.IsInstanceOfType(inode.Arguments[0], typeof(ConstantNode));
+            Assert.AreEqual(1, ((ConstantNode)inode.Arguments[0]).Value);
+            Assert.IsInstanceOfType(inode.Arguments[1], typeof(ConstantNode));
+            Assert.AreEqual(2, ((ConstantNode)inode.Arguments[1]).Value);
+        }
     }
 }
