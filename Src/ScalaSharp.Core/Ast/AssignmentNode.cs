@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using ScalaSharp.Core.Contexts;
     using ScalaSharp.Core.Language;
 
     public class AssignmentNode : INode
@@ -32,6 +33,10 @@
                 ((IUntypedNode)this.target).SetTypeInfo(this.expression.TypeInfo);
             else if (this.target.TypeInfo != this.expression.TypeInfo)
                 throw new InvalidOperationException("type mismatch");
+        }
+
+        public void RegisterInContext(IContext context)
+        {
         }
     }
 }

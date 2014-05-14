@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using ScalaSharp.Core.Contexts;
     using ScalaSharp.Core.Language;
 
     public class ClassNode : INode
@@ -29,6 +30,11 @@
         {
             if (this.body != null)
                 this.body.CheckType();
+        }
+
+        public void RegisterInContext(IContext context)
+        {
+            context.SetValue(name, this);
         }
     }
 }

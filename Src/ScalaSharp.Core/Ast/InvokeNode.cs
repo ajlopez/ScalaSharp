@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using ScalaSharp.Core.Contexts;
     using ScalaSharp.Core.Language;
 
     public class InvokeNode : INode
@@ -29,6 +30,10 @@
         public void CheckType()
         {
             throw new NotImplementedException();
+        }
+
+        public void RegisterInContext(IContext context)
+        {
         }
     }
 }

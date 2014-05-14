@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using ScalaSharp.Core.Contexts;
     using ScalaSharp.Core.Language;
 
     public class IfNode : INode
@@ -42,6 +43,15 @@
 
             if (this.then.TypeInfo != this.@else.TypeInfo)
                 throw new InvalidOperationException("type mismatch");
+        }
+
+        public void RegisterInContext(IContext context)
+        {
+            if (this.then != null)
+                this.then.RegisterInContext(context);
+
+            if (this.@else != null)
+                this.@else.RegisterInContext(context);
         }
     }
 }

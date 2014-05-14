@@ -19,6 +19,8 @@
 
             AssignmentNode node = new AssignmentNode(target, expr);
 
+            node.RegisterInContext(null);
+
             Assert.AreSame(target, node.Target);
             Assert.AreSame(expr, node.Expression);
             Assert.AreSame(TypeInfo.Int, node.TypeInfo);

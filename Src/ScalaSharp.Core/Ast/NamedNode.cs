@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using ScalaSharp.Core.Contexts;
     using ScalaSharp.Core.Language;
 
     public abstract class NamedNode : INode, IUntypedNode
@@ -28,6 +29,11 @@
         public void SetTypeInfo(TypeInfo typeinfo)
         {
             this.typeinfo = typeinfo;
+        }
+
+        public void RegisterInContext(IContext context)
+        {
+            context.SetValue(this.name, this);
         }
     }
 }

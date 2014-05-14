@@ -4,8 +4,10 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using ScalaSharp.Core.Contexts;
+    using ScalaSharp.Core.Language;
 
-    public class InvokeMethodNode
+    public class InvokeMethodNode : INode
     {
         private INode target;
         private string methodname;
@@ -23,5 +25,19 @@
         public string MethodName { get { return this.methodname; } }
 
         public IList<INode> Arguments { get { return this.arguments; } }
+
+        public TypeInfo TypeInfo
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public void CheckType()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RegisterInContext(IContext context)
+        {
+        }
     }
 }

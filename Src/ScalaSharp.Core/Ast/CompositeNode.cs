@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using ScalaSharp.Core.Contexts;
     using ScalaSharp.Core.Language;
 
     public class CompositeNode : INode
@@ -27,6 +28,12 @@
                 node.CheckType();
 
             this.typeinfo = this.nodes.Last().TypeInfo;
+        }
+
+        public void RegisterInContext(IContext context)
+        {
+            foreach (var node in this.nodes)
+                node.RegisterInContext(context);
         }
     }
 }
