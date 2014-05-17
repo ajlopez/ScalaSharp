@@ -22,9 +22,7 @@
 
         public TypeInfo TypeInfo { get { return this.typeinfo; } }
 
-        public virtual void CheckType()
-        {
-        }
+        public abstract void CheckType();
 
         public void SetTypeInfo(TypeInfo typeinfo)
         {

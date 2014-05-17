@@ -19,6 +19,7 @@
 
             var node = new IfNode(condition, then, null);
 
+            node.RegisterInContext(null);
             Assert.AreSame(condition, node.Condition);
             Assert.AreSame(then, node.Then);
             Assert.IsNull(node.Else);
@@ -34,6 +35,7 @@
 
             var node = new IfNode(condition, then, @else);
 
+            node.RegisterInContext(null);
             Assert.AreSame(condition, node.Condition);
             Assert.AreSame(then, node.Then);
             Assert.AreSame(@else, node.Else);

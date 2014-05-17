@@ -126,15 +126,6 @@
     <milliseconds>890</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="ObjectNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>02/08/2014 14:52:32</timestamp>
-      <milliseconds>438</milliseconds>
-    </settings>
-    <timestamp>02/22/2014 15:48:25</timestamp>
-    <milliseconds>804</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="ValNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>02/08/2014 14:52:32</timestamp>
@@ -189,9 +180,6 @@
     <milliseconds>785</milliseconds>
     <violations />
   </sourcecode>
-  <project key="-1258068334">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="NameNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>02/08/2014 14:52:32</timestamp>
@@ -268,6 +256,18 @@
     </settings>
     <timestamp>03/29/2014 20:39:17</timestamp>
     <milliseconds>849</milliseconds>
+    <violations />
+  </sourcecode>
+  <project key="-1258068334">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
+  <sourcecode name="ObjectNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>02/08/2014 14:52:32</timestamp>
+      <milliseconds>438</milliseconds>
+    </settings>
+    <timestamp>05/17/2014 14:38:36</timestamp>
+    <milliseconds>862</milliseconds>
     <violations />
   </sourcecode>
 </stylecopresultscache>

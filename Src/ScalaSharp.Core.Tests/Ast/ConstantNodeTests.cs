@@ -20,6 +20,7 @@
             Assert.AreEqual(42, node.Value);
             Assert.AreSame(TypeInfo.Int, node.TypeInfo);
 
+            node.RegisterInContext(null);
             node.CheckType();
             Assert.AreSame(TypeInfo.Int, node.TypeInfo);
         }

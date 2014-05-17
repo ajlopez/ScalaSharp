@@ -7,6 +7,7 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using ScalaSharp.Core.Ast;
     using ScalaSharp.Core.Language;
+    using ScalaSharp.Core.Contexts;
 
     [TestClass]
     public class CompositeNodeTests
@@ -27,6 +28,24 @@
 
             node.CheckType();
             Assert.AreSame(TypeInfo.String, node.TypeInfo);
+        }
+
+        [TestMethod]
+        public void RegisterInContext()
+        {
+            INode node1 = new VarNode("a", null, new ConstantNode(42));
+            INode node2 = new ValNode("b", null, new ConstantNode("foo"));
+
+            CompositeNode node = new CompositeNode(new INode[] { node1, node2 });
+
+            Context context = new Context();
+
+            node.RegisterInContext(context);
+
+            Assert.IsNotNull(context.GetValue("a"));
+            Assert.IsNotNull(context.GetValue("b"));
+            Assert.AreSame(node1, context.GetValue("a"));
+            Assert.AreSame(node2, context.GetValue("b"));
         }
     }
 }

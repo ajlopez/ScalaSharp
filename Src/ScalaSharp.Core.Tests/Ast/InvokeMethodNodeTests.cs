@@ -17,6 +17,7 @@
             IList<INode> arguments = new List<INode>() { new ConstantNode(42) };
             InvokeMethodNode node = new InvokeMethodNode(target, "append", arguments);
 
+            node.RegisterInContext(null);
             Assert.AreSame(target, node.Target);
             Assert.AreSame(arguments, node.Arguments);
             Assert.AreEqual("append", node.MethodName);
