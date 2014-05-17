@@ -6,8 +6,8 @@
     using System.Text;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using ScalaSharp.Core.Ast;
-    using ScalaSharp.Core.Language;
     using ScalaSharp.Core.Contexts;
+    using ScalaSharp.Core.Language;
 
     [TestClass]
     public class CompositeNodeTests

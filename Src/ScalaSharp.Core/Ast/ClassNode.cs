@@ -34,7 +34,7 @@
 
         public void RegisterInContext(IContext context)
         {
-            context.SetValue(name, this);
+            context.SetValue(this.name, this);
         }
     }
 }

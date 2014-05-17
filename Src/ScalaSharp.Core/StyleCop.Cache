@@ -180,15 +180,6 @@
     <milliseconds>587</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="TokenType.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>09/04/2013 20:39:39</timestamp>
-    <milliseconds>741</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="AssemblyInfo.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>08/31/2013 18:43:41</timestamp>
@@ -261,60 +252,6 @@
     <milliseconds>903</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="AssignmentNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>02/22/2014 15:01:15</timestamp>
-    <milliseconds>306</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="ClassNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>02/22/2014 15:27:02</timestamp>
-    <milliseconds>291</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="ConstantNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>02/22/2014 14:49:54</timestamp>
-    <milliseconds>149</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="CompositeNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>02/22/2014 14:47:26</timestamp>
-    <milliseconds>12</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="IfNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>02/22/2014 15:15:05</timestamp>
-    <milliseconds>198</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="INode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>02/22/2014 14:46:02</timestamp>
-    <milliseconds>791</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="IUntypedNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>08/31/2013 18:43:41</timestamp>
@@ -324,33 +261,6 @@
     <milliseconds>386</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="NameNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>02/22/2014 14:49:20</timestamp>
-    <milliseconds>205</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="ObjectNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>02/22/2014 15:46:52</timestamp>
-    <milliseconds>18</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="Lexer.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>03/04/2014 15:46:06</timestamp>
-    <milliseconds>692</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="DefNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>08/31/2013 18:43:41</timestamp>
@@ -358,33 +268,6 @@
     </settings>
     <timestamp>05/04/2014 16:55:54</timestamp>
     <milliseconds>298</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="InvokeMethodNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>03/30/2014 08:15:31</timestamp>
-    <milliseconds>459</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="InvokeNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>05/04/2014 17:07:36</timestamp>
-    <milliseconds>88</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="NamedNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>05/04/2014 16:55:54</timestamp>
-    <milliseconds>519</milliseconds>
     <violations />
   </sourcecode>
   <sourcecode name="NamedExpressionNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
@@ -414,15 +297,6 @@
     <milliseconds>776</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="Parser.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>03/29/2014 20:39:51</timestamp>
-    <milliseconds>570</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="DynamicObject.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>08/31/2013 18:43:41</timestamp>
@@ -432,9 +306,6 @@
     <milliseconds>666</milliseconds>
     <violations />
   </sourcecode>
-  <project key="817945136">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="NodeContext.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>08/31/2013 18:43:41</timestamp>
@@ -444,4 +315,133 @@
     <milliseconds>350</milliseconds>
     <violations />
   </sourcecode>
+  <sourcecode name="AssignmentNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>05/17/2014 14:29:08</timestamp>
+    <milliseconds>525</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ConstantNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>05/17/2014 14:29:08</timestamp>
+    <milliseconds>561</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="CompositeNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>05/17/2014 14:29:08</timestamp>
+    <milliseconds>560</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="INode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>05/17/2014 14:29:08</timestamp>
+    <milliseconds>562</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="InvokeMethodNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>05/17/2014 14:29:08</timestamp>
+    <milliseconds>584</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="IfNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>05/17/2014 14:29:08</timestamp>
+    <milliseconds>573</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="InvokeNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>05/17/2014 14:29:08</timestamp>
+    <milliseconds>595</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="NamedNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>05/17/2014 14:40:26</timestamp>
+    <milliseconds>906</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="NameNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>05/17/2014 14:29:08</timestamp>
+    <milliseconds>614</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ObjectNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>05/17/2014 14:29:08</timestamp>
+    <milliseconds>616</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Lexer.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>05/04/2014 17:25:44</timestamp>
+    <milliseconds>757</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Parser.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>05/04/2014 17:25:44</timestamp>
+    <milliseconds>751</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="TokenType.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>05/04/2014 17:25:44</timestamp>
+    <milliseconds>761</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ClassNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>05/17/2014 14:44:20</timestamp>
+    <milliseconds>866</milliseconds>
+    <violations />
+  </sourcecode>
+  <project key="817945136">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
 </stylecopresultscache>
