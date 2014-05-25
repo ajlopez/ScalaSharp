@@ -10,9 +10,9 @@
     public class AssignmentNode : INode
     {
         private INode target;
-        private INode expression;
+        private IExpressionNode expression;
 
-        public AssignmentNode(INode target, INode expression)
+        public AssignmentNode(INode target, IExpressionNode expression)
         {
             this.target = target;
             this.expression = expression;
@@ -20,7 +20,7 @@
 
         public INode Target { get { return this.target; } }
 
-        public INode Expression { get { return this.expression; } }
+        public IExpressionNode Expression { get { return this.expression; } }
 
         public TypeInfo TypeInfo { get { return this.expression.TypeInfo; } }
 

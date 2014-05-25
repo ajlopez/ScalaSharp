@@ -7,6 +7,7 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using ScalaSharp.Core.Ast;
     using ScalaSharp.Core.Language;
+    using ScalaSharp.Core.Expressions;
 
     [TestClass]
     public class ConstantNodeTests
@@ -23,6 +24,18 @@
             node.RegisterInContext(null);
             node.CheckType();
             Assert.AreSame(TypeInfo.Int, node.TypeInfo);
+        }
+
+        [TestMethod]
+        public void GetExpression()
+        {
+            ConstantNode node = new ConstantNode(42);
+
+            var expr = node.GetExpression();
+
+            Assert.IsNotNull(expr);
+            Assert.IsInstanceOfType(expr, typeof(ConstantExpression));
+            Assert.AreEqual(42, ((ConstantExpression)expr).Value);
         }
     }
 }

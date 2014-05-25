@@ -6,8 +6,9 @@
     using System.Text;
     using ScalaSharp.Core.Contexts;
     using ScalaSharp.Core.Language;
+    using ScalaSharp.Core.Expressions;
 
-    public class ConstantNode : INode
+    public class ConstantNode : IExpressionNode
     {
         private object value;
         private TypeInfo typeinfo;
@@ -28,6 +29,11 @@
 
         public void RegisterInContext(IContext context)
         {
+        }
+
+        public IExpression GetExpression()
+        {
+            return new ConstantExpression(this.value);
         }
     }
 }
