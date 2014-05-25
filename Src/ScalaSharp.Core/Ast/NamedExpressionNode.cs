@@ -8,15 +8,15 @@
 
     public abstract class NamedExpressionNode : NamedNode
     {
-        private INode expression;
+        private IExpressionNode expression;
 
-        public NamedExpressionNode(string name, TypeInfo typeinfo, INode expression)
+        public NamedExpressionNode(string name, TypeInfo typeinfo, IExpressionNode expression)
             : base(name, typeinfo)
         {
             this.expression = expression;
         }
 
-        public INode Expression { get { return this.expression; } }
+        public IExpressionNode Expression { get { return this.expression; } }
 
         public override void CheckType()
         {

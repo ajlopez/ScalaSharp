@@ -7,7 +7,7 @@
     using ScalaSharp.Core.Contexts;
     using ScalaSharp.Core.Language;
 
-    public class InvokeNode : INode
+    public class InvokeNode : IExpressionNode
     {
         private string methodname;
         private IList<INode> arguments;
@@ -34,6 +34,11 @@
 
         public void RegisterInContext(IContext context)
         {
+        }
+
+        public Expressions.IExpression GetExpression()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -8,7 +8,7 @@
 
     public class VarNode : NamedExpressionNode
     {
-        public VarNode(string name, TypeInfo typeinfo, INode expression)
+        public VarNode(string name, TypeInfo typeinfo, IExpressionNode expression)
             : base(name, typeinfo, expression)
         {
         }

@@ -149,7 +149,7 @@
             {
                 string name = this.ParseName();
                 this.ParseToken(TokenType.Operator, "=");
-                INode expr = this.ParseSimpleNode();
+                IExpressionNode expr = this.ParseExpressionNode();
 
                 return new ValNode(name, null, expr);
             }
@@ -158,13 +158,54 @@
             {
                 string name = this.ParseName();
                 this.ParseToken(TokenType.Operator, "=");
-                INode expr = this.ParseSimpleNode();
+                IExpressionNode expr = this.ParseExpressionNode();
 
                 return new VarNode(name, null, expr);
             }
 
             if (token.Type == TokenType.Name && token.Value == "def")
                 return this.ParseDefNode();
+
+            if (token.Type == TokenType.Name)
+            {
+                if (this.TryParseToken(TokenType.Delimiter, "("))
+                {
+                    IList<INode> arguments = new List<INode>();
+
+                    while (!this.TryParseToken(TokenType.Delimiter, ")"))
+                    {
+                        if (arguments.Count > 0)
+                            this.ParseToken(TokenType.Delimiter, ",");
+
+                        arguments.Add(this.ParseSimpleNode());
+                    }
+
+                    return new InvokeNode(token.Value, arguments);
+                }
+                else
+                    return new NameNode(token.Value);
+            }
+
+            this.PushToken(token);
+
+            return null;
+        }
+
+        private IExpressionNode ParseExpressionNode()
+        {
+            var token = this.NextToken();
+
+            if (token == null)
+                return null;
+
+            if (token.Type == TokenType.String)
+                return new ConstantNode(token.Value);
+
+            if (token.Type == TokenType.Integer)
+                return new ConstantNode(int.Parse(token.Value, CultureInfo.InvariantCulture));
+
+            if (token.Type == TokenType.Real)
+                return new ConstantNode(double.Parse(token.Value, CultureInfo.InvariantCulture));
 
             if (token.Type == TokenType.Name)
             {
@@ -213,10 +254,10 @@
             if (this.TryParseToken(TokenType.Delimiter, ":"))
                 typeinfo = this.ParseTypeInfo();
 
-            INode expr = null;
+            IExpressionNode expr = null;
 
             if (this.TryParseToken(TokenType.Operator, "="))
-                expr = this.ParseSimpleNode();
+                expr = this.ParseExpressionNode();
 
             if (typeinfo == null && expr == null)
                 throw new ParserException("Expected ':' or '='");

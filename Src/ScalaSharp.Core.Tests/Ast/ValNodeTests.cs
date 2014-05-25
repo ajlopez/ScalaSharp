@@ -16,7 +16,7 @@
         {
             string name = "foo";
             TypeInfo typeinfo = TypeInfo.Int;
-            INode expression = new ConstantNode(42);
+            IExpressionNode expression = new ConstantNode(42);
 
             ValNode node = new ValNode(name, typeinfo, expression);
 
@@ -30,7 +30,7 @@
         {
             string name = "foo";
             TypeInfo typeinfo = TypeInfo.Int;
-            INode expression = new ConstantNode(42);
+            IExpressionNode expression = new ConstantNode(42);
 
             ValNode node = new ValNode(name, null, expression);
 

@@ -10,7 +10,7 @@
     {
         private IList<ArgumentInfo> arguments; 
 
-        public DefNode(string name, IList<ArgumentInfo> arguments, TypeInfo typeinfo, INode expression)
+        public DefNode(string name, IList<ArgumentInfo> arguments, TypeInfo typeinfo, IExpressionNode expression)
             : base(name, typeinfo, expression)
         {
             this.arguments = arguments;

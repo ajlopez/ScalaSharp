@@ -16,7 +16,7 @@
         {
             string name = "foo";
             TypeInfo typeinfo = TypeInfo.Int;
-            INode expression = new ConstantNode(42);
+            IExpressionNode expression = new ConstantNode(42);
 
             VarNode node = new VarNode(name, typeinfo, expression);
 
@@ -30,7 +30,7 @@
         {
             string name = "foo";
             TypeInfo typeinfo = TypeInfo.Int;
-            INode expression = new ConstantNode(42);
+            IExpressionNode expression = new ConstantNode(42);
 
             VarNode node = new VarNode(name, null, expression);
 
@@ -46,7 +46,7 @@
         {
             string name = "foo";
             TypeInfo typeinfo = TypeInfo.Int;
-            INode expression = new ConstantNode(42);
+            IExpressionNode expression = new ConstantNode(42);
 
             VarNode node = new VarNode(name, TypeInfo.Double, expression);
 

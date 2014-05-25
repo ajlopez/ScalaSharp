@@ -17,7 +17,7 @@
             string name = "foo";
             IList<ArgumentInfo> arguments = new List<ArgumentInfo>() { new ArgumentInfo("a", TypeInfo.Int), new ArgumentInfo("b", TypeInfo.Double) };
             TypeInfo typeinfo = TypeInfo.Int;
-            INode expression = new ConstantNode(42);
+            IExpressionNode expression = new ConstantNode(42);
 
             DefNode node = new DefNode(name, arguments, typeinfo, expression);
 
@@ -33,7 +33,7 @@
             string name = "foo";
             IList<ArgumentInfo> arguments = new List<ArgumentInfo>() { new ArgumentInfo("a", TypeInfo.Int), new ArgumentInfo("b", TypeInfo.Double) };
             TypeInfo typeinfo = TypeInfo.Int;
-            INode expression = new ConstantNode(42);
+            IExpressionNode expression = new ConstantNode(42);
 
             DefNode node = new DefNode(name, arguments, null, expression);
 
@@ -50,7 +50,7 @@
             string name = "foo";
             IList<ArgumentInfo> arguments = new List<ArgumentInfo>() { new ArgumentInfo("a", TypeInfo.Int), new ArgumentInfo("b", TypeInfo.Double) };
             TypeInfo typeinfo = TypeInfo.String;
-            INode expression = new ConstantNode(42);
+            IExpressionNode expression = new ConstantNode(42);
 
             DefNode node = new DefNode(name, arguments, typeinfo, expression);
 

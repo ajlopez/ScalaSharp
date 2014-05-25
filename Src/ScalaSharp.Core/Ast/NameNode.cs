@@ -7,7 +7,7 @@
     using ScalaSharp.Core.Contexts;
     using ScalaSharp.Core.Language;
 
-    public class NameNode : INode, IUntypedNode
+    public class NameNode : IExpressionNode, IUntypedNode
     {
         private string name;
         private TypeInfo typeinfo;
@@ -33,6 +33,11 @@
         public void RegisterInContext(IContext context)
         {
             context.SetValue(this.name, this);
+        }
+
+        public Expressions.IExpression GetExpression()
+        {
+            throw new NotImplementedException();
         }
     }
 }
