@@ -5,9 +5,10 @@
     using System.Linq;
     using System.Text;
     using ScalaSharp.Core.Contexts;
+    using ScalaSharp.Core.Expressions;
     using ScalaSharp.Core.Language;
 
-    public class InvokeMethodNode : INode
+    public class InvokeMethodNode : IExpressionNode
     {
         private INode target;
         private string methodname;
@@ -38,6 +39,11 @@
 
         public void RegisterInContext(IContext context)
         {
+        }
+
+        public IExpression GetExpression()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Text;
     using ScalaSharp.Core.Contexts;
+    using ScalaSharp.Core.Expressions;
     using ScalaSharp.Core.Language;
 
     public class InvokeNode : IExpressionNode
@@ -36,7 +37,7 @@
         {
         }
 
-        public Expressions.IExpression GetExpression()
+        public IExpression GetExpression()
         {
             throw new NotImplementedException();
         }
