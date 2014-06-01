@@ -5,26 +5,27 @@
     using System.Linq;
     using System.Text;
     using ScalaSharp.Core.Contexts;
+    using ScalaSharp.Core.Expressions;
     using ScalaSharp.Core.Language;
 
-    public class IfNode : INode
+    public class IfNode : IExpressionNode
     {
-        private INode condition;
-        private INode then;
-        private INode @else;
+        private IExpressionNode condition;
+        private IExpressionNode then;
+        private IExpressionNode @else;
 
-        public IfNode(INode condition, INode then, INode @else)
+        public IfNode(IExpressionNode condition, IExpressionNode then, IExpressionNode @else)
         {
             this.condition = condition;
             this.then = then;
             this.@else = @else;
         }
 
-        public INode Condition { get { return this.condition; } }
+        public IExpressionNode Condition { get { return this.condition; } }
 
-        public INode Then { get { return this.then; } }
+        public IExpressionNode Then { get { return this.then; } }
 
-        public INode Else { get { return this.@else; } }
+        public IExpressionNode Else { get { return this.@else; } }
 
         public TypeInfo TypeInfo { get { return this.then.TypeInfo; } }
 
@@ -52,6 +53,11 @@
 
             if (this.@else != null)
                 this.@else.RegisterInContext(context);
+        }
+
+        public IExpression GetExpression()
+        {
+            return new IfExpression(this.condition.GetExpression(), this.then.GetExpression(), this.@else.GetExpression());
         }
     }
 }

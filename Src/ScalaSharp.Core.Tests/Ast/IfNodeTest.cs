@@ -6,6 +6,7 @@
     using System.Text;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using ScalaSharp.Core.Ast;
+    using ScalaSharp.Core.Expressions;
     using ScalaSharp.Core.Language;
 
     [TestClass]
@@ -42,6 +43,23 @@
             Assert.AreSame(TypeInfo.Int, node.TypeInfo);
             node.CheckType();
             Assert.AreSame(TypeInfo.Int, node.TypeInfo);
+        }
+
+        [TestMethod]
+        public void GetExpression()
+        {
+            var condition = new ConstantNode(true);
+            var then = new ConstantNode(42);
+            var @else = new ConstantNode(0);
+
+            var node = new IfNode(condition, then, @else);
+            var result = node.GetExpression();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(IfExpression));
+
+            var expr = (IfExpression)result;
+            Assert.AreEqual(42, expr.Evaluate(null));
         }
 
         [TestMethod]
