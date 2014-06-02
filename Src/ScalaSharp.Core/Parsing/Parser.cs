@@ -168,6 +168,14 @@
 
             if (token.Type == TokenType.Name)
             {
+                INode target = null;
+
+                if (this.TryParseToken(TokenType.Delimiter, "."))
+                {
+                    target = new NameNode(token.Value);
+                    token = new Token(this.ParseName(), TokenType.Name);
+                }
+
                 if (this.TryParseToken(TokenType.Delimiter, "("))
                 {
                     IList<INode> arguments = new List<INode>();
@@ -179,6 +187,9 @@
 
                         arguments.Add(this.ParseSimpleNode());
                     }
+
+                    if (target != null)
+                        return new InvokeMethodNode(target, token.Value, arguments);
 
                     return new InvokeNode(token.Value, arguments);
                 }

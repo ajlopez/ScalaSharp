@@ -544,6 +544,25 @@
         }
 
         [TestMethod]
+        public void ParseSimpleInvokeMethodNodeWithNoArgument()
+        {
+            Parser parser = new Parser("foo.bar()");
+
+            var node = parser.ParseNode();
+            Assert.IsNotNull(node);
+            Assert.IsInstanceOfType(node, typeof(InvokeMethodNode));
+
+            var imnode = (InvokeMethodNode)node;
+
+            Assert.IsNotNull(imnode.Target);
+            Assert.IsInstanceOfType(imnode.Target, typeof(NameNode));
+            Assert.AreEqual("foo", ((NameNode)imnode.Target).Name);
+            Assert.AreEqual("bar", imnode.MethodName);
+            Assert.IsNotNull(imnode.Arguments);
+            Assert.AreEqual(0, imnode.Arguments.Count);
+        }
+
+        [TestMethod]
         public void ParseSimpleInvokeNodeWithTwoArguments()
         {
             Parser parser = new Parser("add(1, 2)");
