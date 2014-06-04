@@ -4,10 +4,11 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using ScalaSharp.Core.Commands;
     using ScalaSharp.Core.Contexts;
     using ScalaSharp.Core.Language;
 
-    public class CompositeNode : INode
+    public class CompositeNode : ICommandNode
     {
         private IList<INode> nodes;
         private TypeInfo typeinfo;
@@ -34,6 +35,11 @@
         {
             foreach (var node in this.nodes)
                 node.RegisterInContext(context);
+        }
+
+        public ICommand GetCommand()
+        {
+            throw new NotImplementedException();
         }
     }
 }

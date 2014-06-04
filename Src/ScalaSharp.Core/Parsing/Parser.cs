@@ -129,7 +129,7 @@
             {
                 string name = this.ParseName();
                 this.ParseToken(TokenType.Delimiter, "{");
-                INode body = this.ParseNodes();
+                ICommandNode body = this.ParseNodes();
                 this.ParseToken(TokenType.Delimiter, "}");
 
                 return new ClassNode(name, body);
@@ -276,7 +276,7 @@
             return new DefNode(name, arguments, typeinfo, expr);
         }
 
-        private INode ParseNodes()
+        private ICommandNode ParseNodes()
         {
             IList<INode> nodes = new List<INode>();
 
@@ -287,7 +287,7 @@
                 return null;
 
             if (nodes.Count == 1)
-                return nodes[0];
+                return (ICommandNode)nodes[0];
 
             return new CompositeNode(nodes);
         }

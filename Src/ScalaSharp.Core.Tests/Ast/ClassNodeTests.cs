@@ -6,6 +6,7 @@
     using System.Text;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using ScalaSharp.Core.Ast;
+    using ScalaSharp.Core.Commands;
     using ScalaSharp.Core.Contexts;
 
     [TestClass]
@@ -35,6 +36,22 @@
             node.RegisterInContext(context);
 
             Assert.AreSame(node, context.GetValue("Foo"));
+        }
+
+        [TestMethod]
+        public void GetCommand()
+        {
+            VarNode body = new VarNode("a", null, new ConstantNode(42));
+            ClassNode node = new ClassNode("Foo", body);
+
+            var result = node.GetCommand();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(ClassCommand));
+
+            var ccmd = (ClassCommand)result;
+            Assert.AreEqual("Foo", ccmd.Name);
+            Assert.IsNotNull(ccmd.Body);
         }
     }
 }
