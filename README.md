@@ -39,6 +39,7 @@ Scala references
 - [How to create multiple class constructors in Scala](http://alvinalexander.com/scala/how-to-create-multiple-class-constructors-in-scala-alternate-constructors)
 - [Scala Classes & Objects](http://www.tutorialspoint.com/scala/scala_classes_objects.htm)
 - [First Steps to Scala](http://www.artima.com/scalazine/articles/steps.html)
+- [Scala parboiled2 syntax](https://github.com/rcano/sps)
 
 C# references
 
