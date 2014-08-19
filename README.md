@@ -40,6 +40,7 @@ Scala references
 - [Scala Classes & Objects](http://www.tutorialspoint.com/scala/scala_classes_objects.htm)
 - [First Steps to Scala](http://www.artima.com/scalazine/articles/steps.html)
 - [Scala parboiled2 syntax](https://github.com/rcano/sps)
+- [How the Use of Scala's Features Affects Compile Time](http://www.artima.com/articles/compile_time.html)
 
 C# references
 
