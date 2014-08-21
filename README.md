@@ -41,6 +41,7 @@ Scala references
 - [First Steps to Scala](http://www.artima.com/scalazine/articles/steps.html)
 - [Scala parboiled2 syntax](https://github.com/rcano/sps)
 - [How the Use of Scala's Features Affects Compile Time](http://www.artima.com/articles/compile_time.html)
+- [SIP-18 - Modularizing Language Features - Scala Documentation](http://docs.scala-lang.org/sips/completed/modularizing-language-features.html)
 
 C# references
 
