@@ -12,7 +12,7 @@
 
     public class Parser
     {
-        private static string[][] binaryoperators = new string[][] { new string[] { "==" }, new string[] { "+", "-" }, new string[] { "*", "/" } };
+        private static string[][] binaryoperators = new string[][] { new string[] { "==" }, new string[] { "+", "-" }, new string[] { "*", "/", "%" } };
         private Lexer lexer;
         private Stack<Token> tokens = new Stack<Token>();
 
@@ -314,6 +314,8 @@
                     expr = new MultiplyExpression(expr, this.ParseBinaryExpression(level + 1));
                 else if (token.Value == "/")
                     expr = new DivideExpression(expr, this.ParseBinaryExpression(level + 1));
+                else if (token.Value == "%")
+                    expr = new ModulusExpression(expr, this.ParseBinaryExpression(level + 1));
                 else if (token.Value == "==")
                     expr = new EqualExpression(expr, this.ParseBinaryExpression(level + 1));
             }

@@ -622,5 +622,25 @@
             Assert.IsNotNull(eqexpr.RightExpression);
             Assert.IsInstanceOfType(eqexpr.RightExpression, typeof(AddExpression));
         }
+
+        [TestMethod]
+        public void ParseModulusExpression()
+        {
+            Parser parser = new Parser("3 % 2");
+
+            var expr = parser.ParseExpression();
+
+            Assert.IsNotNull(expr);
+            Assert.IsInstanceOfType(expr, typeof(ModulusExpression));
+
+            var modexpr = (ModulusExpression)expr;
+
+            Assert.IsNotNull(modexpr.LeftExpression);
+            Assert.IsInstanceOfType(modexpr.LeftExpression, typeof(ConstantExpression));
+            Assert.AreEqual(3, ((ConstantExpression)modexpr.LeftExpression).Value);
+            Assert.IsNotNull(modexpr.RightExpression);
+            Assert.IsInstanceOfType(modexpr.RightExpression, typeof(ConstantExpression));
+            Assert.AreEqual(2, ((ConstantExpression)modexpr.RightExpression).Value);
+        }
     }
 }
