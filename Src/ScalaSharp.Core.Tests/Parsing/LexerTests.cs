@@ -268,9 +268,9 @@
         [TestMethod]
         public void GetOperators()
         {
-            string[] operators = new string[] { "=", "==", "<=", ">=", "<", ">", "<-", "+", "-", "*", "/" };
+            string[] operators = new string[] { "=", "==", "<=", ">=", "<", ">", "<-", "+", "-", "*", "/", "%" };
 
-            Lexer lexer = new Lexer("= == <= >= < > <- + - * /");
+            Lexer lexer = new Lexer("= == <= >= < > <- + - * / %");
 
             for (int k = 0; k < operators.Length; k++)
             {
