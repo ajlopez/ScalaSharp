@@ -36,7 +36,7 @@
 
             Assert.IsNull(node.TypeInfo);
 
-            node.CheckType();
+            node.CheckType(null);
 
             Assert.AreSame(TypeInfo.Int, node.TypeInfo);
         }

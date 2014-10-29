@@ -23,10 +23,10 @@
 
         public TypeInfo TypeInfo { get { return this.typeinfo; } }
 
-        public void CheckType()
+        public void CheckType(IContext context)
         {
             foreach (var node in this.nodes)
-                node.CheckType();
+                node.CheckType(context);
 
             this.typeinfo = this.nodes.Last().TypeInfo;
         }

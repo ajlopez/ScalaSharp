@@ -22,7 +22,7 @@
             Assert.AreSame(TypeInfo.Int, node.TypeInfo);
 
             node.RegisterInContext(null);
-            node.CheckType();
+            node.CheckType(null);
             Assert.AreSame(TypeInfo.Int, node.TypeInfo);
         }
 

@@ -24,10 +24,10 @@
 
         public TypeInfo TypeInfo { get { return this.expression.TypeInfo; } }
 
-        public void CheckType()
+        public void CheckType(IContext context)
         {
-            this.expression.CheckType();
-            this.target.CheckType();
+            this.expression.CheckType(context);
+            this.target.CheckType(context);
 
             if (this.target.TypeInfo == null)
                 ((IUntypedNode)this.target).SetTypeInfo(this.expression.TypeInfo);

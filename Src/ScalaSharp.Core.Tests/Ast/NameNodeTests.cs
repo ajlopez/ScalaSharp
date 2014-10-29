@@ -14,12 +14,14 @@
         [TestMethod]
         public void CreateNodeWithName()
         {
+            IContext context = new Context();
             NameNode node = new NameNode("foo");
+            node.RegisterInContext(context);
 
             Assert.IsNotNull(node.Name);
             Assert.AreEqual("foo", node.Name);
             Assert.IsNull(node.TypeInfo);
-            node.CheckType();
+            node.CheckType(context);
         }
 
         [TestMethod]

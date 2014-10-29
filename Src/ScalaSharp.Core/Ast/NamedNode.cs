@@ -22,7 +22,7 @@
 
         public TypeInfo TypeInfo { get { return this.typeinfo; } }
 
-        public abstract void CheckType();
+        public abstract void CheckType(IContext context);
 
         public void SetTypeInfo(TypeInfo typeinfo)
         {

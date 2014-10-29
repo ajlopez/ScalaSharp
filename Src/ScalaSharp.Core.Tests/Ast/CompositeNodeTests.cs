@@ -26,7 +26,7 @@
             Assert.AreSame(node2, node.Nodes[1]);
             Assert.AreSame(TypeInfo.String, node.TypeInfo);
 
-            node.CheckType();
+            node.CheckType(null);
             Assert.AreSame(TypeInfo.String, node.TypeInfo);
         }
 

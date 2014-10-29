@@ -29,15 +29,15 @@
 
         public TypeInfo TypeInfo { get { return this.then.TypeInfo; } }
 
-        public void CheckType()
+        public void CheckType(IContext context)
         {
             if (this.then != null)
-                this.then.CheckType();
+                this.then.CheckType(context);
 
             if (this.@else != null)
-                this.@else.CheckType();
+                this.@else.CheckType(context);
 
-            this.condition.CheckType();
+            this.condition.CheckType(context);
 
             if (this.condition.TypeInfo != TypeInfo.Boolean)
                 throw new InvalidOperationException("condition must be boolean");

@@ -27,10 +27,10 @@
 
         public TypeInfo TypeInfo { get { return this.typeinfo; } }
 
-        public void CheckType()
+        public void CheckType(IContext context)
         {
             if (this.body != null)
-                this.body.CheckType();
+                this.body.CheckType(context);
         }
 
         public void RegisterInContext(IContext context)

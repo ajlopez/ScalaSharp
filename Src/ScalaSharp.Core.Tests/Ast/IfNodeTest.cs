@@ -41,7 +41,7 @@
             Assert.AreSame(then, node.Then);
             Assert.AreSame(@else, node.Else);
             Assert.AreSame(TypeInfo.Int, node.TypeInfo);
-            node.CheckType();
+            node.CheckType(null);
             Assert.AreSame(TypeInfo.Int, node.TypeInfo);
         }
 
@@ -73,7 +73,7 @@
 
             try
             {
-                node.CheckType();
+                node.CheckType(null);
                 Assert.Fail();
             }
             catch (Exception ex)
@@ -91,7 +91,7 @@
             try
             {
                 var node = new IfNode(condition, then, null);
-                node.CheckType();
+                node.CheckType(null);
                 Assert.Fail();
             }
             catch (Exception ex)

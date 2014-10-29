@@ -11,7 +11,7 @@
     {
         TypeInfo TypeInfo { get; }
 
-        void CheckType();
+        void CheckType(IContext context);
 
         void RegisterInContext(IContext context);
     }

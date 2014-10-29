@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using ScalaSharp.Core.Contexts;
     using ScalaSharp.Core.Language;
 
     public abstract class NamedExpressionNode : NamedNode
@@ -18,9 +19,9 @@
 
         public IExpressionNode Expression { get { return this.expression; } }
 
-        public override void CheckType()
+        public override void CheckType(IContext context)
         {
-            this.expression.CheckType();
+            this.expression.CheckType(context);
 
             if (this.TypeInfo == null)
                 this.SetTypeInfo(this.expression.TypeInfo);

@@ -28,7 +28,7 @@
             get { throw new NotImplementedException(); }
         }
 
-        public void CheckType()
+        public void CheckType(IContext context)
         {
             throw new NotImplementedException();
         }

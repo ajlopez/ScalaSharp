@@ -6,6 +6,7 @@
     using System.Text;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using ScalaSharp.Core.Ast;
+    using ScalaSharp.Core.Contexts;
     using ScalaSharp.Core.Language;
 
     [TestClass]
@@ -29,11 +30,14 @@
         [TestMethod]
         public void CheckType()
         {
+            VarNode varn = new VarNode("foo", TypeInfo.Int, null);
+            IContext context = new Context();
+            varn.RegisterInContext(context);
             NameNode target = new NameNode("foo");
             ConstantNode expr = new ConstantNode(42);
 
             AssignmentNode node = new AssignmentNode(target, expr);
-            node.CheckType();
+            node.CheckType(context);
 
             Assert.AreSame(TypeInfo.Int, target.TypeInfo);
         }
@@ -41,15 +45,17 @@
         [TestMethod]
         public void RaiseIfTypeMismatch()
         {
+            IContext context = new Context();
             NameNode target = new NameNode("foo");
             target.SetTypeInfo(TypeInfo.Double);
+            target.RegisterInContext(context);
             ConstantNode expr = new ConstantNode(42);
 
             AssignmentNode node = new AssignmentNode(target, expr);
 
             try
             {
-                node.CheckType();
+                node.CheckType(context);
                 Assert.Fail();
             }
             catch (Exception ex)

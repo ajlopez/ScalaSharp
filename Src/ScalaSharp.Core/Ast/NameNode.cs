@@ -21,8 +21,17 @@
 
         public TypeInfo TypeInfo { get { return this.typeinfo; } }
 
-        public void CheckType()
+        public void CheckType(IContext context)
         {
+            var node = (INode)context.GetValue(this.name);
+
+            if (node == null)
+                return;
+
+            if (this.TypeInfo == null)
+                this.SetTypeInfo(node.TypeInfo);
+            else if (this.TypeInfo != node.TypeInfo)
+                throw new InvalidOperationException("type mismatch");
         }
 
         public void SetTypeInfo(TypeInfo typeinfo)

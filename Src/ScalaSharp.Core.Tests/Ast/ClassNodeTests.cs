@@ -22,7 +22,7 @@
             Assert.IsNotNull(node.Body);
             Assert.AreEqual("Foo", node.TypeInfo.Name);
 
-            node.CheckType();
+            node.CheckType(null);
             Assert.AreEqual("Foo", node.TypeInfo.Name);
         }
 
