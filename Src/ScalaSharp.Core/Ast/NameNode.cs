@@ -41,7 +41,6 @@
 
         public void RegisterInContext(IContext context)
         {
-            context.SetValue(this.name, this);
         }
 
         public Expressions.IExpression GetExpression()

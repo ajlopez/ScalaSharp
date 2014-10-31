@@ -7,6 +7,7 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using ScalaSharp.Core.Ast;
     using ScalaSharp.Core.Commands;
+    using ScalaSharp.Core.Contexts;
     using ScalaSharp.Core.Expressions;
     using ScalaSharp.Core.Language;
 
@@ -99,6 +100,24 @@
             {
                 Assert.AreEqual("type mismatch", ex.Message);
             }
+        }
+
+        [TestMethod]
+        public void RegisterInContext()
+        {
+            string name = "foo";
+            IList<ArgumentInfo> arguments = new List<ArgumentInfo>() { new ArgumentInfo("a", TypeInfo.Int), new ArgumentInfo("b", TypeInfo.Double) };
+            TypeInfo typeinfo = TypeInfo.Int;
+            IExpressionNode expression = new ConstantNode(42);
+
+            DefNode node = new DefNode(name, arguments, typeinfo, expression);
+
+            Context context = new Context();
+
+            node.RegisterInContext(context);
+
+            Assert.IsNotNull(context.GetValue("foo"));
+            Assert.AreSame(node, context.GetValue("foo"));
         }
     }
 }

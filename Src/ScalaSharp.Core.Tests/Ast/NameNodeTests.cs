@@ -23,17 +23,5 @@
             Assert.IsNull(node.TypeInfo);
             node.CheckType(context);
         }
-
-        [TestMethod]
-        public void RegisterInContext()
-        {
-            NameNode node = new NameNode("foo");
-            Context context = new Context();
-
-            node.RegisterInContext(context);
-
-            Assert.IsNotNull(context.GetValue("foo"));
-            Assert.AreSame(node, context.GetValue("foo"));
-        }
     }
 }
