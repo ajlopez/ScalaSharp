@@ -503,6 +503,20 @@
         }
 
         [TestMethod]
+        public void ParseCommands()
+        {
+            Parser parser = new Parser("class Foo { }\nclass Bar { }");
+
+            var result = parser.ParseCommands();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(CompositeCommand));
+            Assert.AreEqual(2, ((CompositeCommand)result).Commands.Count);
+
+            Assert.IsNull(parser.ParseCommand());
+        }
+
+        [TestMethod]
         public void RaiseIfNoTypeAndNotExpressionInVar()
         {
             Parser parser = new Parser("var one");

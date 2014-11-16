@@ -33,6 +33,22 @@
             return node;
         }
 
+        public ICommand ParseCommands()
+        {
+            IList<ICommand> commands = new List<ICommand>();
+
+            for (var cmd = this.ParseCommand(); cmd != null; cmd = this.ParseCommand())
+                commands.Add(cmd);
+
+            if (commands.Count == 0)
+                return null;
+
+            if (commands.Count == 1)
+                return commands[0];
+
+            return new CompositeCommand(commands);
+        }
+
         public ICommand ParseCommand()
         {
             var token = this.NextToken();
@@ -348,22 +364,6 @@
             this.PushToken(token);
 
             return null;
-        }
-
-        private ICommand ParseCommands()
-        {
-            IList<ICommand> commands = new List<ICommand>();
-
-            for (var cmd = this.ParseCommand(); cmd != null; cmd = this.ParseCommand())
-                commands.Add(cmd);
-
-            if (commands.Count == 0)
-                return null;
-
-            if (commands.Count == 1)
-                return commands[0];
-
-            return new CompositeCommand(commands);
         }
 
         private void ParseEndOfCommand()
