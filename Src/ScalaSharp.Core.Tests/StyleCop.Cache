@@ -99,33 +99,6 @@
     <milliseconds>972</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="ValNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>02/08/2014 14:52:32</timestamp>
-      <milliseconds>438</milliseconds>
-    </settings>
-    <timestamp>02/22/2014 14:52:52</timestamp>
-    <milliseconds>691</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="VarNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>02/08/2014 14:52:32</timestamp>
-      <milliseconds>438</milliseconds>
-    </settings>
-    <timestamp>02/22/2014 15:15:03</timestamp>
-    <milliseconds>788</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="DefNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>02/08/2014 14:52:32</timestamp>
-      <milliseconds>438</milliseconds>
-    </settings>
-    <timestamp>03/30/2014 08:32:29</timestamp>
-    <milliseconds>242</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="NodeContextTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>02/08/2014 14:52:32</timestamp>
@@ -142,69 +115,6 @@
     </settings>
     <timestamp>03/29/2014 20:36:53</timestamp>
     <milliseconds>910</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="LexerTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>02/08/2014 14:52:32</timestamp>
-      <milliseconds>438</milliseconds>
-    </settings>
-    <timestamp>05/04/2014 17:26:31</timestamp>
-    <milliseconds>270</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="ParserNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>02/08/2014 14:52:32</timestamp>
-      <milliseconds>438</milliseconds>
-    </settings>
-    <timestamp>05/04/2014 17:22:21</timestamp>
-    <milliseconds>813</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="ParserTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>02/08/2014 14:52:32</timestamp>
-      <milliseconds>438</milliseconds>
-    </settings>
-    <timestamp>03/29/2014 20:39:17</timestamp>
-    <milliseconds>849</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="AssignmentNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>02/08/2014 14:52:32</timestamp>
-      <milliseconds>438</milliseconds>
-    </settings>
-    <timestamp>05/17/2014 14:29:08</timestamp>
-    <milliseconds>508</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="ClassNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>02/08/2014 14:52:32</timestamp>
-      <milliseconds>438</milliseconds>
-    </settings>
-    <timestamp>05/17/2014 14:29:08</timestamp>
-    <milliseconds>510</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="ConstantNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>02/08/2014 14:52:32</timestamp>
-      <milliseconds>438</milliseconds>
-    </settings>
-    <timestamp>05/17/2014 14:32:03</timestamp>
-    <milliseconds>771</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="IfNodeTest.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>02/08/2014 14:52:32</timestamp>
-      <milliseconds>438</milliseconds>
-    </settings>
-    <timestamp>05/17/2014 14:37:16</timestamp>
-    <milliseconds>394</milliseconds>
     <violations />
   </sourcecode>
   <sourcecode name="InvokeNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
@@ -225,24 +135,6 @@
     <milliseconds>312</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="NameNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>02/08/2014 14:52:32</timestamp>
-      <milliseconds>438</milliseconds>
-    </settings>
-    <timestamp>05/17/2014 14:42:04</timestamp>
-    <milliseconds>309</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="ObjectNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>02/08/2014 14:52:32</timestamp>
-      <milliseconds>438</milliseconds>
-    </settings>
-    <timestamp>05/17/2014 14:39:27</timestamp>
-    <milliseconds>373</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="DynamicObjectTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>02/08/2014 14:52:32</timestamp>
@@ -255,13 +147,136 @@
   <project key="-1258068334">
     <configuration>DEBUG;TRACE</configuration>
   </project>
+  <sourcecode name="ClassNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>02/08/2014 14:52:32</timestamp>
+      <milliseconds>438</milliseconds>
+    </settings>
+    <timestamp>11/16/2014 15:44:10</timestamp>
+    <milliseconds>582</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="AssignmentNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>02/08/2014 14:52:32</timestamp>
+      <milliseconds>438</milliseconds>
+    </settings>
+    <timestamp>11/16/2014 15:44:10</timestamp>
+    <milliseconds>566</milliseconds>
+    <violations />
+  </sourcecode>
   <sourcecode name="CompositeNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>02/08/2014 14:52:32</timestamp>
       <milliseconds>438</milliseconds>
     </settings>
-    <timestamp>05/17/2014 14:44:36</timestamp>
-    <milliseconds>415</milliseconds>
+    <timestamp>11/16/2014 15:44:10</timestamp>
+    <milliseconds>613</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ConstantNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>02/08/2014 14:52:32</timestamp>
+      <milliseconds>438</milliseconds>
+    </settings>
+    <timestamp>11/16/2014 15:44:10</timestamp>
+    <milliseconds>613</milliseconds>
+    <violations>
+      <violation namespace="Microsoft.StyleCop.CSharp.OrderingRules" rule="UsingDirectivesMustBeOrderedAlphabeticallyByNamespace" ruleCheckId="SA1210">
+        <context>Using directives must be sorted alphabetically by the namespaces.</context>
+        <line>9</line>
+        <warning>False</warning>
+      </violation>
+    </violations>
+  </sourcecode>
+  <sourcecode name="IfNodeTest.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>02/08/2014 14:52:32</timestamp>
+      <milliseconds>438</milliseconds>
+    </settings>
+    <timestamp>11/16/2014 15:44:10</timestamp>
+    <milliseconds>644</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="DefNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>02/08/2014 14:52:32</timestamp>
+      <milliseconds>438</milliseconds>
+    </settings>
+    <timestamp>11/16/2014 15:44:10</timestamp>
+    <milliseconds>613</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="NameNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>02/08/2014 14:52:32</timestamp>
+      <milliseconds>438</milliseconds>
+    </settings>
+    <timestamp>11/16/2014 15:44:10</timestamp>
+    <milliseconds>644</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ObjectNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>02/08/2014 14:52:32</timestamp>
+      <milliseconds>438</milliseconds>
+    </settings>
+    <timestamp>11/16/2014 15:44:10</timestamp>
+    <milliseconds>707</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ValNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>02/08/2014 14:52:32</timestamp>
+      <milliseconds>438</milliseconds>
+    </settings>
+    <timestamp>11/16/2014 15:44:10</timestamp>
+    <milliseconds>816</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="VarNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>02/08/2014 14:52:32</timestamp>
+      <milliseconds>438</milliseconds>
+    </settings>
+    <timestamp>11/16/2014 15:44:10</timestamp>
+    <milliseconds>847</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ModulusExpressionTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>02/08/2014 14:52:32</timestamp>
+      <milliseconds>438</milliseconds>
+    </settings>
+    <timestamp>10/07/2014 08:21:12</timestamp>
+    <milliseconds>219</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="LexerTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>02/08/2014 14:52:32</timestamp>
+      <milliseconds>438</milliseconds>
+    </settings>
+    <timestamp>10/11/2014 14:45:09</timestamp>
+    <milliseconds>977</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ParserNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>02/08/2014 14:52:32</timestamp>
+      <milliseconds>438</milliseconds>
+    </settings>
+    <timestamp>06/02/2014 14:29:41</timestamp>
+    <milliseconds>941</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ParserTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>02/08/2014 14:52:32</timestamp>
+      <milliseconds>438</milliseconds>
+    </settings>
+    <timestamp>10/11/2014 16:52:21</timestamp>
+    <milliseconds>849</milliseconds>
     <violations />
   </sourcecode>
 </stylecopresultscache>
