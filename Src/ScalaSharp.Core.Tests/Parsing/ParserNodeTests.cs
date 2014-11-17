@@ -581,5 +581,19 @@
             Assert.IsInstanceOfType(inode.Arguments[1], typeof(ConstantNode));
             Assert.AreEqual(2, ((ConstantNode)inode.Arguments[1]).Value);
         }
+
+        [TestMethod]
+        public void ParseNodes()
+        {
+            Parser parser = new Parser("class Foo { }\nclass Bar { }");
+
+            var result = parser.ParseNodes();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(CompositeNode));
+            Assert.AreEqual(2, ((CompositeNode)result).Nodes.Count);
+
+            Assert.IsNull(parser.ParseNode());
+        }
     }
 }

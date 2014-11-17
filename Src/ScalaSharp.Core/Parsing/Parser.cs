@@ -21,6 +21,22 @@
             this.lexer = new Lexer(text);
         }
 
+        public ICommandNode ParseNodes()
+        {
+            IList<INode> nodes = new List<INode>();
+
+            for (var node = this.ParseNode(); node != null; node = this.ParseNode())
+                nodes.Add(node);
+
+            if (nodes.Count == 0)
+                return null;
+
+            if (nodes.Count == 1)
+                return (ICommandNode)nodes[0];
+
+            return new CompositeNode(nodes);
+        }
+
         public INode ParseNode()
         {
             var node = this.ParseSimpleNode();
@@ -290,22 +306,6 @@
                 throw new ParserException("Expected ':' or '='");
 
             return new DefNode(name, arguments, typeinfo, expr);
-        }
-
-        private ICommandNode ParseNodes()
-        {
-            IList<INode> nodes = new List<INode>();
-
-            for (var node = this.ParseNode(); node != null; node = this.ParseNode())
-                nodes.Add(node);
-
-            if (nodes.Count == 0)
-                return null;
-
-            if (nodes.Count == 1)
-                return (ICommandNode)nodes[0];
-
-            return new CompositeNode(nodes);
         }
 
         private IExpression ParseBinaryExpression(int level)
