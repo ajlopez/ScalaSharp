@@ -8,6 +8,8 @@
     using ScalaSharp.Core.Ast;
     using ScalaSharp.Core.Commands;
     using ScalaSharp.Core.Parsing;
+    using ScalaSharp.Core.Contexts;
+    using ScalaSharp.Core.Language;
 
     [TestClass]
     public class ParserNodeTests
@@ -592,6 +594,53 @@
             Assert.IsNotNull(result);
             Assert.IsInstanceOfType(result, typeof(CompositeNode));
             Assert.AreEqual(2, ((CompositeNode)result).Nodes.Count);
+
+            Assert.IsNull(parser.ParseNode());
+        }
+
+        [TestMethod]
+        public void ParseNodesAndRegisterInContext()
+        {
+            Parser parser = new Parser("class Foo { }\nclass Bar { }");
+
+            var result = parser.ParseNodes();
+            var context = new Context();
+            result.RegisterInContext(context);
+
+            var cfoo = context.GetValue("Foo");
+
+            Assert.IsNotNull(cfoo);
+            Assert.IsInstanceOfType(cfoo, typeof(ClassNode));
+
+            var cbar = context.GetValue("Bar");
+
+            Assert.IsNotNull(cbar);
+            Assert.IsInstanceOfType(cbar, typeof(ClassNode));
+
+            Assert.IsNull(parser.ParseNode());
+        }
+
+        [TestMethod]
+        public void ParseNodesRegisterInContextCheckTypes()
+        {
+            Parser parser = new Parser("var a = 1\nvar b = a");
+
+            var result = parser.ParseNodes();
+            var context = new Context();
+            result.RegisterInContext(context);
+            result.CheckType(context);
+
+            var vara = context.GetValue("a");
+
+            Assert.IsNotNull(vara);
+            Assert.IsInstanceOfType(vara, typeof(VarNode));
+            Assert.AreEqual(TypeInfo.Int, ((VarNode)vara).TypeInfo);
+
+            var varb = context.GetValue("b");
+
+            Assert.IsNotNull(varb);
+            Assert.IsInstanceOfType(varb, typeof(VarNode));
+            Assert.AreEqual(TypeInfo.Int, ((VarNode)varb).TypeInfo);
 
             Assert.IsNull(parser.ParseNode());
         }
