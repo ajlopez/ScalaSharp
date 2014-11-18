@@ -466,6 +466,54 @@
         }
 
         [TestMethod]
+        public void ParseSimpleVarNodeWithTypeAndIntegerExpression()
+        {
+            Parser parser = new Parser("var one: Int = 1");
+
+            var node = parser.ParseNode();
+
+            Assert.IsNotNull(node);
+            Assert.IsInstanceOfType(node, typeof(VarNode));
+
+            var vnode = (VarNode)node;
+
+            Assert.AreEqual("one", vnode.Name);
+            Assert.IsNotNull(vnode.Expression);
+            Assert.IsInstanceOfType(vnode.Expression, typeof(ConstantNode));
+            Assert.AreEqual(TypeInfo.Int, vnode.TypeInfo);
+
+            var expr = (ConstantNode)vnode.Expression;
+
+            Assert.AreEqual(1, expr.Value);
+
+            Assert.IsNull(parser.ParseNode());
+        }
+
+        [TestMethod]
+        public void ParseSimpleValNodeWithTypeAndIntegerExpression()
+        {
+            Parser parser = new Parser("val one: Int = 1");
+
+            var node = parser.ParseNode();
+
+            Assert.IsNotNull(node);
+            Assert.IsInstanceOfType(node, typeof(ValNode));
+
+            var vnode = (ValNode)node;
+
+            Assert.AreEqual("one", vnode.Name);
+            Assert.IsNotNull(vnode.Expression);
+            Assert.IsInstanceOfType(vnode.Expression, typeof(ConstantNode));
+            Assert.AreEqual(TypeInfo.Int, vnode.TypeInfo);
+
+            var expr = (ConstantNode)vnode.Expression;
+
+            Assert.AreEqual(1, expr.Value);
+
+            Assert.IsNull(parser.ParseNode());
+        }
+
+        [TestMethod]
         public void ParseSimpleVarNodeWithEndOfLine()
         {
             Parser parser = new Parser("var one = 1\n");

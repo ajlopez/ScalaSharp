@@ -180,19 +180,31 @@
             if (token.Type == TokenType.Name && token.Value == "val")
             {
                 string name = this.ParseName();
-                this.ParseToken(TokenType.Operator, "=");
-                IExpressionNode expr = this.ParseExpressionNode();
+                TypeInfo tinfo = null;
+                IExpressionNode expr = null;
 
-                return new ValNode(name, null, expr);
+                if (this.TryParseToken(TokenType.Delimiter, ":"))
+                    tinfo = this.ParseTypeInfo();
+
+                if (this.TryParseToken(TokenType.Operator, "="))
+                    expr = this.ParseExpressionNode();
+
+                return new ValNode(name, tinfo, expr);
             }
 
             if (token.Type == TokenType.Name && token.Value == "var")
             {
                 string name = this.ParseName();
-                this.ParseToken(TokenType.Operator, "=");
-                IExpressionNode expr = this.ParseExpressionNode();
+                TypeInfo tinfo = null;
+                IExpressionNode expr = null;
 
-                return new VarNode(name, null, expr);
+                if (this.TryParseToken(TokenType.Delimiter, ":"))
+                    tinfo = this.ParseTypeInfo();
+
+                if (this.TryParseToken(TokenType.Operator, "="))
+                    expr = this.ParseExpressionNode();
+
+                return new VarNode(name, tinfo, expr);
             }
 
             if (token.Type == TokenType.Name && token.Value == "def")
