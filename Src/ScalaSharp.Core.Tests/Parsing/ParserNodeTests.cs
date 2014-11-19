@@ -299,6 +299,8 @@
             var expr = (ConstantNode)dnode.Expression;
 
             Assert.AreEqual(2, expr.Value);
+
+            dnode.CheckType(null);
         }
 
         [TestMethod]
