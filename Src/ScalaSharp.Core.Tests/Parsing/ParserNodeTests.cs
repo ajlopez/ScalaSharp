@@ -719,5 +719,30 @@
 
             Assert.IsNull(parser.ParseNode());
         }
+
+        [TestMethod]
+        public void ParseNodesRegisterInContextCheckTypesUsingDef()
+        {
+            Parser parser = new Parser("var a = 1\ndef b = a");
+
+            var result = parser.ParseNodes();
+            var context = new Context();
+            result.RegisterInContext(context);
+            result.CheckType(context);
+
+            var vara = context.GetValue("a");
+
+            Assert.IsNotNull(vara);
+            Assert.IsInstanceOfType(vara, typeof(VarNode));
+            Assert.AreEqual(TypeInfo.Int, ((VarNode)vara).TypeInfo);
+
+            var defb = context.GetValue("b");
+
+            Assert.IsNotNull(defb);
+            Assert.IsInstanceOfType(defb, typeof(DefNode));
+            Assert.AreEqual(TypeInfo.Int, ((DefNode)defb).TypeInfo);
+
+            Assert.IsNull(parser.ParseNode());
+        }
     }
 }
