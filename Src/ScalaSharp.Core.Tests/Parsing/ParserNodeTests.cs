@@ -277,6 +277,31 @@
         }
 
         [TestMethod]
+        public void ParseSimpleDefNodeWithTypeAndValue()
+        {
+            Parser parser = new Parser("def foo: Int = 2");
+
+            var result = parser.ParseNode();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(DefNode));
+
+            var dnode = (DefNode)result;
+
+            Assert.AreEqual("foo", dnode.Name);
+            Assert.IsNotNull(dnode.TypeInfo);
+            Assert.AreEqual(TypeInfo.Int, dnode.TypeInfo);
+            Assert.IsNotNull(dnode.Arguments);
+            Assert.AreEqual(0, dnode.Arguments.Count);
+            Assert.IsNotNull(dnode.Expression);
+            Assert.IsInstanceOfType(dnode.Expression, typeof(ConstantNode));
+
+            var expr = (ConstantNode)dnode.Expression;
+
+            Assert.AreEqual(2, expr.Value);
+        }
+
+        [TestMethod]
         public void ParseDefNodeWithConstantNode()
         {
             Parser parser = new Parser("def foo = 0");
