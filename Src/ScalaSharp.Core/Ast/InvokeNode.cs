@@ -12,6 +12,7 @@
     {
         private string methodname;
         private IList<INode> arguments;
+        private TypeInfo typeinfo;
 
         public InvokeNode(string methodname, IList<INode> arguments)
         {
@@ -25,12 +26,12 @@
 
         public TypeInfo TypeInfo
         {
-            get { throw new NotImplementedException(); }
+            get { return this.typeinfo; }
         }
 
         public void CheckType(IContext context)
         {
-            throw new NotImplementedException();
+            this.typeinfo = ((INode)context.GetValue(this.methodname)).TypeInfo;
         }
 
         public void RegisterInContext(IContext context)

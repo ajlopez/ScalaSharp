@@ -6,6 +6,8 @@
     using System.Text;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using ScalaSharp.Core.Ast;
+    using ScalaSharp.Core.Contexts;
+    using ScalaSharp.Core.Language;
 
     [TestClass]
     public class InvokeNodeTests
@@ -19,6 +21,20 @@
             node.RegisterInContext(null);
             Assert.AreSame(arguments, node.Arguments);
             Assert.AreEqual("append", node.MethodName);
+        }
+
+        [TestMethod]
+        public void CheckType()
+        {
+            Context context = new Context();
+            DefNode defnode = new DefNode("append", null, TypeInfo.Int, null);
+            defnode.RegisterInContext(context);
+            IList<INode> arguments = new List<INode>() { new ConstantNode(42) };
+            InvokeNode node = new InvokeNode("append", arguments);
+
+            Assert.IsNull(node.TypeInfo);
+            node.CheckType(context);
+            Assert.AreEqual(TypeInfo.Int, node.TypeInfo);
         }
     }
 }
