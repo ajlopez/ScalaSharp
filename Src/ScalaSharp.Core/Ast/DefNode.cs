@@ -22,7 +22,6 @@
         public ICommand GetCommand()
         {
             return new DefCommand(this.Name, this.arguments, this.TypeInfo, new ExpressionCommand(this.Expression.GetExpression()));
-            throw new NotImplementedException();
         }
     }
 }

@@ -41,7 +41,6 @@
         public ICommand GetCommand()
         {
             return new ClassCommand(this.name, this.body.GetCommand());
-            throw new NotImplementedException();
         }
     }
 }
