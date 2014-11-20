@@ -4,16 +4,17 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using ScalaSharp.Core.Commands;
     using ScalaSharp.Core.Contexts;
     using ScalaSharp.Core.Language;
 
-    public class ObjectNode : INode
+    public class ObjectNode : ICommandNode
     {
         private string name;
-        private INode body;
+        private ICommandNode body;
         private TypeInfo typeinfo;
 
-        public ObjectNode(string name, INode body)
+        public ObjectNode(string name, ICommandNode body)
         {
             this.name = name;
             this.body = body;
@@ -35,6 +36,11 @@
         public void RegisterInContext(IContext context)
         {
             context.SetValue(this.name, this);
+        }
+
+        public ICommand GetCommand()
+        {
+            return new ObjectCommand(this.name, this.body.GetCommand());
         }
     }
 }

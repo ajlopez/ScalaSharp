@@ -171,7 +171,7 @@
             {
                 string name = this.ParseName();
                 this.ParseToken(TokenType.Delimiter, "{");
-                INode body = this.ParseNodes();
+                ICommandNode body = this.ParseNodes();
                 this.ParseToken(TokenType.Delimiter, "}");
 
                 return new ObjectNode(name, body);

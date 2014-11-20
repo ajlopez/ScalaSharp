@@ -6,6 +6,7 @@
     using System.Text;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using ScalaSharp.Core.Ast;
+    using ScalaSharp.Core.Commands;
     using ScalaSharp.Core.Contexts;
 
     [TestClass]
@@ -38,6 +39,18 @@
             Assert.IsNotNull(context.GetValue("Foo"));
             Assert.IsNull(context.GetValue("a"));
             Assert.AreSame(node, context.GetValue("Foo"));
+        }
+
+        [TestMethod]
+        public void GetCommand()
+        {
+            VarNode varnode = new VarNode("a", null, new ConstantNode(42));
+            ObjectNode node = new ObjectNode("Foo", varnode);
+
+            var result = node.GetCommand();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(ObjectCommand));
         }
     }
 }
