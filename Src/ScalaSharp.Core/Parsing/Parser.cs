@@ -248,22 +248,18 @@
 
         private IExpressionNode ParseExpressionNode()
         {
-            var token = this.NextToken();
+            var expr = this.ParseExpression();
 
-            if (token == null)
+            if (expr == null)
                 return null;
 
-            if (token.Type == TokenType.String)
-                return new ConstantNode(token.Value);
+            if (expr is ConstantExpression)
+                return new ConstantNode(((ConstantExpression)expr).Value);
 
-            if (token.Type == TokenType.Integer)
-                return new ConstantNode(int.Parse(token.Value, CultureInfo.InvariantCulture));
-
-            if (token.Type == TokenType.Real)
-                return new ConstantNode(double.Parse(token.Value, CultureInfo.InvariantCulture));
-
-            if (token.Type == TokenType.Name)
+            if (expr is VariableExpression)
             {
+                string name = ((VariableExpression)expr).Name;
+
                 if (this.TryParseToken(TokenType.Delimiter, "("))
                 {
                     IList<INode> arguments = new List<INode>();
@@ -276,15 +272,13 @@
                         arguments.Add(this.ParseSimpleNode());
                     }
 
-                    return new InvokeNode(token.Value, arguments);
+                    return new InvokeNode(name, arguments);
                 }
                 else
-                    return new NameNode(token.Value);
+                    return new NameNode(name);
             }
 
-            this.PushToken(token);
-
-            return null;
+            return new ExpressionNode(expr);
         }
 
         private DefNode ParseDefNode()
