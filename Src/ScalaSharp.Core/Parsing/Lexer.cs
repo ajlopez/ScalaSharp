@@ -20,8 +20,7 @@
 
         public Token NextToken()
         {
-            while (this.position < this.length && IsWhiteSpace(this.text[this.position]))
-                this.position++;
+            this.SkipWhiteSpaces();
 
             if (this.position >= this.length)
                 return null;
@@ -55,6 +54,26 @@
                 return this.NextInteger(ch);
 
             return this.NextName(ch);
+        }
+
+        private void SkipWhiteSpaces()
+        {
+            while (true)
+            {
+                while (this.position < this.length && IsWhiteSpace(this.text[this.position]))
+                    this.position++;
+
+                if (this.position >= this.length)
+                    return;
+
+                if (this.text[this.position] == '/' && this.position < this.length - 1 && this.text[position + 1] == '/')
+                {
+                    while (this.position < this.length && this.text[position] != '\r' && this.text[position] != '\n')
+                        this.position++;
+                }
+                else
+                    return;
+            }
         }
 
         private static bool IsWhiteSpace(char ch)

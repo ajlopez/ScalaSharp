@@ -39,6 +39,26 @@
         }
 
         [TestMethod]
+        public void SkipLineComment()
+        {
+            Lexer lexer = new Lexer("// a line comment\n  name   ");
+
+            var result = lexer.NextToken();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual("\n", result.Value);
+            Assert.AreEqual(TokenType.NewLine, result.Type);
+
+            result = lexer.NextToken();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual("name", result.Value);
+            Assert.AreEqual(TokenType.Name, result.Type);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
         public void GetInteger()
         {
             Lexer lexer = new Lexer("123");
