@@ -42,6 +42,12 @@ Scala references
 - [Scala parboiled2 syntax](https://github.com/rcano/sps)
 - [How the Use of Scala's Features Affects Compile Time](http://www.artima.com/articles/compile_time.html)
 - [SIP-18 - Modularizing Language Features - Scala Documentation](http://docs.scala-lang.org/sips/completed/modularizing-language-features.html)
+- [Scala and Erasure](http://blogs.atlassian.com/2012/12/scala-and-erasure/)
+- [Reified generics in Scala on .NET/CLR](http://stackoverflow.com/questions/11607170/reified-generics-in-scala-on-net-clr)
+
+Java references
+
+- [Java generics and type erasure](http://code.stephenmorley.org/articles/java-generics-type-erasure/)
 
 C# references
 
