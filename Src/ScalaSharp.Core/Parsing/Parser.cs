@@ -44,6 +44,17 @@
             if (node == null)
                 return null;
 
+            var token = this.NextToken();
+
+            if (token != null && token.Type == TokenType.Name)
+            {
+                var expr = this.ParseExpressionNode();
+                node = new InvokeMethodNode(node, token.Value, new INode[] { expr });
+            }
+            else
+                if (token != null)
+                    this.PushToken(token);
+
             this.ParseEndOfCommand();
 
             return node;
