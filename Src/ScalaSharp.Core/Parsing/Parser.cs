@@ -159,15 +159,6 @@
             if (token == null)
                 return null;
 
-            if (token.Type == TokenType.String)
-                return new ConstantNode(token.Value);
-
-            if (token.Type == TokenType.Integer)
-                return new ConstantNode(int.Parse(token.Value, CultureInfo.InvariantCulture));
-
-            if (token.Type == TokenType.Real)
-                return new ConstantNode(double.Parse(token.Value, CultureInfo.InvariantCulture));
-
             if (token.Type == TokenType.Name && token.Value == "class")
                 return this.ParseClassNode();
 
@@ -183,17 +174,30 @@
             if (token.Type == TokenType.Name && token.Value == "def")
                 return this.ParseDefNode();
 
-            if (token.Type == TokenType.Name)
+            INode node = null;
+
+            if (token.Type == TokenType.String)
+                node = new ConstantNode(token.Value);
+            else if (token.Type == TokenType.Integer)
+                node = new ConstantNode(int.Parse(token.Value, CultureInfo.InvariantCulture));
+            else if (token.Type == TokenType.Real)
+                node = new ConstantNode(double.Parse(token.Value, CultureInfo.InvariantCulture));
+            else if (token.Type == TokenType.Name)
+                node = new NameNode(token.Value);
+            else
             {
-                INode target = null;
+                this.PushToken(token);
+                return null;
+            }
 
-                if (this.TryParseToken(TokenType.Delimiter, "."))
-                {
-                    target = new NameNode(token.Value);
-                    token = new Token(this.ParseName(), TokenType.Name);
-                }
+            while (true)
+            {
+                INode newnode = node;
 
-                if (this.TryParseToken(TokenType.Delimiter, "("))
+                while (this.TryParseToken(TokenType.Delimiter, "."))
+                    newnode = new DotNameNode(newnode, this.ParseName());
+
+                while (this.TryParseToken(TokenType.Delimiter, "("))
                 {
                     IList<INode> arguments = new List<INode>();
 
@@ -205,18 +209,19 @@
                         arguments.Add(this.ParseSimpleNode());
                     }
 
-                    if (target != null)
-                        return new InvokeMethodNode(target, token.Value, arguments);
-
-                    return new InvokeNode(token.Value, arguments);
+                    if (newnode is DotNameNode)
+                        newnode = new InvokeMethodNode(((DotNameNode)newnode).Target, ((DotNameNode)newnode).Name, arguments);
+                    else
+                        newnode = new InvokeNode(((NameNode)newnode).Name, arguments);
                 }
-                else
-                    return new NameNode(token.Value);
+
+                if (node == newnode)
+                    break;
+
+                node = newnode;
             }
 
-            this.PushToken(token);
-
-            return null;
+            return node;
         }
 
         private INode ParseVarNode()
