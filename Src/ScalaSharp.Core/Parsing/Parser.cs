@@ -169,54 +169,16 @@
                 return new ConstantNode(double.Parse(token.Value, CultureInfo.InvariantCulture));
 
             if (token.Type == TokenType.Name && token.Value == "class")
-            {
-                string name = this.ParseName();
-                this.ParseToken(TokenType.Delimiter, "{");
-                ICommandNode body = this.ParseNodes();
-                this.ParseToken(TokenType.Delimiter, "}");
-
-                return new ClassNode(name, body);
-            }
+                return this.ParseClassNode();
 
             if (token.Type == TokenType.Name && token.Value == "object")
-            {
-                string name = this.ParseName();
-                this.ParseToken(TokenType.Delimiter, "{");
-                ICommandNode body = this.ParseNodes();
-                this.ParseToken(TokenType.Delimiter, "}");
-
-                return new ObjectNode(name, body);
-            }
+                return this.ParseObjectNode();
 
             if (token.Type == TokenType.Name && token.Value == "val")
-            {
-                string name = this.ParseName();
-                TypeInfo tinfo = null;
-                IExpressionNode expr = null;
-
-                if (this.TryParseToken(TokenType.Delimiter, ":"))
-                    tinfo = this.ParseTypeInfo();
-
-                if (this.TryParseToken(TokenType.Operator, "="))
-                    expr = this.ParseExpressionNode();
-
-                return new ValNode(name, tinfo, expr);
-            }
+                return this.ParseValNode();
 
             if (token.Type == TokenType.Name && token.Value == "var")
-            {
-                string name = this.ParseName();
-                TypeInfo tinfo = null;
-                IExpressionNode expr = null;
-
-                if (this.TryParseToken(TokenType.Delimiter, ":"))
-                    tinfo = this.ParseTypeInfo();
-
-                if (this.TryParseToken(TokenType.Operator, "="))
-                    expr = this.ParseExpressionNode();
-
-                return new VarNode(name, tinfo, expr);
-            }
+                return this.ParseVarNode();
 
             if (token.Type == TokenType.Name && token.Value == "def")
                 return this.ParseDefNode();
@@ -255,6 +217,56 @@
             this.PushToken(token);
 
             return null;
+        }
+
+        private INode ParseVarNode()
+        {
+            string name = this.ParseName();
+            TypeInfo tinfo = null;
+            IExpressionNode expr = null;
+
+            if (this.TryParseToken(TokenType.Delimiter, ":"))
+                tinfo = this.ParseTypeInfo();
+
+            if (this.TryParseToken(TokenType.Operator, "="))
+                expr = this.ParseExpressionNode();
+
+            return new VarNode(name, tinfo, expr);
+        }
+
+        private INode ParseValNode()
+        {
+            string name = this.ParseName();
+            TypeInfo tinfo = null;
+            IExpressionNode expr = null;
+
+            if (this.TryParseToken(TokenType.Delimiter, ":"))
+                tinfo = this.ParseTypeInfo();
+
+            if (this.TryParseToken(TokenType.Operator, "="))
+                expr = this.ParseExpressionNode();
+
+            return new ValNode(name, tinfo, expr);
+        }
+
+        private INode ParseObjectNode()
+        {
+            string name = this.ParseName();
+            this.ParseToken(TokenType.Delimiter, "{");
+            ICommandNode body = this.ParseNodes();
+            this.ParseToken(TokenType.Delimiter, "}");
+
+            return new ObjectNode(name, body);
+        }
+
+        private INode ParseClassNode()
+        {
+            string name = this.ParseName();
+            this.ParseToken(TokenType.Delimiter, "{");
+            ICommandNode body = this.ParseNodes();
+            this.ParseToken(TokenType.Delimiter, "}");
+
+            return new ClassNode(name, body);
         }
 
         private IExpressionNode ParseExpressionNode()

@@ -441,18 +441,6 @@
     <milliseconds>238</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="Parser.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>10/11/2014 16:53:52</timestamp>
-    <milliseconds>305</milliseconds>
-    <violations />
-  </sourcecode>
-  <project key="817945136">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="IExpressionNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>08/31/2013 18:43:41</timestamp>
@@ -469,6 +457,18 @@
     </settings>
     <timestamp>11/16/2014 15:47:46</timestamp>
     <milliseconds>28</milliseconds>
+    <violations />
+  </sourcecode>
+  <project key="817945136">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
+  <sourcecode name="Parser.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>12/31/2014 05:28:16</timestamp>
+    <milliseconds>177</milliseconds>
     <violations />
   </sourcecode>
 </stylecopresultscache>
