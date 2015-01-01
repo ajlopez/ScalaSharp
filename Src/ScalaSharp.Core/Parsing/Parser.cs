@@ -212,7 +212,7 @@
                     if (newnode is DotNameNode)
                         newnode = new InvokeMethodNode(((DotNameNode)newnode).Target, ((DotNameNode)newnode).Name, arguments);
                     else
-                        newnode = new InvokeNode(((NameNode)newnode).Name, arguments);
+                        newnode = new InvokeNode(newnode, arguments);
                 }
 
                 if (node == newnode)
@@ -300,7 +300,7 @@
                         arguments.Add(this.ParseSimpleNode());
                     }
 
-                    return new InvokeNode(name, arguments);
+                    return new InvokeNode(new NameNode(name), arguments);
                 }
                 else
                     return new NameNode(name);

@@ -10,17 +10,17 @@
 
     public class InvokeNode : IExpressionNode
     {
-        private string methodname;
+        private INode target;
         private IList<INode> arguments;
         private TypeInfo typeinfo;
 
-        public InvokeNode(string methodname, IList<INode> arguments)
+        public InvokeNode(INode target, IList<INode> arguments)
         {
-            this.methodname = methodname;
+            this.target = target;
             this.arguments = arguments;
         }
 
-        public string MethodName { get { return this.methodname; } }
+        public INode Target { get { return this.target; } }
 
         public IList<INode> Arguments { get { return this.arguments; } }
 
@@ -31,7 +31,8 @@
 
         public void CheckType(IContext context)
         {
-            this.typeinfo = ((INode)context.GetValue(this.methodname)).TypeInfo;
+            this.target.CheckType(context);
+            this.typeinfo = this.target.TypeInfo;
         }
 
         public void RegisterInContext(IContext context)

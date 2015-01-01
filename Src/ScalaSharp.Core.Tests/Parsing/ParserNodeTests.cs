@@ -597,7 +597,38 @@
 
             var inode = (InvokeNode)node;
 
-            Assert.AreEqual("fibo", inode.MethodName);
+            Assert.IsNotNull(inode.Target);
+            Assert.IsInstanceOfType(inode.Target, typeof(NameNode));
+            Assert.AreEqual("fibo", ((NameNode)inode.Target).Name);
+            Assert.IsNotNull(inode.Arguments);
+            Assert.AreEqual(1, inode.Arguments.Count);
+            Assert.IsInstanceOfType(inode.Arguments[0], typeof(ConstantNode));
+            Assert.AreEqual(1, ((ConstantNode)inode.Arguments[0]).Value);
+        }
+
+        [TestMethod]
+        public void ParseDoubleInvoke()
+        {
+            Parser parser = new Parser("fibo(1)(2)");
+
+            var node = parser.ParseNode();
+            Assert.IsNotNull(node);
+            Assert.IsInstanceOfType(node, typeof(InvokeNode));
+
+            var inode = (InvokeNode)node;
+
+            Assert.IsNotNull(inode.Target);
+            Assert.IsInstanceOfType(inode.Target, typeof(InvokeNode));
+            Assert.IsNotNull(inode.Arguments);
+            Assert.AreEqual(1, inode.Arguments.Count);
+            Assert.IsInstanceOfType(inode.Arguments[0], typeof(ConstantNode));
+            Assert.AreEqual(2, ((ConstantNode)inode.Arguments[0]).Value);
+
+            inode = (InvokeNode)inode.Target;
+
+            Assert.IsNotNull(inode.Target);
+            Assert.IsInstanceOfType(inode.Target, typeof(NameNode));
+            Assert.AreEqual("fibo", ((NameNode)inode.Target).Name);
             Assert.IsNotNull(inode.Arguments);
             Assert.AreEqual(1, inode.Arguments.Count);
             Assert.IsInstanceOfType(inode.Arguments[0], typeof(ConstantNode));
@@ -615,7 +646,9 @@
 
             var inode = (InvokeNode)node;
 
-            Assert.AreEqual("foo", inode.MethodName);
+            Assert.IsNotNull(inode.Target);
+            Assert.IsInstanceOfType(inode.Target, typeof(NameNode));
+            Assert.AreEqual("foo", ((NameNode)inode.Target).Name);
             Assert.IsNotNull(inode.Arguments);
             Assert.AreEqual(0, inode.Arguments.Count);
         }
@@ -671,7 +704,9 @@
 
             var inode = (InvokeNode)node;
 
-            Assert.AreEqual("add", inode.MethodName);
+            Assert.IsNotNull(inode.Target);
+            Assert.IsInstanceOfType(inode.Target, typeof(NameNode));
+            Assert.AreEqual("add", ((NameNode)inode.Target).Name);
             Assert.IsNotNull(inode.Arguments);
             Assert.AreEqual(2, inode.Arguments.Count);
             Assert.IsInstanceOfType(inode.Arguments[0], typeof(ConstantNode));

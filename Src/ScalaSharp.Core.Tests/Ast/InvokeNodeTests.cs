@@ -16,11 +16,13 @@
         public void CreateInvokeNode()
         {
             IList<INode> arguments = new List<INode>() { new ConstantNode(42) };
-            InvokeNode node = new InvokeNode("append", arguments);
+            InvokeNode node = new InvokeNode(new NameNode("append"), arguments);
 
             node.RegisterInContext(null);
             Assert.AreSame(arguments, node.Arguments);
-            Assert.AreEqual("append", node.MethodName);
+            Assert.IsNotNull(node.Target);
+            Assert.IsInstanceOfType(node.Target, typeof(NameNode));
+            Assert.AreEqual("append", (((NameNode)node.Target).Name));
         }
 
         [TestMethod]
@@ -30,7 +32,7 @@
             DefNode defnode = new DefNode("append", null, TypeInfo.Int, null);
             defnode.RegisterInContext(context);
             IList<INode> arguments = new List<INode>() { new ConstantNode(42) };
-            InvokeNode node = new InvokeNode("append", arguments);
+            InvokeNode node = new InvokeNode(new NameNode("append"), arguments);
 
             Assert.IsNull(node.TypeInfo);
             node.CheckType(context);
