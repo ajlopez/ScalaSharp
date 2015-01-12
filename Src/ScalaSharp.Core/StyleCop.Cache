@@ -279,15 +279,6 @@
     <milliseconds>350</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="Lexer.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>05/04/2014 17:25:44</timestamp>
-    <milliseconds>757</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="TokenType.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>08/31/2013 18:43:41</timestamp>
@@ -306,15 +297,6 @@
     <milliseconds>863</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="ClassNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>11/16/2014 15:44:10</timestamp>
-    <milliseconds>894</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="CompositeNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>08/31/2013 18:43:41</timestamp>
@@ -322,15 +304,6 @@
     </settings>
     <timestamp>11/16/2014 15:44:11</timestamp>
     <milliseconds>66</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="DefNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>06/02/2014 11:55:53</timestamp>
-    <milliseconds>999</milliseconds>
     <violations />
   </sourcecode>
   <sourcecode name="ICommandNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
@@ -360,15 +333,6 @@
     <milliseconds>113</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="InvokeNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>11/16/2014 15:44:11</timestamp>
-    <milliseconds>191</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="InvokeMethodNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>08/31/2013 18:43:41</timestamp>
@@ -388,15 +352,6 @@
     <violations />
   </sourcecode>
   <sourcecode name="NamedExpressionNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>08/31/2013 18:43:41</timestamp>
-      <milliseconds>30</milliseconds>
-    </settings>
-    <timestamp>11/16/2014 15:44:11</timestamp>
-    <milliseconds>207</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="ObjectNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>08/31/2013 18:43:41</timestamp>
       <milliseconds>30</milliseconds>
@@ -459,16 +414,85 @@
     <milliseconds>28</milliseconds>
     <violations />
   </sourcecode>
-  <project key="817945136">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
+  <sourcecode name="DefNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>11/20/2014 13:10:59</timestamp>
+    <milliseconds>963</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ClassNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>11/20/2014 13:10:59</timestamp>
+    <milliseconds>962</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="DotNameNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>12/31/2014 05:40:10</timestamp>
+    <milliseconds>176</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="InvokeNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>01/01/2015 05:47:50</timestamp>
+    <milliseconds>482</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ObjectNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>11/20/2014 13:10:59</timestamp>
+    <milliseconds>966</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ExpressionNode.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>11/21/2014 06:21:29</timestamp>
+    <milliseconds>552</milliseconds>
+    <violations>
+      <violation namespace="Microsoft.StyleCop.CSharp.OrderingRules" rule="ElementsMustAppearInTheCorrectOrder" ruleCheckId="SA1201">
+        <context>All methods must be placed after all properties.</context>
+        <line>24</line>
+        <warning>False</warning>
+      </violation>
+    </violations>
+  </sourcecode>
   <sourcecode name="Parser.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>08/31/2013 18:43:41</timestamp>
       <milliseconds>30</milliseconds>
     </settings>
-    <timestamp>12/31/2014 05:28:16</timestamp>
-    <milliseconds>177</milliseconds>
+    <timestamp>01/01/2015 05:43:08</timestamp>
+    <milliseconds>239</milliseconds>
     <violations />
   </sourcecode>
+  <sourcecode name="Lexer.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>08/31/2013 18:43:41</timestamp>
+      <milliseconds>30</milliseconds>
+    </settings>
+    <timestamp>01/12/2015 07:21:49</timestamp>
+    <milliseconds>520</milliseconds>
+    <violations />
+  </sourcecode>
+  <project key="817945136">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
 </stylecopresultscache>

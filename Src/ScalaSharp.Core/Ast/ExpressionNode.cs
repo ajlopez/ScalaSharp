@@ -16,12 +16,12 @@
             this.expression = expression;
         }
 
+        public TypeInfo TypeInfo { get { return this.expression.TypeInfo; } }
+
         public IExpression GetExpression()
         {
             return this.expression;
         }
-
-        public TypeInfo TypeInfo { get { return this.expression.TypeInfo; } }
 
         public void CheckType(Contexts.IContext context)
         {

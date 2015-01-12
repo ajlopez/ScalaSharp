@@ -117,15 +117,6 @@
     <milliseconds>910</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="InvokeNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>02/08/2014 14:52:32</timestamp>
-      <milliseconds>438</milliseconds>
-    </settings>
-    <timestamp>05/17/2014 14:32:39</timestamp>
-    <milliseconds>291</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="InvokeMethodNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>02/08/2014 14:52:32</timestamp>
@@ -144,9 +135,6 @@
     <milliseconds>71</milliseconds>
     <violations />
   </sourcecode>
-  <project key="-1258068334">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="ClassNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>02/08/2014 14:52:32</timestamp>
@@ -174,21 +162,6 @@
     <milliseconds>613</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="ConstantNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>02/08/2014 14:52:32</timestamp>
-      <milliseconds>438</milliseconds>
-    </settings>
-    <timestamp>11/16/2014 15:44:10</timestamp>
-    <milliseconds>613</milliseconds>
-    <violations>
-      <violation namespace="Microsoft.StyleCop.CSharp.OrderingRules" rule="UsingDirectivesMustBeOrderedAlphabeticallyByNamespace" ruleCheckId="SA1210">
-        <context>Using directives must be sorted alphabetically by the namespaces.</context>
-        <line>9</line>
-        <warning>False</warning>
-      </violation>
-    </violations>
-  </sourcecode>
   <sourcecode name="IfNodeTest.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>02/08/2014 14:52:32</timestamp>
@@ -214,15 +187,6 @@
     </settings>
     <timestamp>11/16/2014 15:44:10</timestamp>
     <milliseconds>644</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="ObjectNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>02/08/2014 14:52:32</timestamp>
-      <milliseconds>438</milliseconds>
-    </settings>
-    <timestamp>11/16/2014 15:44:10</timestamp>
-    <milliseconds>707</milliseconds>
     <violations />
   </sourcecode>
   <sourcecode name="ValNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
@@ -252,13 +216,46 @@
     <milliseconds>219</milliseconds>
     <violations />
   </sourcecode>
+  <sourcecode name="ConstantNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>02/08/2014 14:52:32</timestamp>
+      <milliseconds>438</milliseconds>
+    </settings>
+    <timestamp>11/16/2014 15:48:06</timestamp>
+    <milliseconds>315</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="InvokeNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>02/08/2014 14:52:32</timestamp>
+      <milliseconds>438</milliseconds>
+    </settings>
+    <timestamp>01/01/2015 05:44:24</timestamp>
+    <milliseconds>615</milliseconds>
+    <violations>
+      <violation namespace="Microsoft.StyleCop.CSharp.MaintainabilityRules" rule="StatementMustNotUseUnnecessaryParenthesis" ruleCheckId="SA1119">
+        <context>The line contains unnecessary parenthesis.</context>
+        <line>25</line>
+        <warning>False</warning>
+      </violation>
+    </violations>
+  </sourcecode>
+  <sourcecode name="ObjectNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>02/08/2014 14:52:32</timestamp>
+      <milliseconds>438</milliseconds>
+    </settings>
+    <timestamp>11/20/2014 13:10:59</timestamp>
+    <milliseconds>958</milliseconds>
+    <violations />
+  </sourcecode>
   <sourcecode name="LexerTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>02/08/2014 14:52:32</timestamp>
       <milliseconds>438</milliseconds>
     </settings>
-    <timestamp>10/11/2014 14:45:09</timestamp>
-    <milliseconds>977</milliseconds>
+    <timestamp>11/26/2014 08:53:37</timestamp>
+    <milliseconds>234</milliseconds>
     <violations />
   </sourcecode>
   <sourcecode name="ParserNodeTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
@@ -266,17 +263,26 @@
       <timestamp>02/08/2014 14:52:32</timestamp>
       <milliseconds>438</milliseconds>
     </settings>
-    <timestamp>06/02/2014 14:29:41</timestamp>
-    <milliseconds>941</milliseconds>
-    <violations />
+    <timestamp>01/01/2015 05:50:05</timestamp>
+    <milliseconds>894</milliseconds>
+    <violations>
+      <violation namespace="Microsoft.StyleCop.CSharp.OrderingRules" rule="UsingDirectivesMustBeOrderedAlphabeticallyByNamespace" ruleCheckId="SA1210">
+        <context>Using directives must be sorted alphabetically by the namespaces.</context>
+        <line>10</line>
+        <warning>False</warning>
+      </violation>
+    </violations>
   </sourcecode>
   <sourcecode name="ParserTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>02/08/2014 14:52:32</timestamp>
       <milliseconds>438</milliseconds>
     </settings>
-    <timestamp>10/11/2014 16:52:21</timestamp>
-    <milliseconds>849</milliseconds>
+    <timestamp>11/16/2014 16:00:44</timestamp>
+    <milliseconds>254</milliseconds>
     <violations />
   </sourcecode>
+  <project key="-1258068334">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
 </stylecopresultscache>

@@ -7,9 +7,9 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using ScalaSharp.Core.Ast;
     using ScalaSharp.Core.Commands;
-    using ScalaSharp.Core.Parsing;
     using ScalaSharp.Core.Contexts;
     using ScalaSharp.Core.Language;
+    using ScalaSharp.Core.Parsing;
 
     [TestClass]
     public class ParserNodeTests

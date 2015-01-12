@@ -22,7 +22,7 @@
             Assert.AreSame(arguments, node.Arguments);
             Assert.IsNotNull(node.Target);
             Assert.IsInstanceOfType(node.Target, typeof(NameNode));
-            Assert.AreEqual("append", (((NameNode)node.Target).Name));
+            Assert.AreEqual("append", ((NameNode)node.Target).Name);
         }
 
         [TestMethod]

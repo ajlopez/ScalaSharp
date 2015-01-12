@@ -56,26 +56,6 @@
             return this.NextName(ch);
         }
 
-        private void SkipWhiteSpaces()
-        {
-            while (true)
-            {
-                while (this.position < this.length && IsWhiteSpace(this.text[this.position]))
-                    this.position++;
-
-                if (this.position >= this.length)
-                    return;
-
-                if (this.text[this.position] == '/' && this.position < this.length - 1 && this.text[position + 1] == '/')
-                {
-                    while (this.position < this.length && this.text[position] != '\r' && this.text[position] != '\n')
-                        this.position++;
-                }
-                else
-                    return;
-            }
-        }
-
         private static bool IsWhiteSpace(char ch)
         {
             if (ch == '\r' || ch == '\n')
@@ -96,6 +76,26 @@
                 return false;
 
             return true;
+        }
+
+        private void SkipWhiteSpaces()
+        {
+            while (true)
+            {
+                while (this.position < this.length && IsWhiteSpace(this.text[this.position]))
+                    this.position++;
+
+                if (this.position >= this.length)
+                    return;
+
+                if (this.text[this.position] == '/' && this.position < this.length - 1 && this.text[this.position + 1] == '/')
+                {
+                    while (this.position < this.length && this.text[this.position] != '\r' && this.text[this.position] != '\n')
+                        this.position++;
+                }
+                else
+                    return;
+            }
         }
 
         private Token NextString()
