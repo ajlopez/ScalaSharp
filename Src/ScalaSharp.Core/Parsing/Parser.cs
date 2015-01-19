@@ -181,20 +181,6 @@
             if (node == null)
                 return null;
 
-            //if (token.Type == TokenType.String)
-            //    node = new ConstantNode(token.Value);
-            //else if (token.Type == TokenType.Integer)
-            //    node = new ConstantNode(int.Parse(token.Value, CultureInfo.InvariantCulture));
-            //else if (token.Type == TokenType.Real)
-            //    node = new ConstantNode(double.Parse(token.Value, CultureInfo.InvariantCulture));
-            //else if (token.Type == TokenType.Name)
-            //    node = new NameNode(token.Value);
-            //else
-            //{
-            //    this.PushToken(token);
-            //    return null;
-            //}
-
             while (true)
             {
                 INode newnode = node;
