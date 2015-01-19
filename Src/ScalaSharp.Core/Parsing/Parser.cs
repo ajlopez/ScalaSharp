@@ -174,21 +174,26 @@
             if (token.Type == TokenType.Name && token.Value == "def")
                 return this.ParseDefNode();
 
-            INode node = null;
+            this.PushToken(token);
 
-            if (token.Type == TokenType.String)
-                node = new ConstantNode(token.Value);
-            else if (token.Type == TokenType.Integer)
-                node = new ConstantNode(int.Parse(token.Value, CultureInfo.InvariantCulture));
-            else if (token.Type == TokenType.Real)
-                node = new ConstantNode(double.Parse(token.Value, CultureInfo.InvariantCulture));
-            else if (token.Type == TokenType.Name)
-                node = new NameNode(token.Value);
-            else
-            {
-                this.PushToken(token);
+            INode node = this.ParseExpressionNode();
+
+            if (node == null)
                 return null;
-            }
+
+            //if (token.Type == TokenType.String)
+            //    node = new ConstantNode(token.Value);
+            //else if (token.Type == TokenType.Integer)
+            //    node = new ConstantNode(int.Parse(token.Value, CultureInfo.InvariantCulture));
+            //else if (token.Type == TokenType.Real)
+            //    node = new ConstantNode(double.Parse(token.Value, CultureInfo.InvariantCulture));
+            //else if (token.Type == TokenType.Name)
+            //    node = new NameNode(token.Value);
+            //else
+            //{
+            //    this.PushToken(token);
+            //    return null;
+            //}
 
             while (true)
             {

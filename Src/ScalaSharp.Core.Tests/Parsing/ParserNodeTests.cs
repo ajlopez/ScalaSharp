@@ -10,6 +10,7 @@
     using ScalaSharp.Core.Contexts;
     using ScalaSharp.Core.Language;
     using ScalaSharp.Core.Parsing;
+    using ScalaSharp.Core.Expressions;
 
     [TestClass]
     public class ParserNodeTests
@@ -90,7 +91,7 @@
         }
 
         [TestMethod]
-        public void ParseNameNode()
+        public void ParseVariableExpressionNode()
         {
             Parser parser = new Parser("name");
 
