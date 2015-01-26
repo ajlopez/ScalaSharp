@@ -197,7 +197,7 @@
                         if (arguments.Count > 0)
                             this.ParseToken(TokenType.Delimiter, ",");
 
-                        arguments.Add(this.ParseSimpleNode());
+                        arguments.Add(this.ParseExpressionNode());
                     }
 
                     if (newnode is DotNameNode)
